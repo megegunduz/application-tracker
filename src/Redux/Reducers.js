@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { userReducer, USER_NAMESPACE } from '../Modules/Auth/Redux/UserRedux';
+import { ThemeReducer, THEMING_NAMESPACE } from '../Modules/Theming';
 // Reducer'ları kendi modüllerinde oluştur, burda import edip combineReducers ile export et
 
 
@@ -9,4 +10,5 @@ export default combineReducers({
    // [LOCALIZATION_NAMESPACE]: LocalizationReducer ,
    // ...
    [USER_NAMESPACE]: userReducer,
+   [THEMING_NAMESPACE]: ThemeReducer,
 });

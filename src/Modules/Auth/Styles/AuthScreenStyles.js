@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { cn } from '../../Theming';
 
-export default StyleSheet.create({
+export default (Colors, params) => StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(161, 103, 204, 0.6)',
+        backgroundColor: Colors[cn.auth.background],
     },
 });
