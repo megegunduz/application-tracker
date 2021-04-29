@@ -2,7 +2,11 @@ const constantColors = {
     white: '#FFFFFF',
     black: '#000000',
     transparent: 'transparent',
-    mainColor1: '#A167CC',
+    mainColor1: '#A167CC', // light purple
+    mainColor2: '#AB2134', // cherry
+    whiteBlue: '#F5F6FA', // white-ish blue
+    borderGrey: '#9CA3B7', // medium grey
+    lightGrey: '#CBC9D9', // light grey
 };
 
 const toRGBA = (hexCode, opacity) => {
@@ -21,6 +25,11 @@ const toRGBA = (hexCode, opacity) => {
 
 const auth = {
     background: 'auth/background',
+    button: 'auth/button',
+    touchableText: 'auth/touchableText',
+    inputBackground: 'auth/inputBackground',
+    inputBorder: 'auth/inputBorder',
+    placeholder: 'auth/placeholder',
 };
 
 const home = {
@@ -45,6 +54,11 @@ export const cn = {
 export const darkColors = {
     // auth
     [auth.background]: toRGBA(constantColors.mainColor1, 60),
+    [auth.button]: constantColors.mainColor2,
+    [auth.touchableText]: constantColors.mainColor2,
+    [auth.inputBackground]: constantColors.whiteBlue,
+    [auth.inputBorder]: constantColors.borderGrey,
+    [auth.placeholder]: constantColors.lightGrey,
     // home
 
     // settings
@@ -56,6 +70,11 @@ export const darkColors = {
 export const lightColors = {
     // auth
     [auth.background]: toRGBA(constantColors.mainColor1, 60),
+    [auth.button]: constantColors.mainColor2,
+    [auth.touchableText]: constantColors.mainColor2,
+    [auth.inputBackground]: constantColors.whiteBlue,
+    [auth.inputBorder]: constantColors.borderGrey,
+    [auth.placeholder]: constantColors.lightGrey,
     // home
 
     // settings

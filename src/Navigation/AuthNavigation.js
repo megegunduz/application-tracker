@@ -11,6 +11,9 @@ const AuthNavigation = props => {
             <AuthStack.Screen
                 name="auth-screen"
                 component={AuthScreen}
+                options={{
+                    headerShown: false,
+                }}
             />
         </AuthStack.Navigator>
     );
