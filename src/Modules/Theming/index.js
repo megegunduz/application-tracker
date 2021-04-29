@@ -7,4 +7,5 @@ export {
     useThemedStyles,
     useThemedValues,
     useChangeTheme,
+    useThemeOptions,
 } from './ThemingHooks';

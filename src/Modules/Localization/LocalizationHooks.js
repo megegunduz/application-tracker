@@ -1,8 +1,9 @@
 import I18n from "./I18nConfig";
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { LocaleDateFormats } from "./LocalizationConstants";
+import { LocaleDateFormats, Locales } from "./LocalizationConstants";
 import { LocalizationActionCreators, LocalizationSelectors } from "./Redux/LocalizationRedux"
+import { tn } from "./Texts";
 
 export const useLocale = () => {
     const currentLocale = useSelector(LocalizationSelectors.locale);
@@ -30,3 +31,23 @@ export const useLocaleDateFormat = () => {
     const locale = useLocale();
     return LocaleDateFormats[locale];
 };
+
+export const useLocaleOptions = () => {
+    const locale = useLocale();
+    const loc = useLocalization();
+
+    const localeOptions = useMemo(() => {
+        return [
+            {
+                key: Locales.english,
+                title: loc.t(tn.english),
+            },
+            {
+                key: Locales.turkish,
+                title: loc.t(tn.turkish),
+            },
+        ];
+    }, [locale]);
+
+    return localeOptions;
+}

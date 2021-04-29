@@ -37,7 +37,11 @@ const home = {
 };
 
 const settings = {
-
+    radioButtonUnselectedIcon: 'settings/radioButtonUnselectedIcon',
+    radioButtonSelectedIcon: 'settings/radioButtonSelectedIcon',
+    titleText: 'settings/titleText',
+    signOutButtonBorder: 'settings/signOutButtonBorder',
+    signOutButtonText: 'settings/signOutButtonText',
 };
 
 const header = {
@@ -62,7 +66,11 @@ export const darkColors = {
     // home
 
     // settings
-
+    [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
+    [settings.radioButtonUnselectedIcon]: constantColors.lightGrey,
+    [settings.titleText]: constantColors.mainColor2,
+    [settings.signOutButtonBorder]: constantColors.mainColor2,
+    [settings.signOutButtonText]: constantColors.white,
     //header
 
 };
@@ -78,7 +86,11 @@ export const lightColors = {
     // home
 
     // settings
-
+    [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
+    [settings.radioButtonUnselectedIcon]: constantColors.lightGrey,
+    [settings.titleText]: constantColors.mainColor2,
+    [settings.signOutButtonBorder]: constantColors.mainColor2,
+    [settings.signOutButtonText]: constantColors.black,
     //header
 
 };

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import { tn, useLocale, useLocalization } from "../Localization";
 import { darkColors, lightColors } from "./Colors";
 import { ThemingActionCreators, ThemingSelectors } from "./Redux/ThemingRedux"
 import { ThemeModes } from "./ThemingConstants";
@@ -47,3 +48,23 @@ export const useChangeTheme = () => {
     const dispatch = useDispatch();
     return (themeMode) => dispatch(ThemingActionCreators.changeTheme(themeMode));
 };
+
+export const useThemeOptions = () => {
+    const locale = useLocale();
+    const loc = useLocalization();
+
+    const themeOptions = useMemo(() => {
+        return [
+            {
+                key: ThemeModes.dark,
+                title: loc.t(tn.dark),
+            },
+            {
+                key: ThemeModes.light,
+                title: loc.t(tn.light),
+            },
+        ];
+    }, [locale]);
+
+    return themeOptions;
+}

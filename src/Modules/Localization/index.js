@@ -4,4 +4,6 @@ export {
     useLocale,
     useLocalization,
     useChangeLocale,
+    useLocaleDateFormat,
+    useLocaleOptions,
 } from './LocalizationHooks';
