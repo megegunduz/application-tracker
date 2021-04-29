@@ -6,10 +6,12 @@ export default (Colors) => StyleSheet.create({
     container: {
         flex: 1,
         padding: Metrics.marginHorizontal,
+        backgroundColor: Colors[cn.settings.background]
     },
     nameText: {
         fontSize: Fonts.size(18),
         marginBottom: Metrics.marginVertical / 2,
+        fontWeight: 'bold',
     },
     emailText: {
         fontSize: Fonts.size(16),

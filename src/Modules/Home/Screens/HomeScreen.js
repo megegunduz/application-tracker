@@ -2,9 +2,12 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 
-import styles from '../Styles/HomeScreenStyles';
+import getStyles from '../Styles/HomeScreenStyles';
+import { useThemedValues } from '../../Theming';
 
 const HomeScreen = () => {
+
+    const { styles, colors } = useThemedValues(getStyles);
 
     const navigation = useNavigation();
 

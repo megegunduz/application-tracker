@@ -7,6 +7,7 @@ const constantColors = {
     whiteBlue: '#F5F6FA', // white-ish blue
     borderGrey: '#9CA3B7', // medium grey
     lightGrey: '#CBC9D9', // light grey
+    extraLightPurple: '#E0DEF4', // extra light purple
 };
 
 const toRGBA = (hexCode, opacity) => {
@@ -33,10 +34,11 @@ const auth = {
 };
 
 const home = {
-
+    background: 'home/backgorund',
 };
 
 const settings = {
+    background: 'settings/background',
     radioButtonUnselectedIcon: 'settings/radioButtonUnselectedIcon',
     radioButtonSelectedIcon: 'settings/radioButtonSelectedIcon',
     titleText: 'settings/titleText',
@@ -45,7 +47,10 @@ const settings = {
 };
 
 const header = {
-
+    background: 'header/background',
+    text: 'header/text',
+    backIcon: 'header/backIcon',
+    rightIcon: 'header/rightIcon',
 };
 
 export const cn = {
@@ -63,16 +68,23 @@ export const darkColors = {
     [auth.inputBackground]: constantColors.whiteBlue,
     [auth.inputBorder]: constantColors.borderGrey,
     [auth.placeholder]: constantColors.lightGrey,
+
     // home
+    [home.background]: constantColors.extraLightPurple,
 
     // settings
+    [settings.background]: constantColors.extraLightPurple,
     [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
     [settings.radioButtonUnselectedIcon]: constantColors.lightGrey,
     [settings.titleText]: constantColors.mainColor2,
     [settings.signOutButtonBorder]: constantColors.mainColor2,
     [settings.signOutButtonText]: constantColors.white,
-    //header
 
+    //header
+    [header.background]: constantColors.mainColor1,
+    [header.text]: constantColors.extraLightPurple,
+    [header.backIcon]: constantColors.extraLightPurple,
+    [header.rightIcon]: constantColors.extraLightPurple,
 };
 
 export const lightColors = {
@@ -83,14 +95,21 @@ export const lightColors = {
     [auth.inputBackground]: constantColors.whiteBlue,
     [auth.inputBorder]: constantColors.borderGrey,
     [auth.placeholder]: constantColors.lightGrey,
+
     // home
+    [home.background]: constantColors.extraLightPurple,
 
     // settings
+    [settings.background]: constantColors.extraLightPurple,
     [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
-    [settings.radioButtonUnselectedIcon]: constantColors.lightGrey,
+    [settings.radioButtonUnselectedIcon]: constantColors.black,
     [settings.titleText]: constantColors.mainColor2,
     [settings.signOutButtonBorder]: constantColors.mainColor2,
     [settings.signOutButtonText]: constantColors.black,
-    //header
 
+    //header
+    [header.background]: constantColors.mainColor1,
+    [header.text]: constantColors.extraLightPurple,
+    [header.backIcon]: constantColors.extraLightPurple,
+    [header.rightIcon]: constantColors.extraLightPurple,
 };
