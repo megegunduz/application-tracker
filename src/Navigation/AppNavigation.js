@@ -3,10 +3,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../Modules/Home/Screens/HomeScreen';
 import SettingsScreen from '../Modules/Settings/Screens/SettingsScreen';
+import SettingsButton from './Components/SettingsButton';
+
 import { useThemedValues } from '../Modules/Theming';
+import { tn, useLocalization } from '../Modules/Localization';
 
 import getStackScreenOptions from './Styles/StackScreenOptions';
-import { tn, useLocalization } from '../Modules/Localization';
 
 const AppStack = createStackNavigator();
 
@@ -27,7 +29,8 @@ const AppNavigation = props => {
                 name="home-screen"
                 component={HomeScreen}
                 options={{
-                    title: upperCaseText(tn.home)
+                    title: upperCaseText(tn.home),
+                    headerRight: () => <SettingsButton />
                 }}
             />
             <AppStack.Screen
