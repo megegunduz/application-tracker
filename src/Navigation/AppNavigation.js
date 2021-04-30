@@ -16,7 +16,6 @@ const AppNavigation = props => {
 
     const loc = useLocalization();
     const upperCaseText = (text) => {
-        console.log(tn.home)
         return loc.t(text).toLocaleUpperCase();
     }
 
@@ -28,14 +27,14 @@ const AppNavigation = props => {
                 name="home-screen"
                 component={HomeScreen}
                 options={{
-                    title: upperCaseText("home")
+                    title: upperCaseText(tn.home)
                 }}
             />
             <AppStack.Screen
                 name="settings-screen"
                 component={SettingsScreen}
                 options={{
-                    title: upperCaseText("settings")
+                    title: upperCaseText(tn.settings)
                 }}
             />
         </AppStack.Navigator>

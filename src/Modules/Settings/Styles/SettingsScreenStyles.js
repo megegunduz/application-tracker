@@ -11,7 +11,7 @@ export default (Colors) => StyleSheet.create({
     nameText: {
         fontSize: Fonts.size(18),
         marginBottom: Metrics.marginVertical / 2,
-        fontWeight: 'bold',
+        fontFamily: Fonts.type.extraBold,
     },
     emailText: {
         fontSize: Fonts.size(16),
