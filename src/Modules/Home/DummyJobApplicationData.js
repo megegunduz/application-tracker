@@ -39,5 +39,21 @@ export default [
         URL: "www.site.com",
         note: ""
     },
+    {
+        id: 6,
+        companyName: "Şirket 6",
+        position: "Pozisyon 6",
+        applicationDate: "30.04.2021",
+        URL: "www.site.com",
+        note: ""
+    },
+    {
+        id: 7,
+        companyName: "Şirket 7",
+        position: "Pozisyon 7",
+        applicationDate: "30.04.2021",
+        URL: "www.site.com",
+        note: ""
+    },
 
 ]

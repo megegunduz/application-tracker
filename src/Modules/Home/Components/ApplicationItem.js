@@ -1,18 +1,24 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
+import { useThemedValues } from '../../Theming';
 
+import getStyles from '../Styles/ApplicationItemStyles';
 
 const ApplicationItem = props => {
 
-    
+    const { styles, colors } = useThemedValues(getStyles);
 
     return (
-        <TouchableOpacity>
-            <Text>{props.companyName}</Text>
-            <View>
-                <Text>{props.position}</Text>
-                <Text>{props.applicationDate}</Text>
+        <TouchableOpacity style={styles.container}>
+            <View style={styles.companyNameAndDateContainer}>
+                <View style={styles.companyNameContainer}>
+                    <Text style={styles.companyNameText}>{props.companyName}</Text>
+                </View>
+                <View style={styles.dateContainer}>
+                    <Text style={styles.dateText}>{props.applicationDate}</Text>
+                </View>
             </View>
+            <Text style={styles.positionText}>{props.position}</Text>
         </TouchableOpacity>
     );
 };

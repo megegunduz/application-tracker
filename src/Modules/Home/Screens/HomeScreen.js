@@ -24,11 +24,13 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.listContainer}>
             <FlatList
                 data={DummyData}
                 renderItem={_renderApplicatonItem}
                 keyExtractor={(item, index) => item.id}
             />
+            </View>
         </View>
     )
 }

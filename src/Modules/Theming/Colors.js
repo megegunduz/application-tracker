@@ -2,8 +2,9 @@ const constantColors = {
     white: '#FFFFFF',
     black: '#000000',
     transparent: 'transparent',
-    mainColor1: '#A167CC', // light purple
+    mainColor1: '#A167CC', // purple
     mainColor2: '#AB2134', // cherry
+    mainColor3: '#7674BB', // medium-purple (very similar to mainColor1, might remove later)
     whiteBlue: '#F5F6FA', // white-ish blue
     borderGrey: '#9CA3B7', // medium grey
     lightGrey: '#CBC9D9', // light grey
@@ -35,6 +36,10 @@ const auth = {
 
 const home = {
     background: 'home/backgorund',
+    applicationItemBorder: 'home/applicationItemBorder',
+    companyName: 'home/companyName',
+    date: 'home/date',
+    position: 'home/position',
 };
 
 const settings = {
@@ -71,6 +76,10 @@ export const darkColors = {
 
     // home
     [home.background]: constantColors.extraLightPurple,
+    [home.applicationItemBorder]: constantColors.mainColor3,
+    [home.companyName]: constantColors.black,
+    [home.date]: constantColors.borderGrey,
+    [home.position]: constantColors.black,
 
     // settings
     [settings.background]: constantColors.extraLightPurple,
@@ -98,6 +107,10 @@ export const lightColors = {
 
     // home
     [home.background]: constantColors.extraLightPurple,
+    [home.applicationItemBorder]: constantColors.mainColor1,
+    [home.companyName]: constantColors.black,
+    [home.date]: constantColors.borderGrey,
+    [home.position]: constantColors.black,
 
     // settings
     [settings.background]: constantColors.extraLightPurple,
