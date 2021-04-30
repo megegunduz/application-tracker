@@ -40,6 +40,7 @@ const home = {
     companyName: 'home/companyName',
     date: 'home/date',
     position: 'home/position',
+    addIcon: 'home/addIcon',
 };
 
 const settings = {
@@ -80,6 +81,7 @@ export const darkColors = {
     [home.companyName]: constantColors.black,
     [home.date]: constantColors.borderGrey,
     [home.position]: constantColors.black,
+    [home.addIcon]: constantColors.mainColor2,
 
     // settings
     [settings.background]: constantColors.extraLightPurple,
@@ -111,6 +113,7 @@ export const lightColors = {
     [home.companyName]: constantColors.black,
     [home.date]: constantColors.borderGrey,
     [home.position]: constantColors.black,
+    [home.addIcon]: constantColors.mainColor2,
 
     // settings
     [settings.background]: constantColors.extraLightPurple,

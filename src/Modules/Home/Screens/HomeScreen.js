@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 
 import { useThemedValues } from '../../Theming';
 import ApplicationItem from '../Components/ApplicationItem';
@@ -7,6 +7,8 @@ import ApplicationItem from '../Components/ApplicationItem';
 import getStyles from '../Styles/HomeScreenStyles';
 
 import DummyData from '../DummyJobApplicationData';
+import Icon from '../../../Components/Icon';
+import { Svgs } from '../../../StylingConstants';
 
 const HomeScreen = () => {
 
@@ -18,20 +20,28 @@ const HomeScreen = () => {
                 companyName={item.companyName}
                 position={item.position}
                 applicationDate={item.applicationDate}
-                />
+            />
         )
     }
 
+
+
     return (
-        <View style={styles.container}>
-            <View style={styles.listContainer}>
-            <FlatList
-                data={DummyData}
-                renderItem={_renderApplicatonItem}
-                keyExtractor={(item, index) => item.id}
-            />
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <View style={styles.listContainer}>
+                    <FlatList
+                        data={DummyData}
+                        renderItem={_renderApplicatonItem}
+                        keyExtractor={(item, index) => item.id}
+                    />
+                </View>
+                <View style={styles.addIconContainer}>
+                    {/* <Text>O</Text> */}
+                    <Icon svg={Svgs.Plus} iconStyle={styles.addIcon} />
+                </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

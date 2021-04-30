@@ -9,7 +9,7 @@ export default (Colors) => StyleSheet.create({
         paddingLeft: Metrics.marginHorizontal * 0.5,
         paddingRight: Metrics.marginHorizontal * 0.2,
         paddingVertical: Metrics.width * 0.015,
-        width: Metrics.width * 0.8,
+        width: Metrics.width * 0.85,
         borderColor: Colors[cn.home.applicationItemBorder],
         borderWidth: 1,
     },
