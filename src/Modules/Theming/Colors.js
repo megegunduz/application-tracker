@@ -52,6 +52,10 @@ const settings = {
     signOutButtonText: 'settings/signOutButtonText',
 };
 
+const addApplication = {
+    background: 'addApplication/background',
+}
+
 const header = {
     background: 'header/background',
     text: 'header/text',
@@ -63,6 +67,7 @@ export const cn = {
     auth,
     home,
     settings,
+    addApplication,
     header,
 };
 
@@ -90,6 +95,9 @@ export const darkColors = {
     [settings.titleText]: constantColors.mainColor2,
     [settings.signOutButtonBorder]: constantColors.mainColor2,
     [settings.signOutButtonText]: constantColors.white,
+
+    // addApplication
+    [addApplication.background]: constantColors.extraLightPurple,
 
     //header
     [header.background]: constantColors.mainColor1,
@@ -122,6 +130,9 @@ export const lightColors = {
     [settings.titleText]: constantColors.mainColor2,
     [settings.signOutButtonBorder]: constantColors.mainColor2,
     [settings.signOutButtonText]: constantColors.black,
+    
+    // addApplication
+    [addApplication.background]: constantColors.extraLightPurple,
 
     //header
     [header.background]: constantColors.mainColor1,

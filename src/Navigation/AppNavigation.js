@@ -4,11 +4,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../Modules/Home/Screens/HomeScreen';
 import SettingsScreen from '../Modules/Settings/Screens/SettingsScreen';
 import SettingsButton from './Components/SettingsButton';
+import AddApplicationScreen from '../Modules/Home/Screens/AddApplicationScreen';
 
 import { useThemedValues } from '../Modules/Theming';
 import { tn, useLocalization } from '../Modules/Localization';
 
 import getStackScreenOptions from './Styles/StackScreenOptions';
+
 
 const AppStack = createStackNavigator();
 
@@ -38,6 +40,13 @@ const AppNavigation = props => {
                 component={SettingsScreen}
                 options={{
                     title: upperCaseText(tn.settings)
+                }}
+            />
+            <AppStack.Screen
+                name="add-application-screen"
+                component={AddApplicationScreen}
+                options={{
+                    title: upperCaseText(tn.addApplication)
                 }}
             />
         </AppStack.Navigator>

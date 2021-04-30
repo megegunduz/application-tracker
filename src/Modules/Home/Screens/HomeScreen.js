@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { useThemedValues } from '../../Theming';
 import ApplicationItem from '../Components/ApplicationItem';
-
-import getStyles from '../Styles/HomeScreenStyles';
-
 import DummyData from '../DummyJobApplicationData';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
 
+import getStyles from '../Styles/HomeScreenStyles';
+
 const HomeScreen = () => {
 
     const { styles, colors } = useThemedValues(getStyles);
+
+    const navigation = useNavigation();
 
     const _renderApplicatonItem = ({ item }) => {
         return (
@@ -24,6 +26,9 @@ const HomeScreen = () => {
         )
     }
 
+    const _onPress_NavigateToAddAppScreen = () => {
+        navigation.navigate("add-application-screen")
+    }
 
 
     return (
@@ -36,10 +41,9 @@ const HomeScreen = () => {
                         keyExtractor={(item, index) => item.id}
                     />
                 </View>
-                <View style={styles.addIconContainer}>
-                    {/* <Text>O</Text> */}
+                <TouchableOpacity style={styles.addIconContainer} onPress={_onPress_NavigateToAddAppScreen}>
                     <Icon svg={Svgs.Plus} iconStyle={styles.addIcon} />
-                </View>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
