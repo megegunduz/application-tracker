@@ -22,7 +22,10 @@ const OptionsRadioInput = props => {
             };
 
             return (
-                <TouchableOpacity key={option.key} style={styles.optionTouchable}>
+                <TouchableOpacity key={option.key}
+                    style={styles.optionTouchable}
+                    onPress={() => props.onPress(option.key)}
+                    >
                     <View style={styles.iconContainer}>
                         <Icon iconStyle={iconStyle} svg={svg} />
                     </View>
