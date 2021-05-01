@@ -2,9 +2,9 @@ import React from 'react';
 import { TextInput, View } from 'react-native';
 import { useThemedValues } from '../../Theming';
 
-import getStyles from '../Styles/AddApplicationInputStyles';
+import getStyles from '../Styles/ApplicationInputStyles';
 
-const AddApplicationInput = props => {
+const ApplicationInput = props => {
 
     console.log("props: ", props)
 
@@ -24,4 +24,4 @@ const AddApplicationInput = props => {
     );
 };
 
-export default AddApplicationInput;
+export default ApplicationInput;

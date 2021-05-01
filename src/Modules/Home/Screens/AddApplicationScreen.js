@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 
 import { tn, useLocalization } from '../../Localization';
 import { cn, useThemedValues } from '../../Theming';
-import AddApplicationInput from '../Components/AddApplicationInput';
+import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/AddApplicationScreenStyles';
@@ -19,27 +19,27 @@ const AddApplicationScreen = props => {
     return (
         <View style={styles.container}>
             <ScrollView>
-            <AddApplicationInput
+            <ApplicationInput
                 placeholder={loc.t(tn.companyName)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
             />
-            <AddApplicationInput
+            <ApplicationInput
                 placeholder={loc.t(tn.position)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
             />
-            <AddApplicationInput
+            <ApplicationInput
                 placeholder={loc.t(tn.applicaitonDate)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
             />
-            <AddApplicationInput
+            <ApplicationInput
                 placeholder={loc.t(tn.url)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
             />
-            <AddApplicationInput
+            <ApplicationInput
                 placeholder={loc.t(tn.note)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={true}
