@@ -33,7 +33,7 @@ const EditApplicationScreen = props => {
                 defaultValue={applicationItem.position}
             />
             <ApplicationInput
-                placeholder={loc.t(tn.applicaitonDate)}
+                placeholder={loc.t(tn.applicationDate)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 defaultValue={applicationItem.applicationDate}
             />
