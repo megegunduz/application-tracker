@@ -19,6 +19,8 @@ const ApplicationInput = props => {
         <View style={styles.inputContainer}>
             <TextInput
                 placeholder={props.placeholder}
+                defaultValue={props.defaultValue}
+                multiline
             />
         </View>
     );

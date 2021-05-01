@@ -60,7 +60,11 @@ const settings = {
 
 const addApplication = {
     background: 'addApplication/background',
-}
+};
+
+const editApplication = {
+    background: 'editApplication/background',
+};
 
 const header = {
     background: 'header/background',
@@ -74,6 +78,7 @@ export const cn = {
     home,
     settings,
     addApplication,
+    editApplication,
     header,
 };
 
@@ -104,6 +109,9 @@ export const darkColors = {
 
     // addApplication
     [addApplication.background]: constantColors.greys[3],
+
+    // editApplication
+    [editApplication.background]: constantColors.greys[3],
 
     //header
     [header.background]: constantColors.purples[5],
@@ -139,6 +147,9 @@ export const lightColors = {
     
     // addApplication
     [addApplication.background]: constantColors.purples[1],
+
+    // editApplication
+    [editApplication.background]: constantColors.purples[1],
 
     //header
     [header.background]: constantColors.purples[2],
