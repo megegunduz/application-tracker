@@ -9,7 +9,8 @@ const ApplicationItem = props => {
     const { styles, colors } = useThemedValues(getStyles);
 
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container}
+        onPress={props.onPress}>
             <View style={styles.companyNameAndDateContainer}>
                 <View style={styles.companyNameContainer}>
                     <Text style={styles.companyNameText}>{props.companyName}</Text>

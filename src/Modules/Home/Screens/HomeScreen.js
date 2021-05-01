@@ -22,8 +22,14 @@ const HomeScreen = () => {
                 companyName={item.companyName}
                 position={item.position}
                 applicationDate={item.applicationDate}
+                onPress={() => _onPress_NavigateToEditAppScreen()}
             />
         )
+    }
+
+    const _onPress_NavigateToEditAppScreen = () => {
+        console.log("bastın");
+        navigation.navigate("edit-application-screen");
     }
 
     const _onPress_NavigateToAddAppScreen = () => {

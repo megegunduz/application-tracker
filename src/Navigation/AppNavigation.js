@@ -5,6 +5,7 @@ import HomeScreen from '../Modules/Home/Screens/HomeScreen';
 import SettingsScreen from '../Modules/Settings/Screens/SettingsScreen';
 import SettingsButton from './Components/SettingsButton';
 import AddApplicationScreen from '../Modules/Home/Screens/AddApplicationScreen';
+import EditApplicationScreen from '../Modules/Home/Screens/EditApplicationScreen';
 
 import { useThemedValues } from '../Modules/Theming';
 import { tn, useLocalization } from '../Modules/Localization';
@@ -47,6 +48,13 @@ const AppNavigation = props => {
                 component={AddApplicationScreen}
                 options={{
                     title: upperCaseText(tn.addApplication)
+                }}
+            />
+            <AppStack.Screen
+                name="edit-application-screen"
+                component={EditApplicationScreen}
+                options={{
+                    title: upperCaseText(tn.edit)
                 }}
             />
         </AppStack.Navigator>
