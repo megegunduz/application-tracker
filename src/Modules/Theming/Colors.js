@@ -2,13 +2,19 @@ const constantColors = {
     white: '#FFFFFF',
     black: '#000000',
     transparent: 'transparent',
-    mainColor1: '#A167CC', // purple
-    mainColor2: '#AB2134', // cherry
-    mainColor3: '#7674BB', // medium-purple (very similar to mainColor1, might remove later)
-    whiteBlue: '#F5F6FA', // white-ish blue
-    borderGrey: '#9CA3B7', // medium grey
-    lightGrey: '#CBC9D9', // light grey
-    extraLightPurple: '#E0DEF4', // extra light purple
+    purples: {
+        1: '#e0def4', // Light backgorund,
+        2: '#B182D5', // Light header/border, Auth background
+        3: '#b0adcc', // Light placeholder, Auth placeholder(All modes),
+        4: '#7b7890', // Light date, Auth forgot password,
+        5: '#443846', // Dark header/border, Auth background
+    },
+    greys: {
+        1: '#cacaca', // Dark date text,
+        2: '#989898', // Dark placeholder,
+        3: '#888888', // Dark background,
+    },
+    cherry: '#ab2134', // Buttons, icons
 };
 
 const toRGBA = (hexCode, opacity) => {
@@ -48,7 +54,7 @@ const settings = {
     radioButtonUnselectedIcon: 'settings/radioButtonUnselectedIcon',
     radioButtonSelectedIcon: 'settings/radioButtonSelectedIcon',
     titleText: 'settings/titleText',
-    signOutButtonBorder: 'settings/signOutButtonBorder',
+    signOutButtonBackground: 'settings/signOutButtonBackground',
     signOutButtonText: 'settings/signOutButtonText',
 };
 
@@ -73,70 +79,70 @@ export const cn = {
 
 export const darkColors = {
     // auth
-    [auth.background]: toRGBA(constantColors.mainColor1, 60),
-    [auth.button]: constantColors.mainColor2,
-    [auth.touchableText]: constantColors.mainColor2,
-    [auth.inputBackground]: constantColors.whiteBlue,
-    [auth.inputBorder]: constantColors.borderGrey,
-    [auth.placeholder]: constantColors.lightGrey,
+    [auth.background]: constantColors.purples[5],
+    [auth.button]: constantColors.cherry,
+    [auth.touchableText]: constantColors.cherry,
+    [auth.inputBackground]: constantColors.purples[1],
+    [auth.inputBorder]: constantColors.greys[5],
+    [auth.placeholder]: constantColors.greys[2],
 
     // home
-    [home.background]: constantColors.extraLightPurple,
-    [home.applicationItemBorder]: constantColors.mainColor3,
+    [home.background]: constantColors.greys[3],
+    [home.applicationItemBorder]: constantColors.purples[5],
     [home.companyName]: constantColors.black,
-    [home.date]: constantColors.borderGrey,
+    [home.date]: constantColors.greys[1],
     [home.position]: constantColors.black,
-    [home.addIcon]: constantColors.mainColor2,
+    [home.addIcon]: constantColors.cherry,
 
     // settings
-    [settings.background]: constantColors.extraLightPurple,
-    [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
-    [settings.radioButtonUnselectedIcon]: constantColors.lightGrey,
-    [settings.titleText]: constantColors.mainColor2,
-    [settings.signOutButtonBorder]: constantColors.mainColor2,
+    [settings.background]: constantColors.greys[3],
+    [settings.radioButtonSelectedIcon]: constantColors.cherry,
+    [settings.radioButtonUnselectedIcon]: constantColors.purples[5],
+    [settings.titleText]: constantColors.cherry, 
+    [settings.signOutButtonBackground]: constantColors.cherry,
     [settings.signOutButtonText]: constantColors.white,
 
     // addApplication
-    [addApplication.background]: constantColors.extraLightPurple,
+    [addApplication.background]: constantColors.greys[3],
 
     //header
-    [header.background]: constantColors.mainColor1,
-    [header.text]: constantColors.extraLightPurple,
-    [header.backIcon]: constantColors.extraLightPurple,
-    [header.rightIcon]: constantColors.extraLightPurple,
+    [header.background]: constantColors.purples[5],
+    [header.text]: constantColors.purples[1],
+    [header.backIcon]: constantColors.purples[1],
+    [header.rightIcon]: constantColors.purples[1],
 };
 
 export const lightColors = {
     // auth
-    [auth.background]: toRGBA(constantColors.mainColor1, 60),
-    [auth.button]: constantColors.mainColor2,
-    [auth.touchableText]: constantColors.mainColor2,
-    [auth.inputBackground]: constantColors.whiteBlue,
-    [auth.inputBorder]: constantColors.borderGrey,
-    [auth.placeholder]: constantColors.lightGrey,
+    [auth.background]: constantColors.purples[2],
+    [auth.button]: constantColors.cherry,
+    [auth.touchableText]: constantColors.cherry,
+    [auth.inputBackground]: constantColors.purples[1],
+    [auth.inputBorder]: constantColors.transparent,
+    [auth.placeholder]: constantColors.purples[3],
 
     // home
-    [home.background]: constantColors.extraLightPurple,
-    [home.applicationItemBorder]: constantColors.mainColor1,
+    [home.background]: constantColors.purples[1],
+    [home.applicationItemBorder]: constantColors.purples[2],
     [home.companyName]: constantColors.black,
-    [home.date]: constantColors.borderGrey,
+    [home.date]: constantColors.purples[4],
     [home.position]: constantColors.black,
-    [home.addIcon]: constantColors.mainColor2,
+    [home.addIcon]: constantColors.cherry,
 
     // settings
-    [settings.background]: constantColors.extraLightPurple,
-    [settings.radioButtonSelectedIcon]: constantColors.mainColor2,
-    [settings.radioButtonUnselectedIcon]: constantColors.black,
-    [settings.titleText]: constantColors.mainColor2,
-    [settings.signOutButtonBorder]: constantColors.mainColor2,
-    [settings.signOutButtonText]: constantColors.black,
+    [settings.background]: constantColors.purples[1],
+    [settings.radioButtonSelectedIcon]: constantColors.cherry,
+    [settings.radioButtonUnselectedIcon]: constantColors.purples[2],
+    [settings.titleText]: constantColors.cherry,
+    [settings.signOutButtonBackground]: constantColors.cherry,
+    [settings.signOutButtonText]: constantColors.white,
     
     // addApplication
-    [addApplication.background]: constantColors.extraLightPurple,
+    [addApplication.background]: constantColors.purples[1],
 
     //header
-    [header.background]: constantColors.mainColor1,
-    [header.text]: constantColors.extraLightPurple,
-    [header.backIcon]: constantColors.extraLightPurple,
-    [header.rightIcon]: constantColors.extraLightPurple,
+    [header.background]: constantColors.purples[2],
+    [header.text]: constantColors.purples[1],
+    [header.backIcon]: constantColors.purples[1],
+    [header.rightIcon]: constantColors.purples[1],
 };
