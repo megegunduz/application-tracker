@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Metrics } from '../../../StylingConstants';
+import { Fonts, Metrics } from '../../../StylingConstants';
 import { cn } from '../../Theming';
 
 export default (Colors) => StyleSheet.create({
@@ -8,7 +8,11 @@ export default (Colors) => StyleSheet.create({
         borderWidth: 1,
         borderColor: Colors[cn.auth.inputBorder],
         width: Metrics.width * 0.68,
-        marginBottom: Metrics.marginHorizontal / 1.5,
+        marginTop: Metrics.marginHorizontal / 8,
         backgroundColor: Colors[cn.auth.inputBackground],
     },
+    input: {
+        fontFamily: Fonts.type.medium,
+        fontSize: Fonts.size(15),
+    }
 });

@@ -6,7 +6,7 @@ const constantColors = {
         1: '#e0def4', // Light backgorund,
         2: '#B182D5', // Light header/border, Auth background
         3: '#b0adcc', // Light placeholder, Auth placeholder(All modes),
-        4: '#7b7890', // Light date, Auth forgot password,
+        4: '#636175', // Light date, Auth forgot password,
         5: '#443846', // Dark header/border, Auth background
     },
     greys: {
@@ -38,6 +38,8 @@ const auth = {
     inputBackground: 'auth/inputBackground',
     inputBorder: 'auth/inputBorder',
     placeholder: 'auth/placeholder',
+    plainText: 'auth/plainText',
+    inputsHeader: 'auth/inputsHeader',
 };
 
 const home = {
@@ -90,6 +92,8 @@ export const darkColors = {
     [auth.inputBackground]: constantColors.purples[1],
     [auth.inputBorder]: constantColors.greys[5],
     [auth.placeholder]: constantColors.greys[2],
+    [auth.plainText]: constantColors.purples[4],
+    [auth.inputsHeader]: constantColors.purples[2],
 
     // home
     [home.background]: constantColors.greys[3],
@@ -128,6 +132,8 @@ export const lightColors = {
     [auth.inputBackground]: constantColors.purples[1],
     [auth.inputBorder]: constantColors.transparent,
     [auth.placeholder]: constantColors.purples[3],
+    [auth.plainText]: constantColors.purples[4],
+    [auth.inputsHeader]: constantColors.purples[5],
 
     // home
     [home.background]: constantColors.purples[1],

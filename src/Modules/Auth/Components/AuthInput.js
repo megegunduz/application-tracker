@@ -13,6 +13,7 @@ const AuthInput = props => {
             <TextInput
                 placeholderTextColor={colors[cn.auth.placeholder]}
                 placeholder={props.placeholder}
+                style={styles.input}
             />
         </TouchableOpacity>
     );

@@ -13,6 +13,7 @@ export default (Colors) => StyleSheet.create({
         marginTop: Metrics.marginVertical,
     },
     buttonText: {
+        fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(18),
         color: 'white',
     },
