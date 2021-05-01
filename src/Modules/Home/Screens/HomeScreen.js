@@ -22,14 +22,16 @@ const HomeScreen = () => {
                 companyName={item.companyName}
                 position={item.position}
                 applicationDate={item.applicationDate}
-                onPress={() => _onPress_NavigateToEditAppScreen()}
+                onPress={() => _onPress_NavigateToEditAppScreen(item)}
             />
         )
     }
 
-    const _onPress_NavigateToEditAppScreen = () => {
-        console.log("bastın");
-        navigation.navigate("edit-application-screen");
+    const _onPress_NavigateToEditAppScreen = applicationItem => {
+        // Navigate to EditApplicationScreen route with pressed item as params
+        navigation.navigate("edit-application-screen", {
+            applicationItem,
+        });
     }
 
     const _onPress_NavigateToAddAppScreen = () => {
