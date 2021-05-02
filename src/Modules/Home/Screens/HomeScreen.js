@@ -42,7 +42,9 @@ const HomeScreen = () => {
     }
 
     const _onPress_NavigateToAddAppScreen = () => {
-        navigation.navigate("add-application-screen")
+        if (!isDeleteMode) {
+            navigation.navigate("add-application-screen");
+        }
     }
 
     const _onLongPress_TurnOnDeleteMode = () => {
