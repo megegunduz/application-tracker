@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="14.967" viewBox="0 0 15 14.967">
+  <g id="Checkbox" transform="translate(0 0.001)">
+    <rect id="Rectangle" width="15" height="14.469" rx="3" transform="translate(0 -0.001)" fill="#ab2134"/>
+    <path id="check" d="M11.459,4.986a.8.8,0,1,1,1.147,1.125L8.33,11.455a.8.8,0,0,1-1.157.021L4.341,8.642A.8.8,0,1,1,5.476,7.507L7.719,9.749,11.438,5.01l.021-.024Z" transform="translate(-1.085 -0.745)" fill="#e0def4" fill-rule="evenodd"/>
+  </g>
+</svg>

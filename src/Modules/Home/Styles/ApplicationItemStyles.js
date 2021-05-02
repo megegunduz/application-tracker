@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Fonts, Metrics } from '../../../StylingConstants';
 import { cn } from '../../Theming';
 
-export default (Colors) => StyleSheet.create({
+export default (Colors, params) => StyleSheet.create({
     container: {
         borderRadius: Metrics.borderRadiusStandard,
         marginVertical: Metrics.marginVertical / 2,
@@ -18,10 +18,12 @@ export default (Colors) => StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: Metrics.marginHorizontal * 0.3,
+        alignItems: 'center'
     },
     companyNameContainer: {
         flexShrink: 1,
         paddingRight: Metrics.marginHorizontal,
+        marginLeft: params.deleteMode ? Metrics.marginHorizontal * 0.7 : null,
     },
     companyNameText: {
         fontFamily: Fonts.type.extraBold,
@@ -37,9 +39,18 @@ export default (Colors) => StyleSheet.create({
         fontSize: Fonts.size(14),
         color: Colors[cn.home.date],
     },
+    positionTextContainer: {
+        flexGrow: 1,
+        marginLeft: params.deleteMode ? Metrics.marginHorizontal * 1.7 : null,
+    },
     positionText: {
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(16),
         color: Colors[cn.home.position],
+    },
+    iconContainer: {
+        width: Metrics.width * 0.05,
+        height: undefined,
+        aspectRatio: 1,
     },
 });
