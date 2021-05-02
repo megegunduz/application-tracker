@@ -6,6 +6,7 @@ import LogoLight from '../Assets/Svgs/logo-light.svg';
 import LogoDark from '../Assets/Svgs/logo-dark.svg';
 import CheckboxUnchecked from '../Assets/Svgs/checkbox-unchecked.svg';
 import CheckboxChecked from '../Assets/Svgs/checkbox-checked.svg';
+import Cancel from '../Assets/Svgs/cancel.svg';
 
 export default {
     RadioChecked,
@@ -16,4 +17,5 @@ export default {
     LogoDark,
     CheckboxUnchecked,
     CheckboxChecked,
+    Cancel,
 };

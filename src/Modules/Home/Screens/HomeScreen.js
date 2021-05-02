@@ -49,6 +49,10 @@ const HomeScreen = () => {
         setIsDeleteMode(true);
     }
 
+    const _onPress_TurnOffDeleteMode = () => {
+        setIsDeleteMode(false);
+    }
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
@@ -62,6 +66,14 @@ const HomeScreen = () => {
                 <TouchableOpacity style={styles.addIconContainer} onPress={_onPress_NavigateToAddAppScreen}>
                     <Icon svg={Svgs.Plus} iconStyle={styles.addIcon} />
                 </TouchableOpacity>
+                {
+                    isDeleteMode ?
+                        <TouchableOpacity style={styles.cancelIconContainer} onPress={_onPress_TurnOffDeleteMode}>
+                            <Icon svg={Svgs.Cancel} iconStyle={styles.cancelIcon} />
+                        </TouchableOpacity>
+                        :
+                        null
+                }
             </View>
         </SafeAreaView>
     )

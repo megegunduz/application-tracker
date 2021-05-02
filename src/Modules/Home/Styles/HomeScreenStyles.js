@@ -28,4 +28,15 @@ export default (Colors) => StyleSheet.create({
     addIcon: {
         color: Colors[cn.home.addIcon],
     },
+    cancelIconContainer: {
+        position: 'absolute',
+        bottom: Metrics.width * 0.25,
+        right: Metrics.width * 0.05,
+        width: Metrics.width * 0.15,
+        height: undefined,
+        aspectRatio: 1,
+    },
+    cancelIcon: {
+        color: Colors[cn.home.addIcon]
+    }
 });
