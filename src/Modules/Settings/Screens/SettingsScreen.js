@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../Auth';
 import { useLocale, tn, useLocaleOptions, useLocalization, useChangeLocale } from '../../Localization';
 import { useChangeTheme, useTheme, useThemedValues, useThemeOptions } from '../../Theming';
 import OptionsRadioInput from '../Components/OptionsRadioInput';
@@ -25,12 +27,15 @@ const SettingsScreen = () => {
         changeLocale(locale);
     }
 
+    const currentUser = useSelector(userSelector);
+    console.log(currentUser)
+
 
     return (
         <View style={styles.container}>
             <SafeAreaView style={{ flex: 1 }}>
-                <Text style={styles.nameText}>{loc.t(tn.username)}</Text>
-                <Text style={styles.emailText}>{loc.t(tn.email)}</Text>
+                <Text style={styles.nameText}>{currentUser.displayName}</Text>
+                <Text style={styles.emailText}>{currentUser.email}</Text>
                 <View style={styles.optionMenuContainer}>
                     <OptionsRadioInput
                         options={themeOptions}
