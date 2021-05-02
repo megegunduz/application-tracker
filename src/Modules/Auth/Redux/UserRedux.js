@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 export const userSelector = globalState => globalState[USER_NAMESPACE].user;
 
 // Action types
-const UserActionTypes = {
+export const UserActionTypes = {
     SET_USER: 'user/set_user',
     SING_IN_REQUEST: 'user/sign_in_request',
     SIGN_UP_REQUEST: 'user/sign_up_request',
