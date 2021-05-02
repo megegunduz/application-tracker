@@ -37,7 +37,7 @@ export const UserActionCreators = {
 // Reducer
 export const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SET_USER:
+        case UserActionTypes.SET_USER:
             const newUser = action.payload.user;
             const lastUserEmail = newUser ? newUser.email : state.lastUserEmail;
             return {
