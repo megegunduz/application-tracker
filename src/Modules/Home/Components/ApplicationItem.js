@@ -10,7 +10,8 @@ const ApplicationItem = props => {
 
     return (
         <TouchableOpacity style={styles.container}
-        onPress={props.onPress}>
+        onPress={props.onPress}
+        onLongPress={props.onLongPress}>
             <View style={styles.companyNameAndDateContainer}>
                 <View style={styles.companyNameContainer}>
                     <Text style={styles.companyNameText}>{props.companyName}</Text>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
@@ -12,6 +12,8 @@ import getStyles from '../Styles/HomeScreenStyles';
 
 const HomeScreen = () => {
 
+    const [isDeleteMode, setIsDeleteMode] = useState(false);
+
     const { styles, colors } = useThemedValues(getStyles);
 
     const navigation = useNavigation();
@@ -23,6 +25,8 @@ const HomeScreen = () => {
                 position={item.position}
                 applicationDate={item.applicationDate}
                 onPress={() => _onPress_NavigateToEditAppScreen(item)}
+                onLongPress={_onLongPress_TurnOnDeleteMode}
+                deleteMode={isDeleteMode}
             />
         )
     }
@@ -38,6 +42,9 @@ const HomeScreen = () => {
         navigation.navigate("add-application-screen")
     }
 
+    const _onLongPress_TurnOnDeleteMode = () => {
+        setIsDeleteMode(true);
+    }
 
     return (
         <SafeAreaView style={styles.safeArea}>
