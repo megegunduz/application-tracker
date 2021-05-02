@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
-import { useSelector } from 'react-redux';
-import { userSelector } from '../../Auth';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { UserActionCreators, userSelector } from '../../Auth';
 import { useLocale, tn, useLocaleOptions, useLocalization, useChangeLocale } from '../../Localization';
 import { useChangeTheme, useTheme, useThemedValues, useThemeOptions } from '../../Theming';
 import OptionsRadioInput from '../Components/OptionsRadioInput';
@@ -27,9 +28,13 @@ const SettingsScreen = () => {
         changeLocale(locale);
     }
 
-    const currentUser = useSelector(userSelector);
-    console.log(currentUser)
+    const dispatch = useDispatch();
 
+    const currentUser = useSelector(userSelector);
+
+    const _OnPress_SignOut = () => {
+        dispatch(UserActionCreators.signOutRequest());
+    }
 
     return (
         <View style={styles.container}>
@@ -50,7 +55,7 @@ const SettingsScreen = () => {
                         onPress={_onPress_ChangeLocale}
                     />
                 </View>
-                <TouchableOpacity style={styles.signOutTouchable}>
+                <TouchableOpacity style={styles.signOutTouchable} onPress={_OnPress_SignOut}>
                     <Text style={styles.signOutText}>{loc.t(tn.signOut)}</Text>
                 </TouchableOpacity>
             </SafeAreaView>
