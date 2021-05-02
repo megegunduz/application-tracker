@@ -6,7 +6,6 @@ import getStyles from '../Styles/ApplicationInputStyles';
 
 const ApplicationInput = props => {
 
-    console.log("props: ", props)
 
     const stylingParams = {
         borderColor,

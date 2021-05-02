@@ -8,6 +8,6 @@ export default (Colors, params) => StyleSheet.create({
         borderRadius: Metrics.borderRadiusStandard,
         width: Metrics.width * 0.85,
         marginVertical: Metrics.marginVertical * 0.5,
-        height: params.isNoteInput? Metrics.width * 0.3 : null,
+        minHeight: params.isNoteInput? Metrics.width * 0.3 : null,
     }
 });
