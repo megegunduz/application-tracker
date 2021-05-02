@@ -32,10 +32,13 @@ const HomeScreen = () => {
     }
 
     const _onPress_NavigateToEditAppScreen = applicationItem => {
-        // Navigate to EditApplicationScreen route with pressed item as params
-        navigation.navigate("edit-application-screen", {
-            applicationItem,
-        });
+        if (!isDeleteMode) {
+            // Navigate to EditApplicationScreen route with pressed item as params
+            navigation.navigate("edit-application-screen", {
+                applicationItem,
+            });
+        }
+
     }
 
     const _onPress_NavigateToAddAppScreen = () => {
