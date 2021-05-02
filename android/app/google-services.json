@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1074312605380",
+    "project_id": "jobly-dbee5",
+    "storage_bucket": "jobly-dbee5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074312605380:android:f2583a9a71f858cbe7e391",
+        "android_client_info": {
+          "package_name": "com.applicationtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074312605380-vcb5ofgnq8hhcv8hceqbjo1tkus84lke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgGTHLWZ_SKqnrPgwQrcR_ssaANrt4qH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074312605380-vcb5ofgnq8hhcv8hceqbjo1tkus84lke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
