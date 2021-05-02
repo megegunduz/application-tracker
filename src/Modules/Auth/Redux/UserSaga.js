@@ -38,9 +38,9 @@ function* watchSignUpRequest() {
     yield takeEvery(UserActionTypes.SIGN_UP_REQUEST, workerSignUp);
 };
 
-function* workerSignIn(action) {
+function* workerSignIn (action) {
     const { email, password } = action.payload;
-
+    
     try {
         yield call(signIn, email, password);
 
@@ -52,7 +52,7 @@ function* workerSignIn(action) {
 };
 
 function* watchSignInRequest() {
-    yield takeEvery(UserActionTypes.SING_IN_REQUEST, workerSignIn);
+    yield takeEvery(UserActionTypes.SIGN_IN_REQUEST, workerSignIn);
 };
 
 function* workerSignOut() {

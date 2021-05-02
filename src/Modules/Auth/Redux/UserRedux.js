@@ -10,7 +10,7 @@ export const userSelector = globalState => globalState[USER_NAMESPACE].user;
 // Action types
 export const UserActionTypes = {
     SET_USER: 'user/set_user',
-    SING_IN_REQUEST: 'user/sign_in_request',
+    SIGN_IN_REQUEST: 'user/sign_in_request',
     SIGN_UP_REQUEST: 'user/sign_up_request',
     SIGN_OUT_REQUEST: 'user/sign_out_request',
 }
@@ -18,19 +18,19 @@ export const UserActionTypes = {
 // Action creators
 export const UserActionCreators = {
     setUser: (user) => ({
-        type: SET_USER,
+        type: UserActionTypes.SET_USER,
         payload: {user},
     }),
     signInRequest: (email, password) => ({
-        type: SIGN_OUT_REQUEST,
+        type: UserActionTypes.SIGN_IN_REQUEST,
         payload: {email, password},
     }),
     signUpRequest: (email, password, displayName) => ({
-        type: SIGN_UP_REQUEST,
+        type: UserActionTypes.SIGN_UP_REQUEST,
         payload: {email, password, displayName},
     }),
     signOutRequest: () => ({
-        type: SIGN_OUT_REQUEST,
+        type: UserActionTypes.SIGN_OUT_REQUEST,
     }),
 };
 
