@@ -7,6 +7,7 @@ import LogoDark from '../Assets/Svgs/logo-dark.svg';
 import CheckboxUnchecked from '../Assets/Svgs/checkbox-unchecked.svg';
 import CheckboxChecked from '../Assets/Svgs/checkbox-checked.svg';
 import Cancel from '../Assets/Svgs/cancel.svg';
+import Delete from '../Assets/Svgs/delete.svg';
 
 export default {
     RadioChecked,
@@ -18,4 +19,5 @@ export default {
     CheckboxUnchecked,
     CheckboxChecked,
     Cancel,
+    Delete,
 };

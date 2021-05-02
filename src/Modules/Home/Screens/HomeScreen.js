@@ -53,6 +53,8 @@ const HomeScreen = () => {
         setIsDeleteMode(false);
     }
 
+    const add_deleteIcon = isDeleteMode ? Svgs.Delete : Svgs.Plus;
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
@@ -63,8 +65,8 @@ const HomeScreen = () => {
                         keyExtractor={(item, index) => item.id}
                     />
                 </View>
-                <TouchableOpacity style={styles.addIconContainer} onPress={_onPress_NavigateToAddAppScreen}>
-                    <Icon svg={Svgs.Plus} iconStyle={styles.addIcon} />
+                <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateToAddAppScreen}>
+                    <Icon svg={add_deleteIcon} iconStyle={styles.add_deleteIcon} />
                 </TouchableOpacity>
                 {
                     isDeleteMode ?

@@ -17,7 +17,7 @@ export default (Colors) => StyleSheet.create({
         marginTop: Metrics.marginHorizontalLarge * 0.7,
         flexGrow: 1,
     },
-    addIconContainer: {
+    add_deleteIconContainer: {
         position: 'absolute',
         bottom: Metrics.width * 0.05,
         right: Metrics.width * 0.05,
@@ -25,7 +25,7 @@ export default (Colors) => StyleSheet.create({
         height: undefined,
         aspectRatio: 1,
     },
-    addIcon: {
+    add_deleteIcon: {
         color: Colors[cn.home.addIcon],
     },
     cancelIconContainer: {
