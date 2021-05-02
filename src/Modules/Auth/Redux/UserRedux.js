@@ -4,21 +4,46 @@ const INITIAL_STATE = {
     user: null
 };
 
-export const SET_USER = "user/set_user";
+// Selectors
+export const userSelector = globalState => globalState[USER_NAMESPACE].user;
 
-export const setUser = (userName) => {
-    return {
+// Action types
+const UserActionTypes = {
+    SET_USER: 'user/set_user',
+    SING_IN_REQUEST: 'user/sign_in_request',
+    SIGN_UP_REQUEST: 'user/sign_up_request',
+    SIGN_OUT_REQUEST: 'user/sign_out_request',
+}
+
+// Action creators
+export const UserActionCreators = {
+    setUser: (user) => ({
         type: SET_USER,
-        payload: {
-            userName,
-        }
-    }
+        payload: {user},
+    }),
+    signInRequest: (email, password) => ({
+        type: SIGN_OUT_REQUEST,
+        payload: {email, password},
+    }),
+    signUpRequest: (email, password, displayName) => ({
+        type: SIGN_UP_REQUEST,
+        payload: {email, password, displayName},
+    }),
+    signOutRequest: () => ({
+        type: SIGN_OUT_REQUEST,
+    }),
 };
 
+// Reducer
 export const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SET_USER:
-            // Bu tipte action gelince dönecek olan obje    
+            const newUser = action.payload.user;
+            const lastUserEmail = newUser ? newUser.email : state.lastUserEmail;
+            return {
+                user: newUser,
+                lastUserEmail,
+            }
         default:
             return state;
     }
