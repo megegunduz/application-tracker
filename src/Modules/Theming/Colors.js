@@ -66,6 +66,7 @@ const addApplication = {
 
 const editApplication = {
     background: 'editApplication/background',
+    addButton: 'editApplication/addButton'
 };
 
 const header = {
@@ -116,6 +117,7 @@ export const darkColors = {
 
     // editApplication
     [editApplication.background]: constantColors.greys[3],
+    [editApplication.addButton]: '#443846',
 
     //header
     [header.background]: constantColors.purples[5],
@@ -156,6 +158,7 @@ export const lightColors = {
 
     // editApplication
     [editApplication.background]: constantColors.purples[1],
+    [editApplication.addButton]: '#ff8261',
 
     //header
     [header.background]: constantColors.purples[2],
