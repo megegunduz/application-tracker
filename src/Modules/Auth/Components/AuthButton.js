@@ -18,7 +18,7 @@ const AuthButton = props => {
 
  
     return (
-        <TouchableOpacity style={styles.touchable}>
+        <TouchableOpacity style={styles.touchable} onPress={props.onPress}>
             <Text style={styles.buttonText}>{text}</Text>
         </TouchableOpacity>
     );

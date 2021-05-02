@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
+
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
 import { tn, useLocalization } from '../../Localization';
@@ -9,14 +10,14 @@ import AuthInput from '../Components/AuthInput';
 
 import getStyles from '../Styles/AuthScreenStyles';
 
-const AuthScreenUI = () => {
+const AuthScreenUI = (props) => {
 
     const { styles, colors } = useThemedValues(getStyles);
     const currentTheme = useTheme();
 
     const loc = useLocalization();
 
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(true)
 
     const _onPress_SwitchLoginOrSignUp = () => {
         setIsLogin(!isLogin);
@@ -51,14 +52,20 @@ const AuthScreenUI = () => {
                                 null
                                 :
                                 <View style={styles.inputContainer}>
-                                    <AuthInput placeholder={loc.t(tn.username)} />
+                                    <AuthInput
+                                        onChangeText={props.onChangeText_Username}
+                                        placeholder={loc.t(tn.username)} />
                                 </View>
                         }
                         <View style={styles.inputContainer}>
-                            <AuthInput placeholder={loc.t(tn.email)} />
+                            <AuthInput
+                                onChangeText={props.onChangeText_Email}
+                                placeholder={loc.t(tn.email)} />
                         </View>
                         <View style={styles.inputContainer}>
-                            <AuthInput placeholder={loc.t(tn.password)} />
+                            <AuthInput
+                                onChangeText={props.onChangeText_Password}
+                                placeholder={loc.t(tn.password)} />
                         </View>
                         {
                             isLogin ?
@@ -78,12 +85,16 @@ const AuthScreenUI = () => {
                                 null
                                 :
                                 <View style={styles.inputContainer}>
-                                    <AuthInput placeholder={loc.t(tn.repeatPassword)} />
+                                    <AuthInput
+                                        onChangeText={props.onChangeText_PasswordRepeat}
+                                        placeholder={loc.t(tn.repeatPassword)} />
                                 </View>
                         }
                     </View>
                     <View style={styles.buttonsContainer}>
-                        <AuthButton text={authButtonText} />
+                        <AuthButton
+                        onPress={isLogin ? props.onPress_SignIn : props.onPress_SignUp}
+                        text={authButtonText} />
                         <View style={styles.textsContainer}>
                             <Text style={styles.plainText}>
                                 {isLogin ? loc.t(tn.dontHaveAccount) : loc.t(tn.alreadyHaveAccount)}

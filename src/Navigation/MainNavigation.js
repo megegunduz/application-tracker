@@ -1,17 +1,19 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
+import { userSelector } from '../Modules/Auth'
 import AppNavigation from './AppNavigation';
 import AuthNavigation from './AuthNavigation';
 
 const MainNavigation = props => {
 
-    const isLoggedIn = false;
+    const loggedInUser = useSelector(userSelector);
 
     return (
        <NavigationContainer>
            {
-               isLoggedIn?
+               loggedInUser?
                <AppNavigation />
                :
                <AuthNavigation />
