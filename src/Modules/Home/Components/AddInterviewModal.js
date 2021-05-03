@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
+import BorderedBox from '../../../Components/BorderedBox';
+import { tn, useLocalization } from '../../Localization';
 
 import { useThemedValues } from '../../Theming';
 
@@ -10,8 +12,8 @@ const AddInterviewModal = props => {
 
     const { styles, colors } = useThemedValues(getStyles);
 
+    const loc = useLocalization();
 
-    
     return (
 
         <Modal
@@ -21,7 +23,15 @@ const AddInterviewModal = props => {
             onBackdropPress={props.closeModal}
         >
             <View style={styles.modalContentContainer}>
-                <Text>Add interview modal</Text>
+                <BorderedBox>
+                    <TextInput placeholder={"Görüşme tipi"} />
+                </BorderedBox>
+                <BorderedBox>
+                    <TextInput placeholder={"Görüşme tarihi"} />
+                </BorderedBox>
+                <TouchableOpacity style={styles.addButton}>
+                    <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
+                </TouchableOpacity>
             </View>
         </Modal >
 

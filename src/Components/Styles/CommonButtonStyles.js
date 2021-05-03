@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { cn } from '../Modules/Theming';
-import { Fonts, Metrics } from '../StylingConstants';
+import { cn } from '../../Modules/Theming';
+import { Fonts, Metrics } from '../../StylingConstants';
 
 export default (Colors) => StyleSheet.create({
     buttonTouchable: {
