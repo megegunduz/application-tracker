@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View, Text, FlatList } from 'react-native';
 
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
 import { cn, useThemedValues } from '../../Theming';
 import { tn, useLocalization } from '../../Localization';
+import AddInterviewModal from '../Components/AddInterviewModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -13,6 +14,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const EditApplicationScreen = props => {
 
     const { applicationItem } = props.route.params;
+
+    const[addModalVisible, setAddModalVisible] = useState(false);
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -48,9 +51,18 @@ const EditApplicationScreen = props => {
             );
         })
         return interviews;
+    };
+
+    const _onPress_OpenModal = () => {
+        setAddModalVisible(true);
+    };
+
+    const _closeModal = () => {
+        setAddModalVisible(false);
     }
 
     return (
+        <>
         <View style={styles.container}>
             <ScrollView>
                 <ApplicationInput
@@ -87,7 +99,7 @@ const EditApplicationScreen = props => {
                         {_renderInterviewItem()}
                     </View>
                     <View style={styles.addButtonContainer}>
-                        <TouchableOpacity style={styles.addButton}>
+                        <TouchableOpacity style={styles.addButton}  onPress={_onPress_OpenModal}>
                             <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
                         </TouchableOpacity>
                     </View>
@@ -98,6 +110,8 @@ const EditApplicationScreen = props => {
                 <CommonButton text={upperCaseButtonText} />
             </View>
         </View>
+        <AddInterviewModal isVisible={addModalVisible} closeModal={_closeModal}/>
+        </>
     );
 };
 
