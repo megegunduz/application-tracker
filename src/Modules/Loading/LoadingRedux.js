@@ -13,7 +13,7 @@ export const LoadingActionTypes = {
 export const LoadingActionCreators = {
     setIsLoading: (isLoading) => {
         return {
-            type: SET_IS_LOADING,
+            type: LoadingActionTypes.SET_IS_LOADING,
             payload: { isLoading },
         };
     },

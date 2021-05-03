@@ -1,8 +1,9 @@
 import { takeEvery, call, put, fork } from '@redux-saga/core/effects'
 import { getCurrentUser, signIn, signOut, signUp, updateUser } from '../API/Firebase';
-import { UserActionCreators, UserActionTypes } from './UserRedux'
+import { UserActionCreators, UserActionTypes } from './UserRedux';
+import { LoadingActionCreators } from '../../Loading';
 
-function* signUpAndCreareDisplayName(email, password, displayName) {
+function* signUpAndCreateDisplayName(email, password, displayName) {
     try {
 
         // Sign Up user
@@ -26,10 +27,15 @@ function* workerSignUp(action) {
     const { email, password, displayName } = action.payload;
 
     try {
-        yield call(signUpAndCreareDisplayName, email, password, displayName);
+
+        yield put(LoadingActionCreators.setIsLoading(true));
+
+        yield call(signUpAndCreateDisplayName, email, password, displayName);
 
     } catch (error) {
         console.log(error);
+    } finally {
+        yield put(LoadingActionCreators.setIsLoading(false));
     }
 
 }
@@ -42,12 +48,17 @@ function* workerSignIn (action) {
     const { email, password } = action.payload;
     
     try {
+
+        yield put(LoadingActionCreators.setIsLoading(true));
+
         yield call(signIn, email, password);
 
         const currentUser = getCurrentUser();
         yield put(UserActionCreators.setUser(currentUser));
     } catch (error) {
         console.log(error)
+    } finally {
+        yield put(LoadingActionCreators.setIsLoading(false));
     }
 };
 
@@ -57,10 +68,15 @@ function* watchSignInRequest() {
 
 function* workerSignOut() {
     try {
+
+        yield put(LoadingActionCreators.setIsLoading(true));
+
         yield call(signOut);
         yield put(UserActionCreators.setUser(null));
     } catch (error) {
         
+    } finally {
+        yield put(LoadingActionCreators.setIsLoading(false));
     }
 }
 
