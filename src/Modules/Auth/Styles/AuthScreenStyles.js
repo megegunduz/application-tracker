@@ -44,7 +44,6 @@ export default (Colors, params) => StyleSheet.create({
     },
     inputContainer: {
         marginTop: Metrics.width * 0.005,
-        backgroundColor: 'red',
     },
     buttonsContainer: {
         justifyContent: 'center',
