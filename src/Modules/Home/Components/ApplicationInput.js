@@ -1,8 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, TextInput, View } from 'react-native';
-
+import { TextInput, View } from 'react-native';
 import { useThemedValues } from '../../Theming';
-import DatePicker from '../../../Components/DatePicker';
 
 import getStyles from '../Styles/ApplicationInputStyles';
 
@@ -23,14 +21,6 @@ const ApplicationInput = props => {
                 defaultValue={props.defaultValue}
                 multiline
             />
-            {
-                props.isDateInput ?
-                <TouchableOpacity>
-                    <DatePicker />
-                </TouchableOpacity>
-                :
-                null
-            }
         </View>
     );
 };
