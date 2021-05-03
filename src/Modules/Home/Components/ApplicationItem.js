@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
-import { useThemedValues } from '../../Theming';
+import { cn, useThemedValues } from '../../Theming';
 
 import getStyles from '../Styles/ApplicationItemStyles';
 
@@ -30,7 +30,7 @@ const ApplicationItem = props => {
                 {
                     props.deleteMode ?
                         <TouchableOpacity style={styles.iconContainer} onPress={_onPress_SelectItem}>
-                            <Icon svg={svg}></Icon>
+                            <Icon svg={svg} iconStyle={{color: colors[cn.home.applicationItemBorder]}}></Icon>
                         </TouchableOpacity>
                         :
                         null
