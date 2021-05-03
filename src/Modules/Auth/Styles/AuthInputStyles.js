@@ -8,7 +8,7 @@ export default (Colors) => StyleSheet.create({
         borderRadius: Metrics.borderRadiusStandard,
         borderWidth: 1,
         borderColor: Colors[cn.auth.inputBorder],
-        width: Metrics.width * 0.68,
+        width: Metrics.width * 0.8,
         backgroundColor: Colors[cn.auth.inputBackground],
         paddingHorizontal: Metrics.textMargin,
         justifyContent: 'space-between',

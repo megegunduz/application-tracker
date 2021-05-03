@@ -5,7 +5,7 @@ import { cn } from '../../Theming';
 export default (Colors) => StyleSheet.create({
     touchable: {
         backgroundColor: Colors[cn.auth.button],
-        width: Metrics.width * 0.68,
+        width: Metrics.width * 0.80,
         height: Metrics.width * 0.12,
         borderRadius: Metrics.borderRadiusStandard,
         alignItems: 'center',

@@ -9,6 +9,7 @@ export default (Colors, params) => StyleSheet.create({
     },
     keyboardAvoiding: {
         flex: 1,
+        alignItems: 'center',
     },
     container: {
         flex: 1,
@@ -41,19 +42,22 @@ export default (Colors, params) => StyleSheet.create({
         justifyContent: 'center',
         flexShrink: 1,
         marginTop: Metrics.marginHorizontal * 0.5,
+        alignItems: 'center',
+        width: Metrics.width * 0.8,
     },
     inputContainer: {
         marginTop: Metrics.width * 0.005,
     },
     buttonsContainer: {
         justifyContent: 'center',
+        alignItems: 'center'
     },
     textsContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
         marginTop: Metrics.marginVertical * 0.1,
         alignSelf: 'flex-end',
-        marginRight: Metrics.width * 0.015
+        marginRight: Metrics.width * 0.02,
+
     },
     plainText: {
         color: Colors[cn.auth.plainText],
