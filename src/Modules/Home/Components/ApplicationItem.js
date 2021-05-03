@@ -36,14 +36,14 @@ const ApplicationItem = props => {
                         null
                 }
                 <View style={styles.companyNameContainer}>
-                    <Text style={styles.companyNameText}>{props.companyName}</Text>
+                    <Text style={styles.companyNameText} numberOfLines={1}>{props.companyName}</Text>
                 </View>
                 <View style={styles.dateContainer}>
                     <Text style={styles.dateText}>{props.applicationDate}</Text>
                 </View>
             </View>
             <View style={styles.positionTextContainer}>
-                <Text style={styles.positionText}>{props.position}</Text>
+                <Text style={styles.positionText} numberOfLines={1}>{props.position}</Text>
             </View>
         </TouchableOpacity>
     );

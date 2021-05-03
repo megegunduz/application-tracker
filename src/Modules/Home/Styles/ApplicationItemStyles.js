@@ -7,8 +7,7 @@ export default (Colors, params) => StyleSheet.create({
         borderRadius: Metrics.borderRadiusStandard,
         marginVertical: Metrics.marginVertical / 2,
         paddingLeft: Metrics.marginHorizontal * 0.5,
-        paddingRight: Metrics.marginHorizontal * 0.2,
-        paddingVertical: Metrics.width * 0.015,
+        padding: Metrics.marginVertical * 0.65,
         width: Metrics.width * 0.9,
         borderColor: Colors[cn.home.applicationItemBorder],
         borderWidth: 1,
@@ -18,7 +17,7 @@ export default (Colors, params) => StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: Metrics.marginHorizontal * 0.3,
-        alignItems: 'flex-start',
+        alignItems: 'center',
     },
     companyNameContainer: {
         flexShrink: 1,
