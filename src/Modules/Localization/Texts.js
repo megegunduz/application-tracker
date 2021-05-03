@@ -30,6 +30,7 @@ export const tn = {
     interviews: 'interviews',
     addInterview: 'addInterview',
     save: 'save',
+    pickDate: 'pinckDate',
 };
 
 export const english = {
@@ -64,6 +65,7 @@ export const english = {
     [tn.interviews]: 'Interviews',
     [tn.addInterview]: 'Add Interview',
     [tn.save]: 'Save',
+    [tn.pickDate]: 'Pick date',
 }
 
 export const turkish = {
@@ -98,4 +100,5 @@ export const turkish = {
     [tn.interviews]: 'Görüşmeler',
     [tn.addInterview]: 'Görüşme ekle',
     [tn.save]: 'Kaydet',
+    [tn.pickDate]: 'Tarih seç'
 }

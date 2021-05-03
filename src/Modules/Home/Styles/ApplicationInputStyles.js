@@ -9,5 +9,9 @@ export default (Colors, params) => StyleSheet.create({
         width: Metrics.width * 0.85,
         marginVertical: Metrics.marginVertical * 0.5,
         minHeight: params.isNoteInput? Metrics.width * 0.3 : null,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: params.isNoteInput? 'flex-start' : 'center',
+        paddingHorizontal: Metrics.marginHorizontal,
     }
 });

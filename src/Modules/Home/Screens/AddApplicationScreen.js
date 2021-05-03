@@ -33,6 +33,7 @@ const AddApplicationScreen = props => {
                 placeholder={loc.t(tn.applicationDate)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
+                isDateInput={true}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.url)}
