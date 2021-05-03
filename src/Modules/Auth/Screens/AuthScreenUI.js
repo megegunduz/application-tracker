@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard, Image } from 'react-native';
 
-import Icon from '../../../Components/Icon';
-import { Svgs } from '../../../StylingConstants';
+import { Images } from '../../../StylingConstants';
 import { tn, useLocalization } from '../../Localization';
 import { useTheme, useThemedValues } from '../../Theming/';
 import AuthButton from '../Components/AuthButton';
@@ -23,7 +22,7 @@ const AuthScreenUI = (props) => {
         setIsLogin(!isLogin);
     }
 
-    const logo = currentTheme === 'light' ? Svgs.LogoLight : Svgs.LogoDark;
+    const logo = currentTheme === 'light' ? Images.LogoLight : Images.LogoDark;
 
     const authButtonText = isLogin ? loc.t(tn.login) : loc.t(tn.signUp);
 
@@ -39,7 +38,7 @@ const AuthScreenUI = (props) => {
                     onPress={Keyboard.dismiss}
                 >
                     <View style={styles.appLogoContainer}>
-                        <Icon svg={logo} />
+                        <Image source={logo} style={styles.image}/>
                     </View>
                     <View style={styles.headerContainer}>
                         <Text style={styles.header}>
@@ -53,19 +52,27 @@ const AuthScreenUI = (props) => {
                                 :
                                 <View style={styles.inputContainer}>
                                     <AuthInput
+                                        value={props.usernameValue}
+                                        autoCapitalize={'words'}
                                         onChangeText={props.onChangeText_Username}
                                         placeholder={loc.t(tn.username)} />
                                 </View>
                         }
                         <View style={styles.inputContainer}>
                             <AuthInput
+                                value={props.emailValue}
+                                autoCapitalize={'none'}
                                 onChangeText={props.onChangeText_Email}
                                 placeholder={loc.t(tn.email)} />
                         </View>
                         <View style={styles.inputContainer}>
                             <AuthInput
+                                value={props.passwordValue}
+                                autoCapitalize={'none'}
+                                secureTextEntry={true}
                                 onChangeText={props.onChangeText_Password}
-                                placeholder={loc.t(tn.password)} />
+                                placeholder={loc.t(tn.password)}
+                                />
                         </View>
                         {
                             isLogin ?
@@ -86,6 +93,9 @@ const AuthScreenUI = (props) => {
                                 :
                                 <View style={styles.inputContainer}>
                                     <AuthInput
+                                        value={props.passwordRepeatValue}
+                                        autoCapitalize={'none'}
+                                        secureTextEntry={true}
                                         onChangeText={props.onChangeText_PasswordRepeat}
                                         placeholder={loc.t(tn.repeatPassword)} />
                                 </View>

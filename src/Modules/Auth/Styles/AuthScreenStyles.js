@@ -13,20 +13,23 @@ export default (Colors, params) => StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        paddingBottom: Metrics.width * 0.03,
         paddingHorizontal: Metrics.marginHorizontal,
-        alignItems: 'center',
+        marginHorizontal: Metrics.marginHorizontalLarge * 1.1,
     },
     appLogoContainer: {
-        width: Metrics.width * 0.4,
-        height: undefined,
-        aspectRatio: 1,
+        flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: Metrics.marginVertical,
+        alignItems: 'center', 
+    },
+    image: {
+        width: undefined,
+        height: '80%',
+        aspectRatio: 1,
+        resizeMode: 'contain',
     },
     headerContainer: {
         justifyContent: 'center',
+        alignItems: 'center',
     },
     header: {
         fontFamily: Fonts.type.bold,
@@ -34,11 +37,14 @@ export default (Colors, params) => StyleSheet.create({
         color: Colors[cn.auth.inputsHeader],
     },
     inputsContainer: {
-        height: Metrics.width * 0.7,
+        // minHeight: Metrics.width * 0.615,
         justifyContent: 'center',
+        flexShrink: 1,
+        marginTop: Metrics.marginHorizontal * 0.5,
     },
     inputContainer: {
-        marginTop: Metrics.width * 0.02,
+        marginTop: Metrics.width * 0.005,
+        backgroundColor: 'red',
     },
     buttonsContainer: {
         justifyContent: 'center',
@@ -46,7 +52,9 @@ export default (Colors, params) => StyleSheet.create({
     textsContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        marginTop: Metrics.marginVertical * 0.1
+        marginTop: Metrics.marginVertical * 0.1,
+        alignSelf: 'flex-end',
+        marginRight: Metrics.width * 0.015
     },
     plainText: {
         color: Colors[cn.auth.plainText],
