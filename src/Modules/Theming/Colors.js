@@ -71,7 +71,9 @@ const addApplication = {
 
 const editApplication = {
     background: 'editApplication/background',
-    addButton: 'editApplication/addButton'
+    addButton: 'editApplication/addButton',
+    dateText: 'editApplication/dateText',
+    border: 'editApplication/border',
 };
 
 const header = {
@@ -123,6 +125,8 @@ export const darkColors = {
     // editApplication
     [editApplication.background]: constantColors.purples[6],
     [editApplication.addButton]: '#443846',
+    [editApplication.dateText]: constantColors.purples[4],
+    [editApplication.border]: constantColors.purples[5],
 
     //header
     [header.background]: constantColors.purples[5],
@@ -164,6 +168,8 @@ export const lightColors = {
     // editApplication
     [editApplication.background]: constantColors.oranges[1],
     [editApplication.addButton]: '#ff8261',
+    [editApplication.dateText]: constantColors.purples[4],
+    [editApplication.border]: constantColors.oranges[2],
 
     //header
     [header.background]: constantColors.oranges[2],

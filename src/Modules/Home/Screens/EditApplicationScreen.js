@@ -26,19 +26,23 @@ const EditApplicationScreen = props => {
     const dummyInterviews = [
         {
             id: 1,
-            type: "Telefon görüşmesi"
+            type: "Telefon görüşmesi",
+            date: "04.05.2021",
         },
         {
             id: 2,
-            type: "Yüzyüze görüşme"
+            type: "Yüzyüze görüşme",
+            date: "02.02.2020"
         },
         {
             id: 3,
-            type: "Zoom meeting"
+            type: "Zoom meeting",
+            date: "20.20.2016"
         },
         {
             id: 4,
-            type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır"
+            type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır",
+            date: "01.01.2000",
         }
     ]
 
@@ -46,7 +50,8 @@ const EditApplicationScreen = props => {
         let interviews = dummyInterviews.map((interview, index) => {
             return (
                 <View key={index} style={styles.interviewItem}>
-                    <Text style={styles.interviewText}>{interview.type}</Text>
+                    <Text style={styles.interviewText} numberOfLines={1}>{interview.type}</Text>
+                    <Text style={styles.dateText}>{interview.date}</Text>
                 </View>
             );
         })

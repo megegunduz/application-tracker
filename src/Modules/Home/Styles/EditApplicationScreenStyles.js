@@ -14,21 +14,26 @@ export default (Colors) => StyleSheet.create({
     },
     interviewsContainer:{
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
     },
     interviewItem: {
-        borderColor: Colors[cn.home.applicationItemBorder],
-        borderWidth: 1,
-        borderRadius: Metrics.borderRadiusStandard,
+        flexDirection: 'row',
         width: Metrics.width * 0.85,
-        marginVertical: Metrics.marginVertical * 0.5,
-        alignItems: 'flex-start',
-        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         padding: Metrics.textMargin,
+        borderBottomWidth: 1,
+        borderBottomColor: Colors[cn.editApplication.border]
     },
     interviewText: {
         fontSize: Fonts.size(15),
         fontFamily: Fonts.type.regular,
+        flexShrink: 1,
+    },
+    dateText: {
+        fontSize: Fonts.size(13),
+        fontFamily: Fonts.type.regular,
+        color: Colors[cn.editApplication.dateText],
     },
     headerContainer: {
         marginTop: Metrics.marginVertical,
