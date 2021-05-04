@@ -31,6 +31,8 @@ export const tn = {
     addInterview: 'addInterview',
     save: 'save',
     pickDate: 'pinckDate',
+    interviewType: 'interviewType',
+    interviewDetail: 'interviewDetail',
 };
 
 export const english = {
@@ -66,6 +68,8 @@ export const english = {
     [tn.addInterview]: 'Add Interview',
     [tn.save]: 'Save',
     [tn.pickDate]: 'Pick date',
+    [tn.interviewType]: 'Interview type',
+    [tn.interviewDetail]: 'Interview detail',
 }
 
 export const turkish = {
@@ -100,5 +104,7 @@ export const turkish = {
     [tn.interviews]: 'Görüşmeler',
     [tn.addInterview]: 'Görüşme ekle',
     [tn.save]: 'Kaydet',
-    [tn.pickDate]: 'Tarih seç'
+    [tn.pickDate]: 'Tarih seç',
+    [tn.interviewType]: 'Görüşme tipi',
+    [tn.interviewDetail]: 'Görüşme detayı',
 }

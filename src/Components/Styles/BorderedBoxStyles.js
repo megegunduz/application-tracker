@@ -10,7 +10,7 @@ export default (Colors, params) => StyleSheet.create({
         paddingLeft: Metrics.marginHorizontal * 0.8,
         alignItems: 'flex-start',
         justifyContent: 'center',
-        width: Metrics.width * 0.72,
+        width: Metrics.width * 0.75,
         marginBottom: Metrics.marginVertical * 0.5,
     },
     normalHeight: {

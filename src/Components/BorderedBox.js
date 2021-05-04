@@ -12,6 +12,7 @@ const BorderedBox = props => {
         ...styles.container,
         borderColor: props.borderColor ? props.borderColor : styles.container.borderColor,
         height: props.tall ? styles.tallHeight.height : styles.normalHeight.height,
+        ...props.style,
     };
 
     return (
