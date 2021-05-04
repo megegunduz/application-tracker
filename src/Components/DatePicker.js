@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 import { View, Platform, TouchableOpacity, Text } from 'react-native';
+import moment from 'moment';
+import trloc from 'moment/locale/tr'
 
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { tn, useLocalization } from '../Modules/Localization';
+import { tn, useLocale, useLocalization } from '../Modules/Localization';
 
-const DatePicker = () => {
+import getStyles from './Styles/DatePickerStyles';
+import { useThemedValues } from '../Modules/Theming';
+
+const DatePicker = (props) => {
+
+    const [isSelected, setIsSelected] = useState(false);
+
+    const { styles, colors } = useThemedValues(getStyles, isSelected);
+
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
     const [dateAsString, setDateAsString] = useState(null);
+    
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShow(Platform.OS === 'ios');
         setDate(currentDate);
-        setDateAsString(currentDate.toLocaleDateString());
+        setIsSelected(true);
+        setDateAsString(currentDate.toLocaleDateString());  
     };
 
     const showMode = (currentMode) => {
@@ -27,23 +39,23 @@ const DatePicker = () => {
     };
 
     const loc = useLocalization();
+    const locale = useLocale();
 
     const pickDateText = loc.t(tn.pickDate);
+
+    let momentDate = moment(date).locale(locale).format('DD MMM YYYY');
 
     return (
         <View>
             <View>
                 <TouchableOpacity onPress={showDatepicker}>
-                    <Text>{ dateAsString ? dateAsString : pickDateText}</Text>
+                    <Text style={styles.text}>{ dateAsString ? momentDate : pickDateText}</Text>
                 </TouchableOpacity>
             </View>
             {show && (
                 <DateTimePicker
-                    testID="dateTimePicker"
                     value={date}
-                    mode={mode}
                     is24Hour={true}
-                    display="default"
                     onChange={onChange}
                 />
             )}

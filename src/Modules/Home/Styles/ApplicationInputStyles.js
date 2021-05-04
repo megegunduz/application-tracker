@@ -13,5 +13,9 @@ export default (Colors, params) => StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: params.isNoteInput? 'flex-start' : 'center',
         paddingHorizontal: Metrics.marginHorizontal,
-    }
+    },
+    datePickerContainer: {
+        minHeight: Metrics.width * 0.13,
+        justifyContent: 'center',
+    },
 });

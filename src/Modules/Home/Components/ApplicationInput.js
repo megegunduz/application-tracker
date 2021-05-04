@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, TextInput, View } from 'react-native';
 
 import { useThemedValues } from '../../Theming';
@@ -18,18 +18,17 @@ const ApplicationInput = props => {
 
     return (
         <View style={styles.inputContainer}>
-            <TextInput
-                placeholder={props.placeholder}
-                defaultValue={props.defaultValue}
-                multiline
-            />
             {
                 props.isDateInput ?
-                <TouchableOpacity>
-                    <DatePicker />
-                </TouchableOpacity>
-                :
-                null
+                    <TouchableOpacity style={styles.datePickerContainer}>
+                        <DatePicker />
+                    </TouchableOpacity>
+                    :
+                    <TextInput
+                        placeholder={props.placeholder}
+                        defaultValue={props.defaultValue}
+                        multiline
+                    />
             }
         </View>
     );
