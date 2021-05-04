@@ -5,7 +5,6 @@ import { cn } from '../../Theming';
 export default (Colors) => StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: 'red'
     },
     container: {
         flex: 1,
@@ -14,8 +13,10 @@ export default (Colors) => StyleSheet.create({
         backgroundColor: Colors[cn.home.background],
     },
     listContainer: {
-        marginTop: Metrics.marginHorizontalLarge * 0.7,
+        marginTop: Metrics.marginHorizontal,
         flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     add_deleteIconContainer: {
         position: 'absolute',
@@ -38,5 +39,8 @@ export default (Colors) => StyleSheet.create({
     },
     cancelIcon: {
         color: Colors[cn.home.addIcon]
+    },
+    flatListFooter: {
+        backgroundColor: Colors[cn.header.background],
     }
 });

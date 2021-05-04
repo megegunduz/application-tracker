@@ -7,6 +7,7 @@ import ApplicationItem from '../Components/ApplicationItem';
 import DummyData from '../DummyJobApplicationData';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
+import FlatListFooter from '../Components/FlatListFooter';
 
 import getStyles from '../Styles/HomeScreenStyles';
 
@@ -65,6 +66,7 @@ const HomeScreen = () => {
                         data={DummyData}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => item.id}
+                        ListFooterComponent={<FlatListFooter />}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateToAddAppScreen}>

@@ -11,6 +11,7 @@ export default (Colors, params) => StyleSheet.create({
         width: Metrics.width * 0.9,
         borderColor: Colors[cn.home.applicationItemBorder],
         borderWidth: 1,
+        alignSelf: 'center',
     },
     companyNameAndDateContainer: {
         flexGrow: 1,

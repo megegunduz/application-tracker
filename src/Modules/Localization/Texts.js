@@ -33,6 +33,7 @@ export const tn = {
     pickDate: 'pinckDate',
     interviewType: 'interviewType',
     interviewDetail: 'interviewDetail',
+    flatListFooterText: 'flatListFooterText',
 };
 
 export const english = {
@@ -70,6 +71,7 @@ export const english = {
     [tn.pickDate]: 'Pick date',
     [tn.interviewType]: 'Interview type',
     [tn.interviewDetail]: 'Interview detail',
+    [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
 }
 
 export const turkish = {
@@ -107,4 +109,6 @@ export const turkish = {
     [tn.pickDate]: 'Tarih seç',
     [tn.interviewType]: 'Görüşme tipi',
     [tn.interviewDetail]: 'Görüşme detayı',
+    [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
+
 }
