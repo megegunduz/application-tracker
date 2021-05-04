@@ -69,8 +69,8 @@ export const english = {
     [tn.addInterview]: 'Add Interview',
     [tn.save]: 'Save',
     [tn.pickDate]: 'Pick date',
-    [tn.interviewType]: 'Interview type',
-    [tn.interviewDetail]: 'Interview detail',
+    [tn.interviewType]: 'Interview Type',
+    [tn.interviewDetail]: 'Interview Details',
     [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
 }
 
@@ -107,8 +107,8 @@ export const turkish = {
     [tn.addInterview]: 'Görüşme ekle',
     [tn.save]: 'Kaydet',
     [tn.pickDate]: 'Tarih seç',
-    [tn.interviewType]: 'Görüşme tipi',
-    [tn.interviewDetail]: 'Görüşme detayı',
+    [tn.interviewType]: 'Görüşme Tipi',
+    [tn.interviewDetail]: 'Görüşme Detayı',
     [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
 
 }

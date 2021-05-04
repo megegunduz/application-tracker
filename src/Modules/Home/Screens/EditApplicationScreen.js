@@ -6,6 +6,7 @@ import CommonButton from '../../../Components/CommonButton';
 import { cn, useThemedValues } from '../../Theming';
 import { tn, useLocalization } from '../../Localization';
 import AddInterviewModal from '../Components/AddInterviewModal';
+import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -15,7 +16,9 @@ const EditApplicationScreen = props => {
 
     const { applicationItem } = props.route.params;
 
-    const[addModalVisible, setAddModalVisible] = useState(false);
+    const [addModalVisible, setAddModalVisible] = useState(false);
+    const [detailModalVisible, setDetailModalVisible] = useState(false);
+    const [selectedInterview, setSelectedInterview] = useState({});
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -28,42 +31,56 @@ const EditApplicationScreen = props => {
             id: 1,
             type: "Telefon görüşmesi",
             date: "04.05.2021",
+            details: "detay detay detay",
         },
         {
             id: 2,
             type: "Yüzyüze görüşme",
-            date: "02.02.2020"
+            date: "02.02.2020",
+            details: "detay detay detay",
         },
         {
             id: 3,
             type: "Zoom meeting",
-            date: "20.20.2016"
+            date: "20.20.2016",
+            details: "detay detay detay",
         },
         {
             id: 4,
             type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır",
             date: "01.01.2000",
+            details: "detay detay detay",
         }
     ]
 
     const _renderInterviewItem = () => {
         let interviews = dummyInterviews.map((interview, index) => {
             return (
-                <View key={index} style={styles.interviewItem}>
+                <TouchableOpacity key={index} style={styles.interviewItem} interview={interview} onPress={() => _onPress_OpenDetailsModal(interview)}>
                     <Text style={styles.interviewText} numberOfLines={1}>{interview.type}</Text>
                     <Text style={styles.dateText}>{interview.date}</Text>
-                </View>
+                </TouchableOpacity>
             );
         })
         return interviews;
     };
 
-    const _onPress_OpenModal = () => {
+    const _onPress_OpenAddModal = () => {
         setAddModalVisible(true);
     };
 
-    const _closeModal = () => {
+    const _closeAddModal = () => {
         setAddModalVisible(false);
+    };
+
+    const _onPress_OpenDetailsModal = (interview) => {
+        setDetailModalVisible(true);
+        setSelectedInterview(interview);
+    }
+
+    const _onPress_CloseDetailsModal = () => {
+        setDetailModalVisible(false);
+        setSelectedInterview({});
     }
 
     return (
@@ -104,7 +121,7 @@ const EditApplicationScreen = props => {
                         {_renderInterviewItem()}
                     </View>
                     <View style={styles.addButtonContainer}>
-                        <TouchableOpacity style={styles.addButton}  onPress={_onPress_OpenModal}>
+                        <TouchableOpacity style={styles.addButton}  onPress={_onPress_OpenAddModal}>
                             <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
                         </TouchableOpacity>
                     </View>
@@ -115,7 +132,8 @@ const EditApplicationScreen = props => {
                 <CommonButton text={upperCaseButtonText} />
             </View>
         </View>
-        <AddInterviewModal isVisible={addModalVisible} closeModal={_closeModal}/>
+        <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal}/>
+        <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview}/>
         </>
     );
 };
