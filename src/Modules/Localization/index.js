@@ -7,3 +7,4 @@ export {
     useLocaleDateFormat,
     useLocaleOptions,
 } from './LocalizationHooks';
+export { Locales } from './LocalizationConstants';

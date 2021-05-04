@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard, Image } from 'react-native';
 
 import { Images } from '../../../StylingConstants';
-import { tn, useLocalization } from '../../Localization';
+import { customUpperCase } from '../../../Utils/CustomUpperCase';
+import { tn, useLocale, useLocalization } from '../../Localization';
 import { useTheme, useThemedValues } from '../../Theming/';
 import AuthButton from '../Components/AuthButton';
 import AuthInput from '../Components/AuthInput';
@@ -15,6 +16,7 @@ const AuthScreenUI = (props) => {
     const currentTheme = useTheme();
 
     const loc = useLocalization();
+    const locale = useLocale();
 
     const [isLogin, setIsLogin] = useState(true)
 
@@ -24,7 +26,9 @@ const AuthScreenUI = (props) => {
 
     const logo = currentTheme === 'light' ? Images.LogoLight : Images.LogoDark;
 
-    const authButtonText = isLogin ? loc.t(tn.login) : loc.t(tn.signUp);
+    const loginUpperCase = customUpperCase(loc.t(tn.login), locale);
+    const signUpUpperCase = customUpperCase(loc.t(tn.signUp), locale);
+    const authButtonText = isLogin ? loginUpperCase : signUpUpperCase;
 
     return (
         <SafeAreaView style={styles.safeArea}>
