@@ -4,7 +4,7 @@ export default [
         companyName: "Bilge Adam",
         position: "Software Developer",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.bilgeadam.com/",
         note: "Application notes will be shown here. This is kind of optional."
     },
     {
@@ -12,7 +12,7 @@ export default [
         companyName: "Eti",
         position: "R&D Engineer",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.etietieti.com/",
         note: "Do I even really want this?"
     },
     {
@@ -28,7 +28,7 @@ export default [
         companyName: "Şirket 3",
         position: "Pozisyon 3",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.linkedin.com/",
         note: ""
     },
     {
@@ -36,7 +36,7 @@ export default [
         companyName: "Şirket 4",
         position: "Pozisyon 4",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.linkedin.com/",
         note: ""
     },
     {
@@ -44,7 +44,7 @@ export default [
         companyName: "Şirket 5",
         position: "Pozisyon 5",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.kariyer.net/",
         note: ""
     },
     {
@@ -52,7 +52,7 @@ export default [
         companyName: "Şirket 6",
         position: "Pozisyon 6",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.kariyer.net/",
         note: ""
     },
     {
@@ -60,7 +60,7 @@ export default [
         companyName: "Şirket 7",
         position: "Pozisyon 7",
         applicationDate: "30.04.2021",
-        URL: "www.site.com",
+        URL: "https://www.kariyer.net/",
         note: ""
     },
 
