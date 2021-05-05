@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { tn, useLocalization } from '../../Localization';
@@ -10,11 +10,19 @@ import getStyles from '../Styles/AddApplicationScreenStyles';
 
 const AddApplicationScreen = props => {
 
+    const [date, setDate] = useState(null);
+
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
 
     const upperCaseButtonText = loc.t(tn.addApplication).toLocaleUpperCase();
+
+    const getDate = (dateFromDatePicker) => {
+        setDate(dateFromDatePicker);
+    };
+
+    console.log(date)
 
     return (
         <View style={styles.container}>
@@ -34,6 +42,7 @@ const AddApplicationScreen = props => {
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
                 isDateInput={true}
+                transferPickedDate={getDate}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.url)}

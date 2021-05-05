@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
 
@@ -12,9 +12,15 @@ import getStyles from '../Styles/AddInterviewModalStyles';
 
 const AddInterviewModal = props => {
 
+    const [date, setDate] = useState(null);
+
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
+
+    const getDate = (dateFromPicker) => {
+        setDate(dateFromPicker);
+    }
 
     return (
 
@@ -29,7 +35,7 @@ const AddInterviewModal = props => {
                     <TextInput placeholder={loc.t(tn.interviewType)} />
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>
-                    <DatePicker />
+                    <DatePicker transferPickedDate={getDate}/>
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>
                     <TextInput placeholder={loc.t(tn.interviewDetail)} multiline/>
