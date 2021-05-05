@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, FlatList } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, Linking } from 'react-native';
 
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
@@ -9,8 +9,33 @@ import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
+const dummyInterviews = [
+    {
+        id: 1,
+        type: "Telefon görüşmesi",
+        date: "04.05.2021",
+        details: "detay detay detay",
+    },
+    {
+        id: 2,
+        type: "Yüzyüze görüşme",
+        date: "02.02.2020",
+        details: "detay detay detay",
+    },
+    {
+        id: 3,
+        type: "Zoom meeting",
+        date: "20.20.2016",
+        details: "detay detay detay",
+    },
+    {
+        id: 4,
+        type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır",
+        date: "01.01.2000",
+        details: "detay detay detay",
+    }
+]
 
 const EditApplicationScreen = props => {
 
@@ -19,39 +44,13 @@ const EditApplicationScreen = props => {
     const [addModalVisible, setAddModalVisible] = useState(false);
     const [detailModalVisible, setDetailModalVisible] = useState(false);
     const [selectedInterview, setSelectedInterview] = useState({});
+    const [URL, setURL] = useState(applicationItem.URL);
 
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
 
     const upperCaseButtonText = loc.t(tn.save).toLocaleUpperCase();
-
-    const dummyInterviews = [
-        {
-            id: 1,
-            type: "Telefon görüşmesi",
-            date: "04.05.2021",
-            details: "detay detay detay",
-        },
-        {
-            id: 2,
-            type: "Yüzyüze görüşme",
-            date: "02.02.2020",
-            details: "detay detay detay",
-        },
-        {
-            id: 3,
-            type: "Zoom meeting",
-            date: "20.20.2016",
-            details: "detay detay detay",
-        },
-        {
-            id: 4,
-            type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır",
-            date: "01.01.2000",
-            details: "detay detay detay",
-        }
-    ]
 
     const _renderInterviewItem = () => {
         let interviews = dummyInterviews.map((interview, index) => {
@@ -83,6 +82,22 @@ const EditApplicationScreen = props => {
         setSelectedInterview({});
     }
 
+    const getURL = (URLfromInput) => {
+        setURL(URLfromInput);
+    }
+
+    const _OpenURL = async () => {
+        const url = applicationItem.URL;
+        const supported = await Linking.canOpenURL(url);
+
+        if (supported) {
+            await Linking.openURL(url);
+        }
+        else {
+            alert(`Can't open: ${url}`)
+        }
+    }
+
     return (
         <>
         <View style={styles.container}>
@@ -106,6 +121,10 @@ const EditApplicationScreen = props => {
                     placeholder={loc.t(tn.url)}
                     borderColor={colors[cn.home.applicationItemBorder]}
                     defaultValue={applicationItem.URL}
+                    numberOfLines={1}
+                    isURL={true}
+                    onChangeText={getURL}
+                    openURL={_OpenURL}
                 />
                 <ApplicationInput
                     placeholder={loc.t(tn.note)}

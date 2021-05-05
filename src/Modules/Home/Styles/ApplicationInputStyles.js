@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Metrics } from '../../../StylingConstants';
+import { cn } from '../../Theming';
 
 export default (Colors, params) => StyleSheet.create({
     inputContainer: {
@@ -18,4 +19,21 @@ export default (Colors, params) => StyleSheet.create({
         minHeight: Metrics.width * 0.13,
         justifyContent: 'center',
     },
+    input: {
+        flexGrow: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    textInput: {
+        flexShrink: 1,
+    },
+    iconContainer: {
+        width: '10%',
+        height: undefined,
+        aspectRatio: 1,
+    },
+    icon: {
+        color: Colors[cn.home.applicationItemBorder],
+    }
 });

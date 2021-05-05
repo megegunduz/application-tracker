@@ -9,6 +9,7 @@ import CheckboxChecked from '../Assets/Svgs/checkbox-checked.svg';
 import Cancel from '../Assets/Svgs/cancel.svg';
 import Delete from '../Assets/Svgs/delete.svg';
 import ShowPassword from '../Assets/Svgs/show-password.svg';
+import Url from '../Assets/Svgs/url.svg';
 
 export default {
     RadioChecked,
@@ -22,4 +23,5 @@ export default {
     Cancel,
     Delete,
     ShowPassword,
+    Url,
 };
