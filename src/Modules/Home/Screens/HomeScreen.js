@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
@@ -10,14 +10,26 @@ import { Svgs } from '../../../StylingConstants';
 import FlatListFooter from '../Components/FlatListFooter';
 
 import getStyles from '../Styles/HomeScreenStyles';
+import { subscribeToAppItemData } from '../API/Firebase';
 
 const HomeScreen = () => {
 
     const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const [applications, setApplications] = useState(null);
 
     const { styles, colors } = useThemedValues(getStyles);
 
     const navigation = useNavigation();
+
+    useEffect(() => {
+        const off = subscribeToAppItemData(data => {
+            setApplications(data);
+        });
+
+        return () => {
+            off();
+        }
+    }, [])
 
     const _renderApplicatonItem = ({ item }) => {
         return (
@@ -63,9 +75,9 @@ const HomeScreen = () => {
             <View style={styles.container}>
                 <View style={styles.listContainer}>
                     <FlatList
-                        data={DummyData}
+                        data={applications}
                         renderItem={_renderApplicatonItem}
-                        keyExtractor={(item, index) => item.id}
+                        keyExtractor={(item, index) => index}
                         ListFooterComponent={<FlatListFooter />}
                     />
                 </View>

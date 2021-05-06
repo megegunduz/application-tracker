@@ -32,7 +32,7 @@ const AddApplicationScreen = props => {
         const appItem = {
             companyName: companyName,
             position: position,
-            date: date,
+            applicationDate: date,
             URL: url,
             note: note,
         };
