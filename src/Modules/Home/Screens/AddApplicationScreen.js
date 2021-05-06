@@ -7,10 +7,15 @@ import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/AddApplicationScreenStyles';
+import { addAppItem } from '../API/Firebase';
 
 const AddApplicationScreen = props => {
 
     const [date, setDate] = useState(null);
+    const [companyName, setCompanyName] = useState(null);
+    const [position, setPosition] = useState(null);
+    const [url, setUrl] = useState(null);
+    const [note, setNote] = useState(null);
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -22,7 +27,22 @@ const AddApplicationScreen = props => {
         setDate(dateFromDatePicker);
     };
 
-    console.log(date)
+    console.log("date at addappscreen: ", date )
+    const _onPress_AddAppItem = () => {
+        const appItem = {
+            companyName: companyName,
+            position: position,
+            date: date,
+            URL: url,
+            note: note,
+        };
+
+        const onComplete = () => {
+            props.navigation.goBack();
+        }
+
+        addAppItem(appItem, onComplete);
+    }
 
     return (
         <View style={styles.container}>
@@ -31,11 +51,13 @@ const AddApplicationScreen = props => {
                 placeholder={loc.t(tn.companyName)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
+                onChangeText={setCompanyName}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.position)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
+                onChangeText={setPosition}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.applicationDate)}
@@ -48,16 +70,18 @@ const AddApplicationScreen = props => {
                 placeholder={loc.t(tn.url)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={false}
+                onChangeText={setUrl}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.note)}
                 borderColor={colors[cn.home.applicationItemBorder]}
                 isNoteInput={true}
+                onChangeText={setNote}
             />
             
             </ScrollView>
             <View style={styles.buttonContainer}>
-                <CommonButton text={upperCaseButtonText}/>
+                <CommonButton text={upperCaseButtonText} onPress={_onPress_AddAppItem}/>
             </View>
         </View>
     );
