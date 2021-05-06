@@ -81,3 +81,14 @@ export const updateAppItem = async (appItem, onComplete) => {
         console.log(error);
     }
 }
+
+export const deleteAppItem = appItemKey => {
+    const userId = getCurrentUser().uid;
+
+    database()
+        .ref(`/appItemThumbnailList/${userId}/${appItemKey}`)
+        .remove();
+    database()
+        .ref(`/appItemList/${appItemKey}`)
+        .remove();
+}

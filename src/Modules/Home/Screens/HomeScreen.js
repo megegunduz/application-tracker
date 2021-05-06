@@ -10,12 +10,13 @@ import { Svgs } from '../../../StylingConstants';
 import FlatListFooter from '../Components/FlatListFooter';
 
 import getStyles from '../Styles/HomeScreenStyles';
-import { subscribeToAppItemData } from '../API/Firebase';
+import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
 
 const HomeScreen = () => {
 
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const [applications, setApplications] = useState(null);
+    const [selectedItems, setSelectedItems] = useState([]);
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -31,15 +32,23 @@ const HomeScreen = () => {
         }
     }, [])
 
+    const _addItemToSelectedList = async (appItemKey) => {
+        let copyList = [...selectedItems];
+        copyList.push(appItemKey);
+        setSelectedItems(copyList);   
+    }
+
     const _renderApplicatonItem = ({ item }) => {
         return (
             <ApplicationItem
                 companyName={item.companyName}
                 position={item.position}
                 applicationDate={item.applicationDate}
+                appItemKey={item.key}
                 onPress={() => _onPress_NavigateToEditAppScreen(item)}
                 onLongPress={_onLongPress_TurnOnDeleteMode}
                 deleteMode={isDeleteMode}
+                onSelect={_addItemToSelectedList}
             />
         )
     }
@@ -55,8 +64,13 @@ const HomeScreen = () => {
 
     }
 
-    const _onPress_NavigateToAddAppScreen = () => {
-        if (!isDeleteMode) {
+    const _onPress_NavigateOrDelete = () => {
+        if (isDeleteMode) {
+            for (let item in selectedItems) {
+                deleteAppItem(selectedItems[item]);
+            }
+        }
+        else {
             navigation.navigate("add-application-screen");
         }
     }
@@ -82,7 +96,7 @@ const HomeScreen = () => {
                         ListFooterComponent={<FlatListFooter />}
                     />
                 </View>
-                <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateToAddAppScreen}>
+                <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>
                     <Icon svg={add_deleteIcon} iconStyle={styles.add_deleteIcon} />
                 </TouchableOpacity>
                 {

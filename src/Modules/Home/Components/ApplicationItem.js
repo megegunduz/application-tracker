@@ -17,9 +17,12 @@ const ApplicationItem = props => {
     const { styles, colors } = useThemedValues(getStyles, stylingParams);
 
     const svg = isSelected ? Svgs.CheckboxChecked : Svgs.CheckboxUnchecked;
+
+    const appItemKey = props.appItemKey;
     
     const _onPress_SelectItem = () => {
         setIsSelected(!isSelected);
+        props.onSelect(appItemKey);
     }
 
     return (
