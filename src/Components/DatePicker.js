@@ -15,7 +15,6 @@ const DatePicker = (props) => {
     const [date, setDate] = useState(null);
     const [showPicker, setShowPicker] = useState(false);
     const [dateToDisplay, setDateToDisplay] = useState(null);
-    const [mode, setMode] = useState('date');
 
     const { styles, colors } = useThemedValues(getStyles, isSelected);
 
@@ -29,7 +28,6 @@ const DatePicker = (props) => {
     
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
-        setMode('time');
         setShowPicker(Platform.OS === 'ios');
         setDate(currentDate);
         let momentDate = moment(currentDate);
@@ -50,7 +48,6 @@ const DatePicker = (props) => {
                     value={new Date()}
                     is24Hour={true}
                     onChange={onChange}
-                    mode={mode}
                 />
             )}
         </View>
