@@ -15,6 +15,7 @@ const DatePicker = (props) => {
     const [date, setDate] = useState(null);
     const [showPicker, setShowPicker] = useState(false);
     const [dateToDisplay, setDateToDisplay] = useState(null);
+    const [mode, setMode] = useState('date');
 
     const { styles, colors } = useThemedValues(getStyles, isSelected);
 
@@ -22,15 +23,19 @@ const DatePicker = (props) => {
     const locale = useLocale();
 
     const pickDateText = loc.t(tn.pickDate);
+
+    const localeDateFormatToDisplay = locale === "tr" ? 'DD MMM YYYY' : 'MMM DD YYYY'
+
     
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
+        setMode('time');
         setShowPicker(Platform.OS === 'ios');
         setDate(currentDate);
         let momentDate = moment(currentDate);
-        props.transferPickedDate(momentDate)
+        props.transferPickedDate(momentDate.format('MM/DD/YYYY-HH:mm'))
         setIsSelected(true);
-        setDateToDisplay(momentDate.locale(locale).format('DD MMM YYYY'))
+        setDateToDisplay(momentDate.locale(locale).format(localeDateFormatToDisplay))
     };
 
     return (
@@ -45,6 +50,7 @@ const DatePicker = (props) => {
                     value={new Date()}
                     is24Hour={true}
                     onChange={onChange}
+                    mode={mode}
                 />
             )}
         </View>
