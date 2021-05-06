@@ -49,6 +49,7 @@ const HomeScreen = () => {
             // Navigate to EditApplicationScreen route with pressed item as params
             navigation.navigate("edit-application-screen", {
                 applicationItem,
+                appItemKey: applicationItem.key,
             });
         }
 

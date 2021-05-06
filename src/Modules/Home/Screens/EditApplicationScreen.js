@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, Linking } from 'react-native';
 
 import ApplicationInput from '../Components/ApplicationInput';
@@ -9,6 +9,7 @@ import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
+import { getAppItemDetail } from '../API/Firebase';
 
 const dummyInterviews = [
     {
@@ -40,12 +41,20 @@ const dummyInterviews = [
 const EditApplicationScreen = props => {
 
     const { applicationItem } = props.route.params;
-
+    const appItemKey = props.route.params.appItemKey;
     const [addModalVisible, setAddModalVisible] = useState(false);
     const [detailModalVisible, setDetailModalVisible] = useState(false);
     const [selectedInterview, setSelectedInterview] = useState({});
-    const [URL, setURL] = useState(applicationItem.URL);
+    const [URL, setURL] = useState(null);
+    const [note, setNote] = useState(null);
 
+    useEffect(() => {
+        getAppItemDetail(appItemKey, appItem => {
+            setURL(appItem.URL);
+            setNote(appItem.note);
+        })
+    }, [])
+    
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
@@ -120,7 +129,7 @@ const EditApplicationScreen = props => {
                 <ApplicationInput
                     placeholder={loc.t(tn.url)}
                     borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={applicationItem.URL}
+                    defaultValue={URL}
                     numberOfLines={1}
                     isURL={true}
                     onChangeText={getURL}
@@ -129,7 +138,7 @@ const EditApplicationScreen = props => {
                 <ApplicationInput
                     placeholder={loc.t(tn.note)}
                     borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={applicationItem.note}
+                    defaultValue={note}
                     isNoteInput={true}
                 />
                 <View>

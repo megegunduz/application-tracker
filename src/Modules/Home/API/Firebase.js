@@ -9,9 +9,7 @@ export const subscribeToAppItemData = (onDataRetrieved) => {
         .ref(`/appItemThumbnailList/${userId}`)
         .on('value', snapshot => {
             const rawData = snapshot.val();
-            console.log("rawData: ", rawData);
             const convertedList = convertRawData(rawData);
-            console.log("convertedList: ", convertedList)
             onDataRetrieved(convertedList);
         });
 
@@ -20,6 +18,15 @@ export const subscribeToAppItemData = (onDataRetrieved) => {
                 .ref(`/appItemThumbnailList/${userId}`)
                 .off('value');
         }
+}
+
+export const getAppItemDetail = (appItemKey, onRetrieved) => {
+    database()
+        .ref(`/appItemList/${appItemKey}`)
+        .once('value')
+        .then(snapshot => {
+            onRetrieved(snapshot.val())
+        })
 }
 
 export const addAppItem = async(appItem, onComplete) => {
@@ -41,7 +48,7 @@ export const addAppItem = async(appItem, onComplete) => {
         const appItemKey = newAppItemThumbnailRef.key;
 
         await database()
-            .ref(`appItemList/${appItemKey}`)
+            .ref(`/appItemList/${appItemKey}`)
             .set(appItem);
 
         onComplete();
