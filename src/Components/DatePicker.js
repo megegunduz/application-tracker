@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Platform, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
 import trloc from 'moment/locale/tr';
@@ -25,7 +25,13 @@ const DatePicker = (props) => {
 
     const localeDateFormatToDisplay = locale === "tr" ? 'DD MMM YYYY' : 'MMM DD YYYY'
 
-    
+    useEffect(() => {
+        if (props.defaultValue) {
+            setDateToDisplay(props.defaultValue)
+            setIsSelected(true);
+        }
+    })
+
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShowPicker(Platform.OS === 'ios');

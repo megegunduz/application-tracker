@@ -9,7 +9,7 @@ import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
-import { getAppItemDetail } from '../API/Firebase';
+import { getAppItemDetail, updateAppItem } from '../API/Firebase';
 
 const dummyInterviews = [
     {
@@ -45,6 +45,9 @@ const EditApplicationScreen = props => {
     const [addModalVisible, setAddModalVisible] = useState(false);
     const [detailModalVisible, setDetailModalVisible] = useState(false);
     const [selectedInterview, setSelectedInterview] = useState({});
+    const [companyName, setCompanyName] = useState(applicationItem.companyName);
+    const [position, setPosition] = useState(applicationItem.position);
+    const [applicationDate, setApplicationDate] = useState(applicationItem.applicationDate);
     const [URL, setURL] = useState(null);
     const [note, setNote] = useState(null);
 
@@ -54,7 +57,7 @@ const EditApplicationScreen = props => {
             setNote(appItem.note);
         })
     }, [])
-    
+
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
@@ -71,6 +74,10 @@ const EditApplicationScreen = props => {
             );
         })
         return interviews;
+    };
+
+    const getDate = (dateFromDatePicker) => {
+        setApplicationDate(dateFromDatePicker);
     };
 
     const _onPress_OpenAddModal = () => {
@@ -91,10 +98,6 @@ const EditApplicationScreen = props => {
         setSelectedInterview({});
     }
 
-    const getURL = (URLfromInput) => {
-        setURL(URLfromInput);
-    }
-
     const _OpenURL = async () => {
         const url = applicationItem.URL;
         const supported = await Linking.canOpenURL(url);
@@ -107,61 +110,85 @@ const EditApplicationScreen = props => {
         }
     }
 
+    const _onPress_Save = () => {
+        const appItem = {
+            key: appItemKey,
+            companyName: companyName,
+            position: position,
+            applicationDate: applicationDate,
+            URL: URL,
+            note: note,
+        }
+
+        const onComplete = () => {
+            props.navigation.goBack();
+        }
+
+
+        updateAppItem(appItem, onComplete);
+
+    }
+
     return (
         <>
-        <View style={styles.container}>
-            <ScrollView>
-                <ApplicationInput
-                    placeholder={loc.t(tn.companyName)}
-                    borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={applicationItem.companyName}
-                />
-                <ApplicationInput
-                    placeholder={loc.t(tn.position)}
-                    borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={applicationItem.position}
-                />
-                <ApplicationInput
-                    placeholder={loc.t(tn.applicationDate)}
-                    borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={applicationItem.applicationDate}
-                />
-                <ApplicationInput
-                    placeholder={loc.t(tn.url)}
-                    borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={URL}
-                    numberOfLines={1}
-                    isURL={true}
-                    onChangeText={getURL}
-                    openURL={_OpenURL}
-                />
-                <ApplicationInput
-                    placeholder={loc.t(tn.note)}
-                    borderColor={colors[cn.home.applicationItemBorder]}
-                    defaultValue={note}
-                    isNoteInput={true}
-                />
-                <View>
-                    <View style={styles.headerContainer}>
-                        <Text style={styles.headerText}>{loc.t(tn.interviews)}</Text>
+            <View style={styles.container}>
+                <ScrollView>
+                    <ApplicationInput
+                        placeholder={loc.t(tn.companyName)}
+                        borderColor={colors[cn.home.applicationItemBorder]}
+                        defaultValue={companyName}
+                        onChangeText={setCompanyName}
+                    />
+                    <ApplicationInput
+                        placeholder={loc.t(tn.position)}
+                        borderColor={colors[cn.home.applicationItemBorder]}
+                        defaultValue={position}
+                        onChangeText={setPosition}
+                    />
+                    <ApplicationInput
+                        placeholder={loc.t(tn.applicationDate)}
+                        borderColor={colors[cn.home.applicationItemBorder]}
+                        defaultValue={applicationDate}
+                        isDateInput={true}
+                        transferPickedDate={getDate}
+                    />
+                    <ApplicationInput
+                        placeholder={loc.t(tn.url)}
+                        borderColor={colors[cn.home.applicationItemBorder]}
+                        defaultValue={URL}
+                        numberOfLines={1}
+                        isURL={true}
+                        onChangeText={setURL}
+                        openURL={_OpenURL}
+                    />
+                    <ApplicationInput
+                        placeholder={loc.t(tn.note)}
+                        borderColor={colors[cn.home.applicationItemBorder]}
+                        defaultValue={note}
+                        isNoteInput={true}
+                        onChangeText={setNote}
+                    />
+                    <View>
+                        <View style={styles.headerContainer}>
+                            <Text style={styles.headerText}>{loc.t(tn.interviews)}</Text>
+                        </View>
+                        <View style={styles.interviewsContainer}>
+                            {_renderInterviewItem()}
+                        </View>
+                        <View style={styles.addButtonContainer}>
+                            <TouchableOpacity style={styles.addButton} onPress={_onPress_OpenAddModal}>
+                                <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={styles.interviewsContainer}>
-                        {_renderInterviewItem()}
-                    </View>
-                    <View style={styles.addButtonContainer}>
-                        <TouchableOpacity style={styles.addButton}  onPress={_onPress_OpenAddModal}>
-                            <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
 
-            <View style={styles.buttonContainer}>
-                <CommonButton text={upperCaseButtonText} />
+                <View style={styles.buttonContainer}>
+                    <CommonButton text={upperCaseButtonText} onPress={_onPress_Save} />
+                </View>
             </View>
-        </View>
-        <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal}/>
-        <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview}/>
+            <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} />
+            <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} />
         </>
     );
 };

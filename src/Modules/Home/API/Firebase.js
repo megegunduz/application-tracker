@@ -56,3 +56,28 @@ export const addAppItem = async(appItem, onComplete) => {
         
     }
 }
+
+export const updateAppItem = async (appItem, onComplete) => {
+    try {
+        await database()
+            .ref(`/appItemList/${appItem.key}`)
+            .update(appItem);
+
+        const appItemThumbnail = {
+            companyName: appItem.companyName,
+            position: appItem.position,
+            applicationDate: appItem.applicationDate,
+            URL: appItem.URL,
+            note: appItem.note,
+        }
+
+        const userId = getCurrentUser().uid;
+        await database()
+            .ref(`/appItemThumbnailList/${userId}/${appItem.key}`)
+            .update(appItemThumbnail);
+        
+        onComplete();
+    } catch (error) {
+        console.log(error);
+    }
+}

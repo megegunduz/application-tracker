@@ -23,7 +23,9 @@ const ApplicationInput = props => {
             {
                 props.isDateInput ?
                     <TouchableOpacity style={styles.datePickerContainer}>
-                        <DatePicker transferPickedDate={props.transferPickedDate}/>
+                        <DatePicker
+                            transferPickedDate={props.transferPickedDate}
+                            defaultValue={props.defaultValue}/>
                     </TouchableOpacity>
                     :
                     <View style={styles.input}>
