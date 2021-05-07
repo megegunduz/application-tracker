@@ -99,6 +99,7 @@ export const addInterview = async (applicationItem, interview, onComplete) => {
         const interviewThumbnail = {
             title: interview.title,
             date: interview.date,
+            details: interview.details,
         };
 
         const userId = getCurrentUser().uid;
@@ -110,7 +111,13 @@ export const addInterview = async (applicationItem, interview, onComplete) => {
         
         await newInterviewThumbnailRef.set(interviewThumbnail);
 
-        onComplete();
+        const interviewKey = newInterviewThumbnailRef.key;
+
+        await database()
+            .ref(`/appItemThumbnailList/${userId}/${appItemKey}/interviews/${interviewKey}`)
+            .set(interview);
+        
+            onComplete();
 
     } catch (error) {
         
