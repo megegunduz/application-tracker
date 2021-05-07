@@ -70,6 +70,7 @@ const HomeScreen = () => {
             for (let item in selectedItems) {
                 deleteAppItem(selectedItems[item]);
             }
+            setIsDeleteMode(false);
         }
         else {
             navigation.navigate("add-application-screen");
