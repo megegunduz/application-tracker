@@ -76,8 +76,6 @@ const EditApplicationScreen = props => {
         return interviews;
     };
 
-    console.log(URL)
-
     const getDate = (dateFromDatePicker) => {
         setApplicationDate(dateFromDatePicker);
     };
