@@ -5,6 +5,7 @@ import { Text, View } from 'react-native';
 import BorderedBox from '../../../Components/BorderedBox';
 import { useThemedValues } from '../../Theming';
 import { tn, useLocalization } from '../../Localization';
+import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/InterviewDetailsModalStyles';
 
@@ -34,6 +35,7 @@ const InterviewDetailModal = props => {
                 <BorderedBox style={styles.detailsBox}>
                     <Text style={styles.text}>{interview.details}</Text>
                 </BorderedBox>
+                <CommonButton style={styles.deleteButton} text={"SİL"} />
             </View>
         </Modal>
     );

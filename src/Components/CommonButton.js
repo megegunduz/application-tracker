@@ -9,8 +9,13 @@ const CommonButton = props => {
 
     const { styles, colors } = useThemedValues(getStyles);
 
+    let buttonStyle = {
+        ...styles.buttonTouchable,
+        ...props.style,
+    };
+
     return (
-        <TouchableOpacity style={styles.buttonTouchable} onPress={props.onPress}>
+        <TouchableOpacity style={buttonStyle} onPress={props.onPress}>
             <Text style={styles.buttonText}>{props.text}</Text>
         </TouchableOpacity>
     );

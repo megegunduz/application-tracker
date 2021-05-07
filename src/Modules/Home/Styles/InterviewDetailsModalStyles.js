@@ -7,10 +7,11 @@ export default (Colors) => StyleSheet.create({
         height: Metrics.height * 0.75,
         backgroundColor: Colors[cn.home.background],
         alignItems: 'center',
-        paddingVertical: Metrics.marginHorizontalLarge,
+        paddingTop: Metrics.marginHorizontal * 0.5,
         borderRadius: Metrics.borderRadiusStandard,
         borderColor: Colors[cn.home.applicationItemBorder],
         borderWidth: 1,
+        // paddingBottom: 10,
     },
     sectionTitle:{
         alignSelf: 'flex-start',
@@ -30,5 +31,9 @@ export default (Colors) => StyleSheet.create({
         flexGrow: 1,
         justifyContent: 'flex-start',
         padding: Metrics.marginHorizontal * 0.8,
+    },
+    deleteButton: {
+        width: Metrics.width * 0.75,
+        marginVertical: Metrics.marginHorizontal * 0.5,
     },
 });
