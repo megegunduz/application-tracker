@@ -36,7 +36,6 @@ const ApplicationInput = props => {
                         multiline={props.isURL ? false : true}
                         numberOfLines={props.numberOfLines}
                         onChangeText={props.onChangeText}
-                        selection={{start: 0}}
                     />
                     {
                         props.isURL ?
