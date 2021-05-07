@@ -16,7 +16,7 @@ const ApplicationInput = props => {
         isNoteInput,
     } = props;
 
-    const { styles, colors } = useThemedValues(getStyles, stylingParams);
+    const { styles, colors } = useThemedValues(getStyles, props);
 
     return (
         <View style={styles.inputContainer}>
@@ -36,6 +36,7 @@ const ApplicationInput = props => {
                         multiline={props.isURL ? false : true}
                         numberOfLines={props.numberOfLines}
                         onChangeText={props.onChangeText}
+                        selection={{start: 0}}
                     />
                     {
                         props.isURL ?

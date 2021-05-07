@@ -26,7 +26,8 @@ export default (Colors, params) => StyleSheet.create({
         justifyContent: 'space-between',
     },
     textInput: {
-        flexShrink: 1,
+        flexGrow: params.isURL ? 0 : 1,
+        flexShrink: params.isURL ? 1 : 0,
     },
     iconContainer: {
         width: '10%',
