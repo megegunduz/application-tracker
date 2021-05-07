@@ -76,6 +76,8 @@ const EditApplicationScreen = props => {
         return interviews;
     };
 
+    console.log(URL)
+
     const getDate = (dateFromDatePicker) => {
         setApplicationDate(dateFromDatePicker);
     };
@@ -99,7 +101,7 @@ const EditApplicationScreen = props => {
     }
 
     const _OpenURL = async () => {
-        const url = applicationItem.URL;
+        const url = URL;
         const supported = await Linking.canOpenURL(url);
 
         if (supported) {
