@@ -142,3 +142,14 @@ export const subscribeToInterviews = (applicationItem, onDataRetrieved) => {
                 .off('value');
         }
 }
+
+export const deleteInterview = (appItemKey, interviewKey, onComplete) => {
+    const userId = getCurrentUser().uid;
+    database()
+        .ref(`/appItemList/${appItemKey}/interviews/${interviewKey}`)
+        .remove();
+    database()
+        .ref(`/appItemThumbnailList/${userId}/${appItemKey}/interviews/${interviewKey}`)
+        .remove();
+    onComplete();
+}

@@ -199,7 +199,7 @@ const EditApplicationScreen = props => {
                 </View>
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem}/>
-            <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} />
+            <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key}/>
         </>
     );
 };

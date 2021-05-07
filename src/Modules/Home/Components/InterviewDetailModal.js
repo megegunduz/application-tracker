@@ -8,13 +8,19 @@ import { tn, useLocalization } from '../../Localization';
 import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/InterviewDetailsModalStyles';
+import { deleteInterview } from '../API/Firebase';
 
 const InterviewDetailModal = props => {
 
     const { styles } = useThemedValues(getStyles);
     const loc = useLocalization();
 
-    const interview = props.interview;
+    const {interview, appItemKey} = props;
+    const interviewKey = interview.key;
+
+    const _onPress_DeleteInterview = () => {
+        deleteInterview(appItemKey, interviewKey, props.closeModal)
+    }
 
     return (
         <Modal
@@ -35,7 +41,7 @@ const InterviewDetailModal = props => {
                 <BorderedBox style={styles.detailsBox}>
                     <Text style={styles.text}>{interview.details}</Text>
                 </BorderedBox>
-                <CommonButton style={styles.deleteButton} text={"SİL"} />
+                <CommonButton style={styles.deleteButton} text={"SİL"} onPress={_onPress_DeleteInterview}/>
             </View>
         </Modal>
     );
