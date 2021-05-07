@@ -85,7 +85,7 @@ const HomeScreen = () => {
 
     const add_deleteIcon = isDeleteMode ? Svgs.Delete : Svgs.Plus;
 
-    let numberOfApplications = applications.length;
+    let numberOfApplications = applications ? applications.length : 0;
 
     return (
         <SafeAreaView style={styles.safeArea}>
