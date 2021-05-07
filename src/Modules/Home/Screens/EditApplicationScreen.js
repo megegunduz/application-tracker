@@ -187,7 +187,7 @@ const EditApplicationScreen = props => {
                     <CommonButton text={upperCaseButtonText} onPress={_onPress_Save} />
                 </View>
             </View>
-            <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} />
+            <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem}/>
             <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} />
         </>
     );

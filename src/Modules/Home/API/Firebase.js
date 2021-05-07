@@ -92,3 +92,27 @@ export const deleteAppItem = appItemKey => {
         .ref(`/appItemList/${appItemKey}`)
         .remove();
 }
+
+export const addInterview = async (applicationItem, interview, onComplete) => {
+    try {
+        
+        const interviewThumbnail = {
+            title: interview.title,
+            date: interview.date,
+        };
+
+        const userId = getCurrentUser().uid;
+        const appItemKey = applicationItem.key;
+
+        const newInterviewThumbnailRef = database()
+            .ref(`/appItemList/${appItemKey}/interviews`)
+            .push()
+        
+        await newInterviewThumbnailRef.set(interviewThumbnail);
+
+        onComplete();
+
+    } catch (error) {
+        
+    }
+}
