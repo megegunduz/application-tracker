@@ -13,7 +13,7 @@ const FlatListFooter = props => {
 
     const loc = useLocalization();
 
-    const numberOfApplications = Data.length;
+    const numberOfApplications = props.numberOfApplications;
 
     const text = loc.t(tn.flatListFooterText, {numberOfApplications});
 

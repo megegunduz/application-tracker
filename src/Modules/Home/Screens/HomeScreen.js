@@ -85,6 +85,8 @@ const HomeScreen = () => {
 
     const add_deleteIcon = isDeleteMode ? Svgs.Delete : Svgs.Plus;
 
+    let numberOfApplications = applications.length;
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
@@ -93,7 +95,7 @@ const HomeScreen = () => {
                         data={applications}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
-                        ListFooterComponent={<FlatListFooter />}
+                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>
