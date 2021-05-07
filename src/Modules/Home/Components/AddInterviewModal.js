@@ -52,14 +52,16 @@ const AddInterviewModal = props => {
             <View style={styles.modalContentContainer}>
                 <BorderedBox style={styles.inputContainer}>
                     <TextInput
+                        style={styles.textInput}
                         placeholder={loc.t(tn.interviewTitle)}
                         onChangeText={setTitle}/>
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>
                     <DatePicker transferPickedDate={getDate}/>
                 </BorderedBox>
-                <BorderedBox style={styles.inputContainer}>
+                <BorderedBox style={styles.noteInputContainer}>
                     <TextInput
+                        style={styles.textInput}
                         placeholder={loc.t(tn.interviewDetail)}
                         multiline
                         onChangeText={setDetails}/>

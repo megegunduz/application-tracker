@@ -9,7 +9,7 @@ export default (Colors) => StyleSheet.create({
     },
     modalContentContainer: {
         width: Metrics.width * 0.8,
-        minHeight: Metrics.width * 0.55,
+        minHeight: Metrics.height * 0.5,
         backgroundColor: Colors[cn.home.background],
         borderColor: Colors[cn.home.applicationItemBorder],
         borderWidth: 1,
@@ -20,6 +20,15 @@ export default (Colors) => StyleSheet.create({
     },
     inputContainer: {
         marginBottom: Metrics.width * 0.03,
+    },
+    noteInputContainer: {
+        flexGrow: 1,
+        justifyContent: 'flex-start',
+        marginBottom: Metrics.width * 0.03,
+    },
+    textInput: {
+        width: Metrics.width * 0.7,
+        paddingRight: Metrics.width * 0.05,
     },
     addButton: {
         backgroundColor: Colors[cn.editApplication.addButton],
