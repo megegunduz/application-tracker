@@ -4,13 +4,14 @@ import { useNavigation } from '@react-navigation/core';
 
 import { useThemedValues } from '../../Theming';
 import ApplicationItem from '../Components/ApplicationItem';
-import DummyData from '../DummyJobApplicationData';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
 import FlatListFooter from '../Components/FlatListFooter';
+import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
+import EmptyListComponent from '../Components/EmptyListComponent';
 
 import getStyles from '../Styles/HomeScreenStyles';
-import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
+
 
 const HomeScreen = () => {
 
@@ -95,6 +96,7 @@ const HomeScreen = () => {
                         data={applications}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
+                        ListEmptyComponent={<EmptyListComponent />}
                         ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
                     />
                 </View>
