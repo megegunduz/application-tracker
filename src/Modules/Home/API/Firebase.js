@@ -1,6 +1,6 @@
 import database from '@react-native-firebase/database';
 import { getCurrentUser } from '../../Auth'
-import { convertRawData } from './Converter';
+import { convertRawData, convertInterview } from './Converter';
 
 export const subscribeToAppItemData = (onDataRetrieved) => {
     const userId = getCurrentUser().uid;
@@ -122,4 +122,23 @@ export const addInterview = async (applicationItem, interview, onComplete) => {
     } catch (error) {
         
     }
+}
+
+export const subscribeToInterviews = (applicationItem, onDataRetrieved) => {
+    const userId = getCurrentUser().uid;
+    const appItemKey = applicationItem.key;
+
+    database()
+        .ref(`/appItemThumbnailList/${userId}/${appItemKey}/interviews`)
+        .on('value', snapshot => {
+            const rawData = snapshot.val();
+            const convertedList = convertInterview(rawData);
+            onDataRetrieved(convertedList);
+        });
+
+        return () => {
+            database()
+                .ref(`/appItemThumbnailList/${userId}/${appItemKey}/interviews`)
+                .off('value');
+        }
 }

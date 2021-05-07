@@ -18,3 +18,20 @@ export const convertRawData = rawData => {
 
     return convertedAppList;
 }
+
+export const convertInterview = rawData => {
+    if (rawData?.length === 0) {
+        return [];
+    }
+
+    let convertedInterviewList = [];
+    let interview;
+
+    for (let interviewKey in rawData) {
+        interview = rawData[interviewKey];
+        interview.key = interviewKey;
+        convertedInterviewList.push(interview);
+    }
+
+    return convertedInterviewList;
+}

@@ -22,9 +22,9 @@ const InterviewDetailModal = props => {
             onBackButtonPress={props.closeModal}
         >
             <View style={styles.modalContentContainer}>
-                <Text style={styles.sectionTitle}>{loc.t(tn.interviewType)}</Text>
+                <Text style={styles.sectionTitle}>{loc.t(tn.interviewTitle)}</Text>
                 <BorderedBox>
-                    <Text style={styles.text} numberOfLines={1}>{interview.type}</Text>
+                    <Text style={styles.text} numberOfLines={1}>{interview.title}</Text>
                 </BorderedBox>
                 <Text style={styles.sectionTitle}>{loc.t(tn.applicationDate)}</Text>
                 <BorderedBox>

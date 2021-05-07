@@ -41,8 +41,6 @@ const AddInterviewModal = props => {
         addInterview(applicationItem, interview, onComplete);
     }
 
-    console.log(applicationItem.key)
-
     return (
 
         <Modal
@@ -54,7 +52,7 @@ const AddInterviewModal = props => {
             <View style={styles.modalContentContainer}>
                 <BorderedBox style={styles.inputContainer}>
                     <TextInput
-                        placeholder={loc.t(tn.interviewType)}
+                        placeholder={loc.t(tn.interviewTitle)}
                         onChangeText={setTitle}/>
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>

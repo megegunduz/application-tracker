@@ -31,7 +31,7 @@ export const tn = {
     addInterview: 'addInterview',
     save: 'save',
     pickDate: 'pinckDate',
-    interviewType: 'interviewType',
+    interviewTitle: 'interviewTitle',
     interviewDetail: 'interviewDetail',
     flatListFooterText: 'flatListFooterText',
     emptyComponentText: 'emptyComponentText',
@@ -70,7 +70,7 @@ export const english = {
     [tn.addInterview]: 'Add Interview',
     [tn.save]: 'Save',
     [tn.pickDate]: 'Pick date',
-    [tn.interviewType]: 'Interview Type',
+    [tn.interviewTitle]: 'Interview Title',
     [tn.interviewDetail]: 'Interview Details',
     [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
     [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`
@@ -109,7 +109,7 @@ export const turkish = {
     [tn.addInterview]: 'Görüşme ekle',
     [tn.save]: 'Kaydet',
     [tn.pickDate]: 'Tarih seç',
-    [tn.interviewType]: 'Görüşme Tipi',
+    [tn.interviewTitle]: 'Görüşme Başlığı',
     [tn.interviewDetail]: 'Görüşme Detayı',
     [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
     [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`

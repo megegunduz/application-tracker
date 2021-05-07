@@ -9,7 +9,7 @@ import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
-import { getAppItemDetail, updateAppItem } from '../API/Firebase';
+import { getAppItemDetail, subscribeToInterviews, updateAppItem } from '../API/Firebase';
 
 const dummyInterviews = [
     {
@@ -50,6 +50,17 @@ const EditApplicationScreen = props => {
     const [applicationDate, setApplicationDate] = useState(applicationItem.applicationDate);
     const [URL, setURL] = useState(null);
     const [note, setNote] = useState(null);
+    const [interviews, setInterviews] = useState(null);
+
+    useEffect(() => {
+        const off = subscribeToInterviews(applicationItem, data => {
+            setInterviews(data);
+        })
+        
+        return () => {
+            off();
+        }
+    }, [])
 
     useEffect(() => {
         getAppItemDetail(appItemKey, appItem => {
@@ -65,15 +76,15 @@ const EditApplicationScreen = props => {
     const upperCaseButtonText = loc.t(tn.save).toLocaleUpperCase();
 
     const _renderInterviewItem = () => {
-        let interviews = dummyInterviews.map((interview, index) => {
+        let interviewss = interviews?.map((interview, index) => {
             return (
                 <TouchableOpacity key={index} style={styles.interviewItem} interview={interview} onPress={() => _onPress_OpenDetailsModal(interview)}>
-                    <Text style={styles.interviewText} numberOfLines={1}>{interview.type}</Text>
+                    <Text style={styles.interviewText} numberOfLines={1}>{interview.title}</Text>
                     <Text style={styles.dateText}>{interview.date}</Text>
                 </TouchableOpacity>
             );
         })
-        return interviews;
+        return interviewss;
     };
 
     const getDate = (dateFromDatePicker) => {
