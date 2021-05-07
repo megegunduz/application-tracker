@@ -24,12 +24,9 @@ export default (Colors, params) => StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor:'pink'
     },
     textInput: {
         flexShrink: 1,
-        backgroundColor: 'yellow',
-        minWidth: params.isNoteInput ? null : Metrics.width*0.8
     },
     iconContainer: {
         width: '10%',

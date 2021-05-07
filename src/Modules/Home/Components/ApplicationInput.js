@@ -16,8 +16,6 @@ const ApplicationInput = props => {
         isNoteInput,
     } = props;
 
-    console.log("props at inputr: ", props.isDateInput)
-
     const { styles, colors } = useThemedValues(getStyles, stylingParams);
 
     return (
