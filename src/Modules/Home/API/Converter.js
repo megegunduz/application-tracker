@@ -7,7 +7,7 @@ const getLocaleDateFormat = (locale) => {
     let dateFormat;
     switch (locale) {
         case Locales.turkish:
-            dateFormat = "DD/MMMM/YYYY";
+            dateFormat = "DD/MM/YYYY";
             return dateFormat;
         case Locales.english:
             dateFormat = "MM/DD/YYYY";
