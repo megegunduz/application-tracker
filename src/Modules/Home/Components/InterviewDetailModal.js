@@ -4,16 +4,18 @@ import { Text, View } from 'react-native';
 
 import BorderedBox from '../../../Components/BorderedBox';
 import { useThemedValues } from '../../Theming';
-import { tn, useLocalization } from '../../Localization';
+import { tn, useLocale, useLocalization } from '../../Localization';
 import CommonButton from '../../../Components/CommonButton';
+import { deleteInterview } from '../API/Firebase';
+import { customUpperCase } from '../../../Utils/CustomUpperCase';
 
 import getStyles from '../Styles/InterviewDetailsModalStyles';
-import { deleteInterview } from '../API/Firebase';
 
 const InterviewDetailModal = props => {
 
     const { styles } = useThemedValues(getStyles);
     const loc = useLocalization();
+    const locale = useLocale();
 
     const {interview, appItemKey} = props;
     const interviewKey = interview.key;
@@ -21,6 +23,8 @@ const InterviewDetailModal = props => {
     const _onPress_DeleteInterview = () => {
         deleteInterview(appItemKey, interviewKey, props.closeModal)
     }
+
+    const deleteButtonText = customUpperCase(loc.t(tn.delete), locale)
 
     return (
         <Modal
@@ -41,7 +45,7 @@ const InterviewDetailModal = props => {
                 <BorderedBox style={styles.detailsBox}>
                     <Text style={styles.text}>{interview.details}</Text>
                 </BorderedBox>
-                <CommonButton style={styles.deleteButton} text={"SİL"} onPress={_onPress_DeleteInterview}/>
+                <CommonButton style={styles.deleteButton} text={deleteButtonText} onPress={_onPress_DeleteInterview}/>
             </View>
         </Modal>
     );

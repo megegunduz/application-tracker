@@ -35,6 +35,7 @@ export const tn = {
     interviewDetail: 'interviewDetail',
     flatListFooterText: 'flatListFooterText',
     emptyComponentText: 'emptyComponentText',
+    delete: 'delete',
 };
 
 export const english = {
@@ -73,7 +74,8 @@ export const english = {
     [tn.interviewTitle]: 'Interview Title',
     [tn.interviewDetail]: 'Interview Details',
     [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
-    [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`
+    [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`,
+    [tn.delete]: 'Delete',
 }
 
 export const turkish = {
@@ -112,5 +114,6 @@ export const turkish = {
     [tn.interviewTitle]: 'Görüşme Başlığı',
     [tn.interviewDetail]: 'Görüşme Detayı',
     [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
-    [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`
+    [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`,
+    [tn.delete]: 'Sil',
 }
