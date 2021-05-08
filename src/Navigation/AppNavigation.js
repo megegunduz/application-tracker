@@ -8,9 +8,10 @@ import AddApplicationScreen from '../Modules/Home/Screens/AddApplicationScreen';
 import EditApplicationScreen from '../Modules/Home/Screens/EditApplicationScreen';
 
 import { useThemedValues } from '../Modules/Theming';
-import { tn, useLocalization } from '../Modules/Localization';
+import { tn, useLocale, useLocalization } from '../Modules/Localization';
 
 import getStackScreenOptions from './Styles/StackScreenOptions';
+import { customUpperCase } from '../Utils/CustomUpperCase';
 
 
 const AppStack = createStackNavigator();
@@ -20,8 +21,9 @@ const AppNavigation = props => {
     const { styles, colors } = useThemedValues(getStackScreenOptions)
 
     const loc = useLocalization();
+    const locale = useLocale();
     const upperCaseText = (text) => {
-        return loc.t(text).toLocaleUpperCase();
+        return customUpperCase(loc.t(text), locale);
     }
 
     return (

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
-import { tn, useLocalization } from '../../Localization';
+import { tn, useLocale, useLocalization } from '../../Localization';
 import { cn, useThemedValues } from '../../Theming';
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/AddApplicationScreenStyles';
 import { addAppItem } from '../API/Firebase';
+import { customUpperCase } from '../../../Utils/CustomUpperCase';
 
 const AddApplicationScreen = props => {
 
@@ -20,8 +21,9 @@ const AddApplicationScreen = props => {
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
+    const locale = useLocale();
 
-    const upperCaseButtonText = loc.t(tn.addApplication).toLocaleUpperCase();
+    const upperCaseButtonText = customUpperCase(loc.t(tn.addApplication), locale);
 
     const getDate = (dateFromDatePicker) => {
         setDate(dateFromDatePicker);
