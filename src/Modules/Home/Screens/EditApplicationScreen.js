@@ -4,7 +4,7 @@ import { ScrollView, View, Text, TouchableOpacity, Linking } from 'react-native'
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
 import { cn, useThemedValues } from '../../Theming';
-import { tn, useLocalization } from '../../Localization';
+import { tn, useLocale, useLocalization } from '../../Localization';
 import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
 
@@ -52,8 +52,10 @@ const EditApplicationScreen = props => {
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
 
+    const locale = useLocale();
+
     useEffect(() => {
-        const off = subscribeToInterviews(applicationItem, data => {
+        const off = subscribeToInterviews(locale, applicationItem, data => {
             setInterviews(data);
         })
         

@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-nati
 import { useNavigation } from '@react-navigation/core';
 
 import { useThemedValues } from '../../Theming';
+import { useLocale } from '../../Localization';
 import ApplicationItem from '../Components/ApplicationItem';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
@@ -11,7 +12,6 @@ import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
 import EmptyListComponent from '../Components/EmptyListComponent';
 
 import getStyles from '../Styles/HomeScreenStyles';
-
 
 const HomeScreen = () => {
 
@@ -22,16 +22,17 @@ const HomeScreen = () => {
     const { styles, colors } = useThemedValues(getStyles);
 
     const navigation = useNavigation();
+    const locale = useLocale();
 
     useEffect(() => {
-        const off = subscribeToAppItemData(data => {
+        const off = subscribeToAppItemData(locale, data => {
             setApplications(data);
         });
 
         return () => {
             off();
         }
-    }, [])
+    }, [locale])
 
     const _addItemToSelectedList = async (appItemKey) => {
         let copyList = [...selectedItems];

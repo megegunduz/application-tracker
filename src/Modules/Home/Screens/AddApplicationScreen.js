@@ -27,7 +27,6 @@ const AddApplicationScreen = props => {
         setDate(dateFromDatePicker);
     };
 
-    console.log("date at addappscreen: ", date )
     const _onPress_AddAppItem = () => {
         const appItem = {
             companyName: companyName,
