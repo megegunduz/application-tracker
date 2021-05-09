@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { UserActionCreators } from '../';
+import { ErrorActionCreators } from '../../Error/ErrorRedux';
+import { tn } from '../../Localization';
 import AuthScreenUI from './AuthScreenUI';
 
 const AuthScreen = () => {
@@ -13,9 +15,11 @@ const AuthScreen = () => {
 
     const dispatch = useDispatch();
 
+    const emptyFieldErrorCode = (tn.errorCodes["custom/fill-every-field"]);
+
     const _onPress_SignUp = () => {
         if (email.length === 0 || password.length === 0 || username.length === 0) {
-            alert('Lütfen tüm alanları doldurun.');
+            dispatch(ErrorActionCreators.setErrorExists(true, emptyFieldErrorCode))
         }
         else {
             dispatch(UserActionCreators.signUpRequest(email, password, username));
@@ -24,7 +28,7 @@ const AuthScreen = () => {
 
     const _onPress_SignIn = () => {
         if (email.length === 0 || password.length === 0) {
-            alert('Lütfen tüm alanları doldurun.');
+            dispatch(ErrorActionCreators.setErrorExists(true, emptyFieldErrorCode))
         }
         else {
             dispatch(UserActionCreators.signInRequest(email, password));
