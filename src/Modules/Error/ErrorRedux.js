@@ -2,12 +2,12 @@ export const ERROR_NAMESPACE = 'error';
 
 const INITIAL_STATE = {
     errorExists: false,
-    errorMessage: null,
+    errorCode: null,
 }
 
 export const ErrorSelectors = {
     errorExists: globalState => globalState[ERROR_NAMESPACE].errorExists,
-    errorMessage: globalState => globalState[ERROR_NAMESPACE].errorMessage,
+    errorCode: globalState => globalState[ERROR_NAMESPACE].errorCode
 }
 
 export const ErrorActionTypes = {
@@ -15,10 +15,10 @@ export const ErrorActionTypes = {
 };
 
 export const ErrorActionCreators = {
-    setErrorExists: (errorExists, errorMessage) => {
+    setErrorExists: (errorExists, errorCode) => {
         return {
             type: ErrorActionTypes.SET_ERROR_EXISTS,
-            payload: { errorExists, errorMessage },
+            payload: { errorExists, errorCode },
         };
     },
 };
@@ -28,7 +28,7 @@ export const errorReducer = (state = INITIAL_STATE, action) => {
         case ErrorActionTypes.SET_ERROR_EXISTS:
             return {
                 errorExists: action.payload.errorExists,
-                errorMessage: action.paylaod.errorMessage,
+                errorCode: action.payload.errorCode,
             }  
         default:
             return state;
