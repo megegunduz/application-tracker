@@ -43,6 +43,7 @@ export const tn = {
         "auth/user-not-found": "auth/user-not-found",
         "auth/network-request-faıled": "auth/network-request-faıled",
         "custom/fill-every-field": "custom/fill-every-field",
+        "custom/invalid-url": "custom/invalid-url",
     }
 };
 
@@ -90,6 +91,7 @@ export const english = {
     [tn.errorCodes["auth/user-not-found"]]: 'A user with this credentials does not exist. You can sign up!',
     [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
+    [tn.errorCodes["custom/invalid-url"]]: "Invalid URL."
 }
 
 export const turkish = {
@@ -136,4 +138,5 @@ export const turkish = {
     [tn.errorCodes["auth/user-not-found"]]: 'Bu bilgilere ait bir kullanıcı bulunamadı. Kayıt olabilirsin.',
     [tn.errorCodes["auth/network-request-faıled"]]: 'Bağlantı hatası. Ağ bağlantınızı kontrol edin.',
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
+    [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
 }

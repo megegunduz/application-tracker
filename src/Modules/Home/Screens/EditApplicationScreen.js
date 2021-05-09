@@ -10,6 +10,8 @@ import InterviewDetailModal from '../Components/InterviewDetailModal';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
 import { getAppItemDetail, subscribeToInterviews, updateAppItem } from '../API/Firebase';
+import { useDispatch } from 'react-redux';
+import { ErrorActionCreators } from '../../Error/ErrorRedux';
 
 const dummyInterviews = [
     {
@@ -51,6 +53,9 @@ const EditApplicationScreen = props => {
     const [URL, setURL] = useState(null);
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
+
+    const dispatch = useDispatch();
+    const invalidUrlErrorCode = tn.errorCodes['custom/invalid-url'];
 
     const locale = useLocale();
 
@@ -119,7 +124,7 @@ const EditApplicationScreen = props => {
             await Linking.openURL(url);
         }
         else {
-            alert(`Can't open: ${url}`)
+            dispatch(ErrorActionCreators.setErrorExists(true, invalidUrlErrorCode))
         }
     }
 
