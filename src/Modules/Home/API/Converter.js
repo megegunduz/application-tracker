@@ -18,8 +18,22 @@ const getLocaleDateFormat = (locale) => {
     }
 }
 
+const compareDates = (date, locale) => {
+    const now = moment();
+    const dateFormat = getLocaleDateFormat(locale);
+    const appItemDate = moment(date, dateFormat)
+    let pastOrFuture;
+    if (now.isBefore(appItemDate)) {
+        pastOrFuture = "future";
+    }
+    else if (now.isAfter(appItemDate)) {
+        pastOrFuture = "past";
+    }
+
+    return pastOrFuture;
+}
+
 const getMomentDate = (dateFromRawData) => {
-    // const dateFormat = getLocaleDateFormat(locale);
     const formatString = dateFormatStandard + " " + timeFormatStandard;
     return moment(dateFromRawData, formatString)
 }
@@ -45,8 +59,9 @@ export const convertRawData = (locale, rawData) => {
         return [];
     }
 
-    let convertedAppList = [];
     let appItem;
+    let pastApps = [];
+    let futureApps = [];
 
     for (let appItemKey in rawData) {
         // Take next appItem
@@ -56,11 +71,18 @@ export const convertRawData = (locale, rawData) => {
 
         // Convert the appItem
         let convertedItem = convertSingleItem(locale, appItem);
+        let dateToCompare = convertedItem.applicationDate;
+        const pastOrFuture = compareDates(dateToCompare, locale);
+        if (pastOrFuture === "past") {
+            pastApps.push(convertedItem);
+        }
+        else if (pastOrFuture === "future") {
+            futureApps.push(convertedItem);
+        }
         // Add converted appItem to converted list
-        convertedAppList.push(convertedItem);
     }
 
-    return convertedAppList;
+    return [futureApps, pastApps];
 }
 
 const convertSingleInterview = (locale, interview) => {

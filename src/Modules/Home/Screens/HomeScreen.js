@@ -16,7 +16,7 @@ import getStyles from '../Styles/HomeScreenStyles';
 const HomeScreen = () => {
 
     const [isDeleteMode, setIsDeleteMode] = useState(false);
-    const [applications, setApplications] = useState(null);
+    const [applications, setApplications] = useState([]);
     const [selectedItems, setSelectedItems] = useState([]);
     const [isPast, setIsPast] = useState(false);
 
@@ -92,20 +92,22 @@ const HomeScreen = () => {
 
     let numberOfApplications = applications ? applications.length : 0;
 
+    const appsToRender = isPast ? applications[1] : applications[0];
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
                 <View style={styles.pastFutureContainer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setIsPast(false)}>
                         <Text style={styles.furuteText}>{loc.t(tn.futureApplications)}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setIsPast(true)}>
                         <Text style={styles.pastText}>{loc.t(tn.pastApplications)}</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.listContainer}>
                     <FlatList
-                        data={applications}
+                        data={appsToRender}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
                         ListEmptyComponent={<EmptyListComponent />}
