@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Metrics } from '../../../StylingConstants';
+import { Fonts, Metrics } from '../../../StylingConstants';
 import { cn } from '../../Theming';
 
 export default (Colors) => StyleSheet.create({
@@ -11,9 +11,27 @@ export default (Colors) => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors[cn.home.background],
+        paddingTop: Metrics.height * 0.05,
+    },
+    pastFutureContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignSelf: 'stretch',
+        width: Metrics.width * 0.9,
+        marginHorizontal: Metrics.marginHorizontal,
+        height: Metrics.height * 0.1,
+        alignItems: 'center',
+        paddingHorizontal: Metrics.marginHorizontal,
+    },
+    furuteText: {
+        fontFamily: Fonts.type.extraBold,
+        fontSize: Fonts.size(16)
+    },
+    pastText: {
+        fontFamily: Fonts.type.extraBold,
+        fontSize: Fonts.size(16)
     },
     listContainer: {
-        marginTop: Metrics.marginHorizontal,
         flexGrow: 1,
         alignItems: 'center',
         justifyContent: 'center',

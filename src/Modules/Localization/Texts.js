@@ -1,4 +1,13 @@
 export const tn = {
+    errorCodes: {
+        "auth/ınvalıd-emaıl": "auth/ınvalıd-emaıl",
+        "auth/emaıl-already-ın-use": "auth/emaıl-already-ın-use",
+        "auth/wrong-password": "auth/wrong-password",
+        "auth/user-not-found": "auth/user-not-found",
+        "auth/network-request-faıled": "auth/network-request-faıled",
+        "custom/fill-every-field": "custom/fill-every-field",
+        "custom/invalid-url": "custom/invalid-url",
+    },
     email: 'email',
     password: 'password',
     login: 'login',
@@ -37,15 +46,8 @@ export const tn = {
     emptyComponentText: 'emptyComponentText',
     delete: 'delete',
     error: 'error',
-    errorCodes: {
-        "auth/ınvalıd-emaıl": "auth/ınvalıd-emaıl",
-        "auth/emaıl-already-ın-use": "auth/emaıl-already-ın-use",
-        "auth/wrong-password": "auth/wrong-password",
-        "auth/user-not-found": "auth/user-not-found",
-        "auth/network-request-faıled": "auth/network-request-faıled",
-        "custom/fill-every-field": "custom/fill-every-field",
-        "custom/invalid-url": "custom/invalid-url",
-    }
+    futureApplications: 'futureApplications',
+    pastApplications: 'pastApplications',
 };
 
 export const english = {
@@ -93,7 +95,9 @@ export const english = {
     [tn.errorCodes["auth/user-not-found"]]: 'A user with this credentials does not exist. You can sign up!',
     [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
-    [tn.errorCodes["custom/invalid-url"]]: "Invalid URL."
+    [tn.errorCodes["custom/invalid-url"]]: "Invalid URL.",
+    [tn.futureApplications]: 'Future Applications',
+    [tn.pastApplications]: 'Past Applications',
 }
 
 export const turkish = {
@@ -142,4 +146,6 @@ export const turkish = {
     [tn.errorCodes["auth/network-request-faıled"]]: 'Bağlantı hatası. Ağ bağlantınızı kontrol edin.',
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
     [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
+    [tn.futureApplications]: "Gelecek Başvurular",
+    [tn.pastApplications]: "Geçmiş Başvurular",
 }

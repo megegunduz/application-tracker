@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-nati
 import { useNavigation } from '@react-navigation/core';
 
 import { useThemedValues } from '../../Theming';
-import { useLocale } from '../../Localization';
+import { tn, useLocale, useLocalization } from '../../Localization';
 import ApplicationItem from '../Components/ApplicationItem';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
@@ -18,11 +18,13 @@ const HomeScreen = () => {
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const [applications, setApplications] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
+    const [isPast, setIsPast] = useState(false);
 
     const { styles, colors } = useThemedValues(getStyles);
 
     const navigation = useNavigation();
     const locale = useLocale();
+    const loc = useLocalization();
 
     useEffect(() => {
         const off = subscribeToAppItemData(locale, data => {
@@ -37,7 +39,7 @@ const HomeScreen = () => {
     const _addItemToSelectedList = async (appItemKey) => {
         let copyList = [...selectedItems];
         copyList.push(appItemKey);
-        setSelectedItems(copyList);   
+        setSelectedItems(copyList);
     }
 
     const _renderApplicatonItem = ({ item }) => {
@@ -93,13 +95,21 @@ const HomeScreen = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
+                <View style={styles.pastFutureContainer}>
+                    <TouchableOpacity>
+                        <Text style={styles.furuteText}>{loc.t(tn.futureApplications)}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={styles.pastText}>{loc.t(tn.pastApplications)}</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.listContainer}>
                     <FlatList
                         data={applications}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
                         ListEmptyComponent={<EmptyListComponent />}
-                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
+                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications} />}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>
