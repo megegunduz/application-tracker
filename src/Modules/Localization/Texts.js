@@ -36,6 +36,14 @@ export const tn = {
     flatListFooterText: 'flatListFooterText',
     emptyComponentText: 'emptyComponentText',
     delete: 'delete',
+    errorCodes: {
+        "auth/ınvalıd-emaıl": "auth/ınvalıd-emaıl",
+        "auth/emaıl-already-ın-use": "auth/emaıl-already-ın-use",
+        "auth/wrong-password": "auth/wrong-password",
+        "auth/user-not-found": "auth/user-not-found",
+        "auth/network-request-faıled": "auth/network-request-faıled",
+        "custom/fill-every-field": "custom/fill-every-field",
+    }
 };
 
 export const english = {
@@ -76,6 +84,12 @@ export const english = {
     [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
     [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`,
     [tn.delete]: 'Delete',
+    [tn.errorCodes["auth/ınvalıd-emaıl"]]: 'Invalid E-mail! Please check e-mail.',
+    [tn.errorCodes["auth/ınvalıd-emaıl"]]: 'Provided e-mail is already in use. If you forgot your password you can send a password reset request.',
+    [tn.errorCodes["auth/wrong-password"]]: 'Wrong password. Try again.',
+    [tn.errorCodes["auth/user-not-found"]]: 'A user with this credentials does not exist. You can sign up!',
+    [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
+    [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
 }
 
 export const turkish = {
@@ -116,4 +130,10 @@ export const turkish = {
     [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
     [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`,
     [tn.delete]: 'Sil',
+    [tn.errorCodes["auth/ınvalıd-emaıl"]]: 'Geçersiz E-posta. Lütfen e-posta adresinizi kontrol edin.',
+    [tn.errorCodes["auth/emaıl-already-ın-use"]]: 'Girilen e-postaya ait bir hesap zaten var. Şifreni unuttuysan şifre sıfırlama isteği gönderebilirsin.',
+    [tn.errorCodes["auth/wrong-password"]]: 'Yanlış şifre. Tekrar dene.',
+    [tn.errorCodes["auth/user-not-found"]]: 'Bu bilgilere ait bir kullanıcı bulunamadı. Kayıt olabilirsin.',
+    [tn.errorCodes["auth/network-request-faıled"]]: 'Bağlantı hatası. Ağ bağlantınızı kontrol edin.',
+    [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
 }
