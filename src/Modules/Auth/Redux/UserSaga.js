@@ -57,7 +57,7 @@ function* workerSignIn (action) {
         const currentUser = getCurrentUser();
         yield put(UserActionCreators.setUser(currentUser));
     } catch (error) {
-        yield put(ErrorActionCreators.setErrorExists(true, errorCode))
+        yield put(ErrorActionCreators.setErrorExists(true, error.code))
     } finally {
         yield put(LoadingActionCreators.setIsLoading(false));
     }
