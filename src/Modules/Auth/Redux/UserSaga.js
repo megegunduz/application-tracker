@@ -2,6 +2,7 @@ import { takeEvery, call, put, fork } from '@redux-saga/core/effects'
 import { getCurrentUser, signIn, signOut, signUp, updateUser } from '../API/Firebase';
 import { UserActionCreators, UserActionTypes } from './UserRedux';
 import { LoadingActionCreators } from '../../Loading';
+import { ErrorActionCreators } from '../../Error/ErrorRedux';
 
 function* signUpAndCreateDisplayName(email, password, displayName) {
     try {
@@ -18,7 +19,7 @@ function* signUpAndCreateDisplayName(email, password, displayName) {
         yield put(UserActionCreators.setUser(currentUser));
 
     } catch (error) {
-        console.log(error);
+        yield put(ErrorActionCreators.setErrorExists(true, error.code))
     }
 }
 
@@ -56,7 +57,7 @@ function* workerSignIn (action) {
         const currentUser = getCurrentUser();
         yield put(UserActionCreators.setUser(currentUser));
     } catch (error) {
-        console.log(error)
+        yield put(ErrorActionCreators.setErrorExists(true, errorCode))
     } finally {
         yield put(LoadingActionCreators.setIsLoading(false));
     }
