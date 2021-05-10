@@ -22,11 +22,13 @@ const compareDates = (date, locale) => {
     const now = moment();
     const dateFormat = getLocaleDateFormat(locale);
     const appItemDate = moment(date, dateFormat)
+    const formattedToday = moment(now).format('YYYY-MM-DD')
+    const formattedAppDate = moment(appItemDate).format('YYYY-MM-DD')
     let pastOrFuture;
-    if (now.isBefore(appItemDate)) {
+    if (moment(formattedToday).isSameOrBefore(moment(formattedAppDate))) {
         pastOrFuture = "future";
     }
-    else if (now.isAfter(appItemDate)) {
+    else if (moment(formattedToday).isAfter(moment(formattedAppDate))) {
         pastOrFuture = "past";
     }
 
