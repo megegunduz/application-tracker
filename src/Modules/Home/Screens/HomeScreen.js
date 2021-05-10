@@ -18,7 +18,6 @@ const HomeScreen = () => {
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const [applications, setApplications] = useState([]);
     const [selectedItems, setSelectedItems] = useState([]);
-    const [isPast, setIsPast] = useState(false);
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -90,28 +89,18 @@ const HomeScreen = () => {
 
     const add_deleteIcon = isDeleteMode ? Svgs.Delete : Svgs.Plus;
 
-    let numberOfApplications = applications ? applications.length : 0;
-
-    const appsToRender = isPast ? applications[1] : applications[0];
+    let numberOfApplications = applications?.length;
 
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <View style={styles.pastFutureContainer}>
-                    <TouchableOpacity onPress={() => setIsPast(false)}>
-                        <Text style={styles.furuteText}>{loc.t(tn.futureApplications)}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => setIsPast(true)}>
-                        <Text style={styles.pastText}>{loc.t(tn.pastApplications)}</Text>
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.listContainer}>
                     <FlatList
-                        data={appsToRender}
+                        data={applications}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
                         ListEmptyComponent={<EmptyListComponent />}
-                        ListFooterComponent={<FlatListFooter applications={applications} isPast={isPast}/>}
+                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>

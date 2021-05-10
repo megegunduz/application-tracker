@@ -43,13 +43,9 @@ export const tn = {
     interviewTitle: 'interviewTitle',
     interviewDetail: 'interviewDetail',
     flatListFooterText: 'flatListFooterText',
-    flatListFooterFuture: 'flatListFooterFuture',
-    flatListFooterPast: 'flatListFooterPast',
     emptyComponentText: 'emptyComponentText',
     delete: 'delete',
     error: 'error',
-    futureApplications: 'futureApplications',
-    pastApplications: 'pastApplications',
 };
 
 export const english = {
@@ -88,8 +84,6 @@ export const english = {
     [tn.interviewTitle]: 'Interview Title',
     [tn.interviewDetail]: 'Interview Details',
     [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications.`,
-    [tn.flatListFooterPast]: `%{pastNumber} of them are past applications.`,
-    [tn.flatListFooterFuture]: `%{futureNumber} of them are future applications`,
     [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`,
     [tn.delete]: 'Delete',
     [tn.error]: 'Error',
@@ -100,8 +94,6 @@ export const english = {
     [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
     [tn.errorCodes["custom/invalid-url"]]: "Invalid URL.",
-    [tn.futureApplications]: 'Future Applications',
-    [tn.pastApplications]: 'Past Applications',
 }
 
 export const turkish = {
@@ -140,8 +132,6 @@ export const turkish = {
     [tn.interviewTitle]: 'Görüşme Başlığı',
     [tn.interviewDetail]: 'Görüşme Detayı',
     [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun.`,
-    [tn.flatListFooterPast]: `Bunlardan %{pastNumber} tanesi geçmiş tarihli.`,
-    [tn.flatListFooterFuture]: `Bunlardan %{futureNumber} tanesi gelecek tarihli.`,
     [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`,
     [tn.delete]: 'Sil',
     [tn.error]: 'Hata',
@@ -152,6 +142,4 @@ export const turkish = {
     [tn.errorCodes["auth/network-request-faıled"]]: 'Bağlantı hatası. Ağ bağlantınızı kontrol edin.',
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
     [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
-    [tn.futureApplications]: "Gelecek Başvurular",
-    [tn.pastApplications]: "Geçmiş Başvurular",
 }
