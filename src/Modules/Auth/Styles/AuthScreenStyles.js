@@ -38,7 +38,7 @@ export default (Colors, params) => StyleSheet.create({
         color: Colors[cn.auth.inputsHeader],
     },
     inputsContainer: {
-        // minHeight: Metrics.width * 0.615,
+        minHeight: Metrics.width * 0.6,
         justifyContent: 'center',
         flexShrink: 1,
         marginTop: Metrics.marginHorizontal * 0.5,
