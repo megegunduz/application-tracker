@@ -28,6 +28,37 @@ const getDate = (locale, momentDate) => {
     return momentDate.format(dateFormat);
 }
 
+const sortByDate = (locale, filterType, itemList) => {
+    let dateFormat = getLocaleDateFormat(locale);
+    switch (filterType) {
+        case null:
+            
+            return;
+        case "ascending":
+            return itemList.sort((item1, item2) => {
+                if (moment(item1.applicationDate, dateFormat).isAfter(moment(item2.applicationDate, dateFormat))) {
+                    return 1;
+                }
+                if (moment(item1.applicationDate, dateFormat).isBefore(moment(item2.applicationDate, dateFormat))) {
+                    return -1;
+                }
+                return 0;
+            })
+        case "descending":
+            return itemList.sort((item1, item2) => {
+                if (moment(item1.applicationDate, dateFormat).isAfter(moment(item2.applicationDate, dateFormat))) {
+                    return -1;
+                }
+                if (moment(item1.applicationDate, dateFormat).isBefore(moment(item2.applicationDate, dateFormat))) {
+                    return 1;
+                }
+                return 0;
+            })
+        default:
+            return;
+    }
+}
+
 const convertSingleItem = (locale, appItem) => {
     let dateFromRawData = appItem.applicationDate;
     let momentDate = getMomentDate(dateFromRawData);
@@ -38,7 +69,7 @@ const convertSingleItem = (locale, appItem) => {
     return convertedAppItem;
 }
 
-export const convertRawData = (locale, rawData) => {
+export const convertRawData = (locale, filterType, rawData) => {
 
     if (rawData?.length === 0) {
         return [];
@@ -58,6 +89,8 @@ export const convertRawData = (locale, rawData) => {
         // Add converted appItem to converted list
         convertedItemList.push(convertedItem)
     }
+
+    sortByDate(locale, filterType, convertedItemList)
 
     return convertedItemList;
 }

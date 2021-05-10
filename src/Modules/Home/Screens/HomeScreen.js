@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import { useSelector } from 'react-redux';
 
 import { useThemedValues } from '../../Theming';
 import { tn, useLocale, useLocalization } from '../../Localization';
@@ -10,6 +11,7 @@ import { Svgs } from '../../../StylingConstants';
 import FlatListFooter from '../Components/FlatListFooter';
 import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
 import EmptyListComponent from '../Components/EmptyListComponent';
+import { FilterSelectors } from '../../Filter';
 
 import getStyles from '../Styles/HomeScreenStyles';
 
@@ -25,15 +27,17 @@ const HomeScreen = () => {
     const locale = useLocale();
     const loc = useLocalization();
 
+    const filterType = useSelector(FilterSelectors.filterType);
+
     useEffect(() => {
-        const off = subscribeToAppItemData(locale, data => {
+        const off = subscribeToAppItemData(locale, filterType, data => {
             setApplications(data);
         });
 
         return () => {
             off();
         }
-    }, [locale])
+    }, [locale, filterType])
 
     const _addItemToSelectedList = async (appItemKey) => {
         let copyList = [...selectedItems];

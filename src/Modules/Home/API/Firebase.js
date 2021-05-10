@@ -2,14 +2,14 @@ import database from '@react-native-firebase/database';
 import { getCurrentUser } from '../../Auth'
 import { convertRawData, convertInterview } from './Converter';
 
-export const subscribeToAppItemData = (locale, onDataRetrieved) => {
+export const subscribeToAppItemData = (locale, filterType, onDataRetrieved) => {
     const userId = getCurrentUser().uid;
 
     database()
         .ref(`/appItemThumbnailList/${userId}`)
         .on('value', snapshot => {
             const rawData = snapshot.val();
-            const convertedList = convertRawData(locale, rawData);
+            const convertedList = convertRawData(locale, filterType, rawData);
             onDataRetrieved(convertedList);
         });
 
