@@ -1,10 +1,19 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+
+import { useThemedValues } from '../Theming';
+import { FilterScreen } from '../Filter';
+
+import getStyles from './Styles/MenuDrawerScreenStyles';
 
 const MenuDrawerScreen = props => {
+
+    const { styles } = useThemedValues(getStyles);
+
     return (
-        <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-            <Text>Drawer Content</Text>
+        <View style={styles.container}>
+            <FilterScreen />
+            <Text>DUMMY TEXT</Text>
         </View>
     );
 };
