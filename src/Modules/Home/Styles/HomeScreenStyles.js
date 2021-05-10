@@ -11,7 +11,7 @@ export default (Colors) => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors[cn.home.background],
-        paddingTop: Metrics.height * 0.05,
+        paddingVertical: Metrics.height * 0.05,
     },
     pastFutureContainer: {
         flexDirection: 'row',
