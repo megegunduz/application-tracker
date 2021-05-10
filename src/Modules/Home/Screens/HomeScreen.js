@@ -111,7 +111,7 @@ const HomeScreen = () => {
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => index}
                         ListEmptyComponent={<EmptyListComponent />}
-                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications} />}
+                        ListFooterComponent={<FlatListFooter applications={applications} isPast={isPast}/>}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>
