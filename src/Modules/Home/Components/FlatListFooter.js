@@ -13,15 +13,14 @@ const FlatListFooter = props => {
 
     const loc = useLocalization();
 
-    console.log(props.applications[1]?.length);
     const numberOfApplications = props.applications[0]?.length + props.applications[1]?.length;
 
-    const text = loc.t(tn.flatListFooterText, {numberOfApplications});
+    const text = numberOfApplications ? loc.t(tn.flatListFooterText, {numberOfApplications}) : "";
     const pastNumber = props.applications[1]?.length;
     const futureNumber = props.applications[0]?.length;
 
-    const pastText = loc.t(tn.flatListFooterPast, {pastNumber});
-    const futureText = loc.t(tn.flatListFooterFuture, {futureNumber});
+    const pastText = pastNumber ? loc.t(tn.flatListFooterPast, {pastNumber}) : "";
+    const futureText = futureNumber ? loc.t(tn.flatListFooterFuture, {futureNumber}) : "";
 
     const pastOrFutureText = props.isPast ? pastText : futureText;
 
