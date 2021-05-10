@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from '../Modules/Home/Screens/HomeScreen';
+import HomeDrawer from './HomeDrawer';
 import SettingsScreen from '../Modules/Settings/Screens/SettingsScreen';
 import SettingsButton from './Components/SettingsButton';
 import AddApplicationScreen from '../Modules/Home/Screens/AddApplicationScreen';
@@ -12,6 +12,7 @@ import { tn, useLocale, useLocalization } from '../Modules/Localization';
 
 import getStackScreenOptions from './Styles/StackScreenOptions';
 import { customUpperCase } from '../Utils/CustomUpperCase';
+import MenuButton from './Components/MenuButton';
 
 
 const AppStack = createStackNavigator();
@@ -31,11 +32,12 @@ const AppNavigation = props => {
         screenOptions={styles}
         >
             <AppStack.Screen
-                name="home-screen"
-                component={HomeScreen}
+                name="home-drawer"
+                component={HomeDrawer}
                 options={{
                     title: upperCaseText(tn.home),
-                    headerRight: () => <SettingsButton />
+                    headerLeft: () => <SettingsButton />,
+                    headerRight: () => <MenuButton />
                 }}
             />
             <AppStack.Screen

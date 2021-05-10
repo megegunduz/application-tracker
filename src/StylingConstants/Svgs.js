@@ -11,6 +11,7 @@ import Delete from '../Assets/Svgs/delete.svg';
 import ShowPassword from '../Assets/Svgs/show-password.svg';
 import Url from '../Assets/Svgs/url.svg';
 import Close from '../Assets/Svgs/close.svg';
+import Menu from '../Assets/Svgs/menu.svg';
 
 export default {
     RadioChecked,
@@ -26,4 +27,5 @@ export default {
     ShowPassword,
     Url,
     Close,
+    Menu,
 };
