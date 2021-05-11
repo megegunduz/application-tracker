@@ -48,6 +48,7 @@ export const tn = {
     delete: 'delete',
     error: 'error',
     concludedApplications: 'concludedApplications',
+    okay: 'okay',
 };
 
 export const english = {
@@ -97,7 +98,8 @@ export const english = {
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
     [tn.errorCodes["custom/invalid-url"]]: "Invalid URL.",
     [tn.concludedApplications]: 'Concluded Applications',
-    [tn.errorCodes["auth/too-many-requests"]]: "Too many requests. Try again in a few minutes."
+    [tn.errorCodes["auth/too-many-requests"]]: "Too many requests. Try again in a few minutes.",
+    [tn.okay]: "Okay",
 }
 
 export const turkish = {
@@ -147,5 +149,6 @@ export const turkish = {
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
     [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
     [tn.concludedApplications]: 'Sonuçlanmış Başvurular',
-    [tn.errorCodes["auth/too-many-requests"]]: "Çok fazla istek gönderildi. Birkaç dakika sonra tekrar deneyin."
+    [tn.errorCodes["auth/too-many-requests"]]: "Çok fazla istek gönderildi. Birkaç dakika sonra tekrar deneyin.",
+    [tn.okay]: 'Tamam',
 }

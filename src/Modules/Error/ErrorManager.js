@@ -24,11 +24,11 @@ const ErrorManager = props => {
     const errorMessage = loc.t(tn.errorCodes[errorCode]);
 
     const _onPress_DismissError = () => {
-        dispatch(ErrorActionCreators.setErrorExists(false, null));
+        dispatch(ErrorActionCreators.setErrorExists(false, errorCode));
     };
 
     const upperCaseHeaderText = loc.t(tn.error).toLocaleUpperCase();
-
+    const okayText = loc.t(tn.okay).toLocaleUpperCase();
     return (
         <Modal
         style={styles.modal}
@@ -50,7 +50,7 @@ const ErrorManager = props => {
                 <Text style={styles.errorText}>{errorMessage}</Text>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={_onPress_DismissError}>
-                    <Text style={styles.buttonText}>TAMAM</Text>
+                    <Text style={styles.buttonText}>{okayText}</Text>
                 </TouchableOpacity>
             </View>
         </Modal>
