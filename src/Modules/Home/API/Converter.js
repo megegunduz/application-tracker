@@ -13,26 +13,34 @@ const getLocaleDateFormat = (locale) => {
             dateFormat = "MM/DD/YYYY";
             return dateFormat;
         default:
-            dateFormat= "MM/DD/YYYY";
+            dateFormat = "MM/DD/YYYY";
             return dateFormat;
     }
 }
 
 const getMomentDate = (dateFromRawData) => {
-    const formatString = dateFormatStandard + " " + timeFormatStandard;
-    return moment(dateFromRawData, formatString)
+    console.log(dateFromRawData)
+    if (!dateFromRawData) {
+        return;
+    }
+    else {
+        const formatString = dateFormatStandard + " " + timeFormatStandard;
+        return moment(dateFromRawData, formatString)
+    }
 }
 
 const getDate = (locale, momentDate) => {
-    const dateFormat = getLocaleDateFormat(locale);
-    return momentDate.format(dateFormat);
+    if (momentDate) {
+        const dateFormat = getLocaleDateFormat(locale);
+        return momentDate.format(dateFormat);
+    }
 }
 
 const sortByDate = (locale, filterType, itemList) => {
     let dateFormat = getLocaleDateFormat(locale);
     switch (filterType) {
         case null:
-            
+
             return;
         case "ascending":
             return itemList.sort((item1, item2) => {
