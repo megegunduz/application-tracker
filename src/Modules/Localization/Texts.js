@@ -7,6 +7,7 @@ export const tn = {
         "auth/network-request-faıled": "auth/network-request-faıled",
         "custom/fill-every-field": "custom/fill-every-field",
         "custom/invalid-url": "custom/invalid-url",
+        "auth/too-many-requests": "auth/too-many-requests",
     },
     email: 'email',
     password: 'password',
@@ -95,7 +96,8 @@ export const english = {
     [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
     [tn.errorCodes["custom/invalid-url"]]: "Invalid URL.",
-    [tn.concludedApplications]: 'Concluded Applications'
+    [tn.concludedApplications]: 'Concluded Applications',
+    [tn.errorCodes["auth/too-many-requests"]]: "Too many requests. Try again in a few minutes."
 }
 
 export const turkish = {
@@ -145,4 +147,5 @@ export const turkish = {
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
     [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
     [tn.concludedApplications]: 'Sonuçlanmış Başvurular',
+    [tn.errorCodes["auth/too-many-requests"]]: "Çok fazla istek gönderildi. Birkaç dakika sonra tekrar deneyin."
 }
