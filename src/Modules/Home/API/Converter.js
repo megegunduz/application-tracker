@@ -19,7 +19,6 @@ const getLocaleDateFormat = (locale) => {
 }
 
 const getMomentDate = (dateFromRawData) => {
-    console.log(dateFromRawData)
     if (!dateFromRawData) {
         return;
     }
