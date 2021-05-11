@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, Linking } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
@@ -7,38 +8,12 @@ import { cn, useThemedValues } from '../../Theming';
 import { tn, useLocale, useLocalization } from '../../Localization';
 import AddInterviewModal from '../Components/AddInterviewModal';
 import InterviewDetailModal from '../Components/InterviewDetailModal';
+import { getAppItemDetail, subscribeToInterviews, updateAppItem } from '../API/Firebase';
+import { ErrorActionCreators } from '../../Error/ErrorRedux';
+import ConcludedCheck from '../Components/ConcludedCheck';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
-import { getAppItemDetail, subscribeToInterviews, updateAppItem } from '../API/Firebase';
-import { useDispatch } from 'react-redux';
-import { ErrorActionCreators } from '../../Error/ErrorRedux';
 
-const dummyInterviews = [
-    {
-        id: 1,
-        type: "Telefon görüşmesi",
-        date: "04.05.2021",
-        details: "detay detay detay",
-    },
-    {
-        id: 2,
-        type: "Yüzyüze görüşme",
-        date: "02.02.2020",
-        details: "detay detay detay",
-    },
-    {
-        id: 3,
-        type: "Zoom meeting",
-        date: "20.20.2016",
-        details: "detay detay detay",
-    },
-    {
-        id: 4,
-        type: "çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır çok uzun satır",
-        date: "01.01.2000",
-        details: "detay detay detay",
-    }
-]
 
 const EditApplicationScreen = props => {
 
@@ -53,6 +28,7 @@ const EditApplicationScreen = props => {
     const [URL, setURL] = useState(null);
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
+    const [isConcluded, setIsConcluded] = useState(false);
 
     const dispatch = useDispatch();
     const invalidUrlErrorCode = tn.errorCodes['custom/invalid-url'];
@@ -63,7 +39,7 @@ const EditApplicationScreen = props => {
         const off = subscribeToInterviews(locale, applicationItem, data => {
             setInterviews(data);
         })
-        
+
         return () => {
             off();
         }
@@ -147,6 +123,16 @@ const EditApplicationScreen = props => {
 
     }
 
+    const _onSelect_Concluded = () => {
+        if (!isConcluded) {
+            setIsConcluded(true)
+            alert("Sonuçlanmış")
+        }
+        else if (isConcluded) {
+            setIsConcluded(false);
+        }
+    }
+
     return (
         <>
             <View style={styles.container}>
@@ -199,14 +185,17 @@ const EditApplicationScreen = props => {
                             </TouchableOpacity>
                         </View>
                     </View>
+                    <View style={styles.concludedContainer}>
+                        <ConcludedCheck isConcluded={isConcluded} onSelect={_onSelect_Concluded}/>
+                    </View>
                 </ScrollView>
 
                 <View style={styles.buttonContainer}>
                     <CommonButton text={upperCaseButtonText} onPress={_onPress_Save} />
                 </View>
             </View>
-            <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem}/>
-            <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key}/>
+            <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />
+            <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key} />
         </>
     );
 };

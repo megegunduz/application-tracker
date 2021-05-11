@@ -62,4 +62,7 @@ export default (Colors) => StyleSheet.create({
         fontSize: Fonts.size(16),
         color: Colors[cn.home.addIcon],
     },
+    concludedContainer: {
+        marginBottom: Metrics.marginHorizontalLarge,
+    },
 });
