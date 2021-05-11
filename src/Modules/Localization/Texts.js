@@ -46,6 +46,7 @@ export const tn = {
     emptyComponentText: 'emptyComponentText',
     delete: 'delete',
     error: 'error',
+    concludedApplications: 'concludedApplications',
 };
 
 export const english = {
@@ -94,6 +95,7 @@ export const english = {
     [tn.errorCodes["auth/network-request-faıled"]]: "Connection error. Check your network conntection.",
     [tn.errorCodes["custom/fill-every-field"]]: "Please fill every field!",
     [tn.errorCodes["custom/invalid-url"]]: "Invalid URL.",
+    [tn.concludedApplications]: 'Concluded Applications'
 }
 
 export const turkish = {
@@ -142,4 +144,5 @@ export const turkish = {
     [tn.errorCodes["auth/network-request-faıled"]]: 'Bağlantı hatası. Ağ bağlantınızı kontrol edin.',
     [tn.errorCodes["custom/fill-every-field"]]: "Lütfen tüm alanları doldurun!",
     [tn.errorCodes["custom/invalid-url"]]: "Geçersiz URL.",
+    [tn.concludedApplications]: 'Sonuçlanmış Başvurular',
 }
