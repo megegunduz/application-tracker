@@ -12,14 +12,18 @@ import getStyles from '../Styles/ConclusionModalStyles';
 const ConclusionModal = props => {
 
     const [conclusionType, setConclusionType] = useState();
+    const [conclusionDetail, setConclusionDetail] = useState();
 
     const {styles} = useThemedValues(getStyles);
     const loc = useLocalization(null);
 
-    const _onValueChange = (conclusionType) => {
-        props.transferConclusionType(conclusionType);
-        setConclusionType(conclusionType);
+    let conclusion = conclusionType ?
+    {
+        conclusionType,
+        conclusionDetail,
     }
+    :
+    null;
 
     return (
         <Modal
@@ -32,7 +36,7 @@ const ConclusionModal = props => {
                     <Text style={styles.headerText}>{loc.t(tn.conclusion)}</Text>
                 </View>
                 <View style={styles.pickerContainer}>
-                    <Picker mode="dropdown" onValueChange={_onValueChange}>
+                    <Picker mode="dropdown" onValueChange={setConclusionType}>
                         <Picker.Item label="Select conclusion" value={null} style={styles.pickerPlaceholder} />
                         <Picker.Item label="Got Rejected" value="gotRejected"/>
                         <Picker.Item label="I Rejected" value="iRejected" />
@@ -45,10 +49,11 @@ const ConclusionModal = props => {
                         placeholder="Conclusion details will be here"
                         multiline
                         onSubmitEditing={Keyboard.dismiss}
+                        onChangeText={setConclusionDetail}
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <CommonButton text="Tamam" style={styles.button} onPress={props.closeModal}/>
+                    <CommonButton text="Tamam" style={styles.button} onPress={()=>props.transferConclusion(conclusion)}/>
                 </View>
             </View>
         </Modal>

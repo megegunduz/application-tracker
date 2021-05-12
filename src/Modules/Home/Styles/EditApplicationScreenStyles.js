@@ -63,6 +63,11 @@ export default (Colors) => StyleSheet.create({
         color: Colors[cn.home.addIcon],
     },
     concludedContainer: {
-        marginBottom: Metrics.marginHorizontalLarge,
+        marginBottom: Metrics.marginHorizontal,
     },
+    conclusionText: {
+        marginTop: Metrics.marginHorizontal,
+        fontFamily: Fonts.type.extraBold,
+        fontSize: Fonts.size(16)
+    }
 });
