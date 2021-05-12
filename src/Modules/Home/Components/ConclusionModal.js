@@ -16,6 +16,11 @@ const ConclusionModal = props => {
     const {styles} = useThemedValues(getStyles);
     const loc = useLocalization(null);
 
+    const _onValueChange = (conclusionType) => {
+        props.transferConclusionType(conclusionType);
+        setConclusionType(conclusionType);
+    }
+
     return (
         <Modal
             style={styles.modal}
@@ -27,7 +32,7 @@ const ConclusionModal = props => {
                     <Text style={styles.headerText}>{loc.t(tn.conclusion)}</Text>
                 </View>
                 <View style={styles.pickerContainer}>
-                    <Picker mode="dropdown" onValueChange={setConclusionType}>
+                    <Picker mode="dropdown" onValueChange={_onValueChange}>
                         <Picker.Item label="Select conclusion" value={null} style={styles.pickerPlaceholder} />
                         <Picker.Item label="Got Rejected" value="gotRejected"/>
                         <Picker.Item label="I Rejected" value="iRejected" />
@@ -43,7 +48,7 @@ const ConclusionModal = props => {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <CommonButton text="Tamam" style={styles.button}/>
+                    <CommonButton text="Tamam" style={styles.button} onPress={props.closeModal}/>
                 </View>
             </View>
         </Modal>

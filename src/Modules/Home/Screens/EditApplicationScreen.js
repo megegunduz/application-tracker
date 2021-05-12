@@ -31,6 +31,7 @@ const EditApplicationScreen = props => {
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
     const [isConcluded, setIsConcluded] = useState(applicationItem.isConcluded);
+    const [conclusionType, setConclusionType] = useState(null);
 
     const dispatch = useDispatch();
     const invalidUrlErrorCode = tn.errorCodes['custom/invalid-url'];
@@ -140,6 +141,10 @@ const EditApplicationScreen = props => {
         setConclusionModalVisible(false);
     }
 
+    const _getConclusionFromModal = conclusionFromModal => {
+        setConclusionType(conclusionFromModal);
+    }
+
     return (
         <>
             <View style={styles.container}>
@@ -203,7 +208,7 @@ const EditApplicationScreen = props => {
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />
             <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key} />
-            <ConclusionModal isVisible={conclusionModalVisible} closeModal={_closeConclusionModal}/>
+            <ConclusionModal isVisible={conclusionModalVisible} closeModal={_closeConclusionModal} transferConclusionType={_getConclusionFromModal}/>
         </>
     );
 };
