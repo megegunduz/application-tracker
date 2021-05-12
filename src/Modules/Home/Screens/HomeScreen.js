@@ -41,8 +41,15 @@ const HomeScreen = () => {
 
     const _addItemToSelectedList = async (appItemKey) => {
         let copyList = [...selectedItems];
-        copyList.push(appItemKey);
-        setSelectedItems(copyList);
+        if (copyList.includes(appItemKey)) {
+            let indexOfExistingItem = copyList.indexOf(appItemKey)
+            copyList.splice(indexOfExistingItem, 1);
+            setSelectedItems(copyList);
+        }
+        else if (!copyList.includes(appItemKey)) {
+            copyList.push(appItemKey);
+            setSelectedItems(copyList);
+        }
     }
 
     const _renderApplicatonItem = ({ item }) => {
@@ -76,6 +83,7 @@ const HomeScreen = () => {
             for (let item in selectedItems) {
                 deleteAppItem(selectedItems[item]);
             }
+            setSelectedItems([]);
             setIsDeleteMode(false);
         }
         else {
@@ -102,7 +110,7 @@ const HomeScreen = () => {
                     <FlatList
                         data={applications}
                         renderItem={_renderApplicatonItem}
-                        keyExtractor={(item, index) => index}
+                        keyExtractor={(item, index) => item.key}
                         ListEmptyComponent={<EmptyListComponent />}
                         ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
                     />
