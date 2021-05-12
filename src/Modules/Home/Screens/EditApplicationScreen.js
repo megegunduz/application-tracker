@@ -13,6 +13,7 @@ import { ErrorActionCreators } from '../../Error/ErrorRedux';
 import ConcludedCheck from '../Components/ConcludedCheck';
 
 import getStyles from '../Styles/EditApplicationScreenStyles';
+import ConclusionModal from '../Components/ConclusionModal';
 
 
 const EditApplicationScreen = props => {
@@ -21,6 +22,7 @@ const EditApplicationScreen = props => {
     const appItemKey = props.route.params.appItemKey;
     const [addModalVisible, setAddModalVisible] = useState(false);
     const [detailModalVisible, setDetailModalVisible] = useState(false);
+    const [conclusionModalVisible, setConclusionModalVisible] = useState(false);
     const [selectedInterview, setSelectedInterview] = useState({});
     const [companyName, setCompanyName] = useState(applicationItem.companyName);
     const [position, setPosition] = useState(applicationItem.position);
@@ -125,12 +127,16 @@ const EditApplicationScreen = props => {
 
     const _onSelect_Concluded = () => {
         if (!isConcluded) {
-            setIsConcluded(true)
-            alert("Sonuçlanmış")
+            setIsConcluded(true);
+            setConclusionModalVisible(true);
         }
         else if (isConcluded) {
             setIsConcluded(false);
         }
+    }
+
+    const _closeConclusionModal = () => {
+        setConclusionModalVisible(false);
     }
 
     return (
@@ -196,6 +202,7 @@ const EditApplicationScreen = props => {
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />
             <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key} />
+            <ConclusionModal isVisible={conclusionModalVisible} closeModal={_closeConclusionModal}/>
         </>
     );
 };
