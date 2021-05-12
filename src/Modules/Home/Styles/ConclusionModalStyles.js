@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Fonts, Metrics } from '../../../StylingConstants';
+import { cn } from '../../Theming';
 
 export default Colors => StyleSheet.create({
     modal: {
@@ -12,29 +13,44 @@ export default Colors => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "white",
-        padding: Metrics.marginHorizontal * 0.5,
+        padding: Metrics.marginHorizontal * 0.6,
+        borderRadius: Metrics.borderRadiusStandard,
+        borderColor: Colors[cn.home.addIcon],
+        borderWidth: 1,
     },
     headerContainer: {
-        // backgroundColor: 'pink',
         flexGrow: 0.1,
     },
     headerText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(20),
+        color: Colors[cn.home.applicationItemBorder]
     },
     pickerContainer: {
-        // backgroundColor :'lime',
-        flexGrow: 0.2,
+        alignSelf: 'stretch',
     },
     picker: {
 
     },
+    pickerPlaceholder: {
+        color: 'lightgrey'
+    },
     inputContainer: {
-        // backgroundColor: 'orange',
         flexGrow: 0.7,
         alignSelf: 'stretch',
+        paddingHorizontal: Metrics.textMargin,
+        borderWidth: 1,
+        borderRadius: Metrics.borderRadiusStandard,
+        borderColor: Colors[cn.home.applicationItemBorder]
     },
     input: {
 
-    }
+    },
+    buttonContainer: {
+        marginTop: Metrics.marginHorizontal,
+    },
+    button:{
+        width: Metrics.width * 0.5,
+        backgroundColor: Colors[cn.home.applicationItemBorder]
+    },
 });

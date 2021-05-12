@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Keyboard, Text, TextInput, View } from 'react-native';
 import Modal from 'react-native-modal';
-import { tn, useLocalization } from '../../Localization';
+import { Picker } from '@react-native-picker/picker';
 
 import { useThemedValues } from '../../Theming';
+import { tn, useLocalization } from '../../Localization';
+import CommonButton from '../../../Components/CommonButton';
 
 import getStyles from '../Styles/ConclusionModalStyles';
 
 const ConclusionModal = props => {
 
+    const [conclusionType, setConclusionType] = useState();
+
     const {styles} = useThemedValues(getStyles);
-    const loc = useLocalization();
+    const loc = useLocalization(null);
 
     return (
         <Modal
@@ -23,14 +27,23 @@ const ConclusionModal = props => {
                     <Text style={styles.headerText}>{loc.t(tn.conclusion)}</Text>
                 </View>
                 <View style={styles.pickerContainer}>
-                    <Text>Conclusion type: </Text>
-                    <Text>Picker will be added here</Text>
+                    <Picker mode="dropdown" onValueChange={setConclusionType}>
+                        <Picker.Item label="Select conclusion" value={null} style={styles.pickerPlaceholder} />
+                        <Picker.Item label="Got Rejected" value="gotRejected"/>
+                        <Picker.Item label="I Rejected" value="iRejected" />
+                        <Picker.Item label="Got Accepted" value="gotAccepted" />
+                    </Picker>
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
                         placeholder="Conclusion details will be here"
+                        multiline
+                        onSubmitEditing={Keyboard.dismiss}
                     />
+                </View>
+                <View style={styles.buttonContainer}>
+                    <CommonButton text="Tamam" style={styles.button}/>
                 </View>
             </View>
         </Modal>
