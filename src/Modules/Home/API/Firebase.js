@@ -69,6 +69,7 @@ export const updateAppItem = async (appItem, onComplete) => {
             applicationDate: appItem.applicationDate,
             URL: appItem.URL,
             note: appItem.note,
+            isConcluded: appItem.isConcluded,
         }
 
         const userId = getCurrentUser().uid;

@@ -114,6 +114,7 @@ const EditApplicationScreen = props => {
             applicationDate: applicationDate,
             URL: URL,
             note: note,
+            isConcluded: isConcluded,
         }
 
         const onComplete = () => {
