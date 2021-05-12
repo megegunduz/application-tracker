@@ -10,9 +10,13 @@ const ApplicationItem = props => {
 
     const { appItem } = props;
 
+    let { deleteMode } = props;
+    let isConcluded = appItem.isConcluded ? appItem.isConcluded : false;
+
     const stylingParams = {
-        deleteMode
-    } = props;
+        deleteMode,
+        isConcluded,
+    };
 
     const [isSelected, setIsSelected] = useState(false);
 
