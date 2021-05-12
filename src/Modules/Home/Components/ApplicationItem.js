@@ -8,6 +8,8 @@ import getStyles from '../Styles/ApplicationItemStyles';
 
 const ApplicationItem = props => {
 
+    const { appItem } = props;
+
     const stylingParams = {
         deleteMode
     } = props;
@@ -18,7 +20,7 @@ const ApplicationItem = props => {
 
     const svg = isSelected ? Svgs.CheckboxChecked : Svgs.CheckboxUnchecked;
 
-    const appItemKey = props.appItemKey;
+    const appItemKey = appItem.key;
     
     const _onPress_SelectItem = () => {
         setIsSelected(!isSelected);
@@ -39,14 +41,14 @@ const ApplicationItem = props => {
                         null
                 }
                 <View style={styles.companyNameContainer}>
-                    <Text style={styles.companyNameText} numberOfLines={1}>{props.companyName}</Text>
+                    <Text style={styles.companyNameText} numberOfLines={1}>{appItem.companyName}</Text>
                 </View>
                 <View style={styles.dateContainer}>
-                    <Text style={styles.dateText}>{props.applicationDate}</Text>
+                    <Text style={styles.dateText}>{appItem.applicationDate}</Text>
                 </View>
             </View>
             <View style={styles.positionTextContainer}>
-                <Text style={styles.positionText} numberOfLines={1}>{props.position}</Text>
+                <Text style={styles.positionText} numberOfLines={1}>{appItem.position}</Text>
             </View>
         </TouchableOpacity>
     );

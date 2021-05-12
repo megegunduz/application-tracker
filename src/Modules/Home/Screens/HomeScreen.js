@@ -55,10 +55,7 @@ const HomeScreen = () => {
     const _renderApplicatonItem = ({ item }) => {
         return (
             <ApplicationItem
-                companyName={item.companyName}
-                position={item.position}
-                applicationDate={item.applicationDate}
-                appItemKey={item.key}
+                appItem={item}
                 onPress={() => _onPress_NavigateToEditAppScreen(item)}
                 onLongPress={_onLongPress_TurnOnDeleteMode}
                 deleteMode={isDeleteMode}
