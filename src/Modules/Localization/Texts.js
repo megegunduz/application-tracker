@@ -49,6 +49,7 @@ export const tn = {
     error: 'error',
     concludedApplications: 'concludedApplications',
     okay: 'okay',
+    conclusion: 'conclusion',
 };
 
 export const english = {
@@ -100,6 +101,7 @@ export const english = {
     [tn.concludedApplications]: 'Concluded Applications',
     [tn.errorCodes["auth/too-many-requests"]]: "Too many requests. Try again in a few minutes.",
     [tn.okay]: "Okay",
+    [tn.conclusion]: "Conclusion",
 }
 
 export const turkish = {
@@ -151,4 +153,5 @@ export const turkish = {
     [tn.concludedApplications]: 'Sonuçlanmış Başvurular',
     [tn.errorCodes["auth/too-many-requests"]]: "Çok fazla istek gönderildi. Birkaç dakika sonra tekrar deneyin.",
     [tn.okay]: 'Tamam',
+    [tn.conclusion]: 'Sonuç',
 }
