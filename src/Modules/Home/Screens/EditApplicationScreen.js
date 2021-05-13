@@ -31,7 +31,6 @@ const EditApplicationScreen = props => {
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
     const [isConcluded, setIsConcluded] = useState(applicationItem.isConcluded);
-    const [conclusionType, setConclusionType] = useState(null);
     const [conclusion, setConclusion] = useState(null);
 
     const dispatch = useDispatch();
@@ -117,6 +116,7 @@ const EditApplicationScreen = props => {
             URL: URL,
             note: note,
             isConcluded: isConcluded,
+            conclusion: conclusion,
         }
 
         const onComplete = () => {
