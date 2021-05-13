@@ -23,7 +23,7 @@ const DatePicker = (props) => {
 
     const pickDateText = loc.t(tn.pickDate);
 
-    const localeDateFormatToDisplay = locale === "tr" ? 'DD MMM YYYY' : 'MMM DD YYYY'
+    const localeDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY'
 
     useEffect(() => {
         if (props.defaultValue) {
@@ -37,9 +37,9 @@ const DatePicker = (props) => {
         setShowPicker(Platform.OS === 'ios');
         setDate(currentDate);
         let momentDate = moment(currentDate);
-        props.transferPickedDate(momentDate.format('MM/DD/YYYY HH:mm'))
+        props.transferPickedDate(momentDate.format(localeDateFormat))
         setIsSelected(true);
-        setDateToDisplay(momentDate.locale(locale).format(localeDateFormatToDisplay))
+        setDateToDisplay(momentDate.locale(locale).format(localeDateFormat))
     };
 
     return (

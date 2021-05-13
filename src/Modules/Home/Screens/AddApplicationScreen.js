@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
+import moment from 'moment';
 
 import { tn, useLocale, useLocalization } from '../../Localization';
 import { cn, useThemedValues } from '../../Theming';
@@ -30,10 +31,12 @@ const AddApplicationScreen = props => {
     };
 
     const _onPress_AddAppItem = () => {
+        let incomingDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY';
+        let dateToSendToDB = moment(date, incomingDateFormat).format('MM/DD/YYYY')
         const appItem = {
             companyName: companyName,
             position: position,
-            applicationDate: date,
+            applicationDate: dateToSendToDB,
             URL: url,
             note: note,
         };

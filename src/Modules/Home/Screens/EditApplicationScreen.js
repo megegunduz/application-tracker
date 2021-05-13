@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, Linking } from 'react-native';
 import { useDispatch } from 'react-redux';
+import moment from 'moment';
 
 import ApplicationInput from '../Components/ApplicationInput';
 import CommonButton from '../../../Components/CommonButton';
@@ -108,11 +109,13 @@ const EditApplicationScreen = props => {
     }
 
     const _onPress_Save = () => {
+        let incomingDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY';
+        let dateToSendToDB = moment(applicationDate, incomingDateFormat).format('MM/DD/YYYY')
         const appItem = {
             key: appItemKey,
             companyName: companyName,
             position: position,
-            applicationDate: applicationDate,
+            applicationDate: dateToSendToDB,
             URL: URL,
             note: note,
             isConcluded: isConcluded,
