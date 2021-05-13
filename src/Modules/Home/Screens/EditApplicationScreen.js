@@ -215,7 +215,7 @@ const EditApplicationScreen = props => {
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />
             <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key} />
-            <ConclusionModal isVisible={conclusionModalVisible} transferConclusion={_getConclusionAndClose} />
+            <ConclusionModal isVisible={conclusionModalVisible} transferConclusion={_getConclusionAndClose} closeModal={() => setConclusionModalVisible(false)} />
         </>
     );
 };

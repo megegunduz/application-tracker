@@ -14,9 +14,6 @@ const ConclusionModal = props => {
     const [conclusionType, setConclusionType] = useState(null);
     const [conclusionDetail, setConclusionDetail] = useState();
 
-    const {styles} = useThemedValues(getStyles);
-    const loc = useLocalization(null);
-
     let conclusion = conclusionType ?
     {
         conclusionType,
@@ -25,6 +22,10 @@ const ConclusionModal = props => {
     :
     null;
 
+    const buttonDisabled = conclusion ? false : true;
+    const {styles} = useThemedValues(getStyles, buttonDisabled);
+    const loc = useLocalization(null);
+    
     const _onPress = () => {
         props.transferConclusion(conclusion);
         setConclusionDetail(null);
@@ -36,6 +37,7 @@ const ConclusionModal = props => {
             style={styles.modal}
             isVisible={props.isVisible}
             onBackdropPress={props.closeModal}
+            onBackButtonPress={props.closeModal}
         >
             <View style={styles.modalContentContainer}>
                 <View style={styles.headerContainer}>
@@ -59,7 +61,7 @@ const ConclusionModal = props => {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <CommonButton text="Tamam" style={styles.button} onPress={_onPress}/>
+                    <CommonButton text="Tamam" style={styles.button} onPress={_onPress} disabled={buttonDisabled}/>
                 </View>
             </View>
         </Modal>

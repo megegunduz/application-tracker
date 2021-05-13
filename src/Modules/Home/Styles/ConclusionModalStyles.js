@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Fonts, Metrics } from '../../../StylingConstants';
 import { cn } from '../../Theming';
 
-export default Colors => StyleSheet.create({
+export default (Colors, isDisabled) => StyleSheet.create({
     modal: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -51,6 +51,6 @@ export default Colors => StyleSheet.create({
     },
     button:{
         width: Metrics.width * 0.5,
-        backgroundColor: Colors[cn.home.applicationItemBorder]
+        backgroundColor: isDisabled ? 'lightgrey' : Colors[cn.home.applicationItemBorder]
     },
 });

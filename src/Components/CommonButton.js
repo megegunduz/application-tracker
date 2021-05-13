@@ -15,7 +15,7 @@ const CommonButton = props => {
     };
 
     return (
-        <TouchableOpacity style={buttonStyle} onPress={props.onPress}>
+        <TouchableOpacity style={buttonStyle} onPress={props.onPress} disabled={props.disabled}>
             <Text style={styles.buttonText}>{props.text}</Text>
         </TouchableOpacity>
     );
