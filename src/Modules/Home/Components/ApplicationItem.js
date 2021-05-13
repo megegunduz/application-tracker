@@ -10,12 +10,28 @@ const ApplicationItem = props => {
 
     const { appItem } = props;
 
+    let conclusionType = appItem.conclusion?.conclusionType ? appItem.conclusion.conclusionType : null;
+    let getBorderColor = (conclusionType) => {
+        switch (conclusionType) {
+            case "gotRejected":
+                return 'red';
+            case "iRejected":
+                return "gold";
+            case "gotAccepted":
+                return 'green';
+            default:
+                return "#ff8261";
+        }
+    }
+    let borderColor = getBorderColor(conclusionType)
+
     let { deleteMode } = props;
     let isConcluded = appItem.isConcluded ? appItem.isConcluded : false;
 
     const stylingParams = {
         deleteMode,
         isConcluded,
+        borderColor,
     };
 
     const [isSelected, setIsSelected] = useState(false);
