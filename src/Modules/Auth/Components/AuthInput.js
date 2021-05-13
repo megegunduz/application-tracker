@@ -26,8 +26,8 @@ const AuthInput = props => {
                 multiline={false}
             />
             {
-                props.secureTextEntry ?
-                <TouchableOpacity style={styles.iconContainer}>
+                props.isSecure ?
+                <TouchableOpacity style={styles.iconContainer} onPress={props.toggleHide}>
                     <Icon svg={Svgs.ShowPassword} iconStyle={styles.iconStyle}/>
                 </TouchableOpacity>
                 :

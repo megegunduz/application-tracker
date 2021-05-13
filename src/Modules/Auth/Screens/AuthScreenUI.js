@@ -19,6 +19,8 @@ const AuthScreenUI = (props) => {
     const locale = useLocale();
 
     const [isLogin, setIsLogin] = useState(true)
+    const [hidePassword, setHidePassword] = useState(true);
+    const [hidePasswordRepeat, setHidePasswordRepeat] = useState(true);
 
     const _onPress_SwitchLoginOrSignUp = () => {
         setIsLogin(!isLogin);
@@ -73,9 +75,11 @@ const AuthScreenUI = (props) => {
                             <AuthInput
                                 value={props.passwordValue}
                                 autoCapitalize={'none'}
-                                secureTextEntry={true}
+                                secureTextEntry={hidePassword}
+                                isSecure={true}
                                 onChangeText={props.onChangeText_Password}
                                 placeholder={loc.t(tn.password)}
+                                toggleHide={() => {setHidePassword(!hidePassword)}}
                                 />
                         </View>
                         {
@@ -99,9 +103,11 @@ const AuthScreenUI = (props) => {
                                     <AuthInput
                                         value={props.passwordRepeatValue}
                                         autoCapitalize={'none'}
-                                        secureTextEntry={true}
+                                        secureTextEntry={hidePasswordRepeat}
+                                        isSecure={true}
                                         onChangeText={props.onChangeText_PasswordRepeat}
-                                        placeholder={loc.t(tn.repeatPassword)} />
+                                        placeholder={loc.t(tn.repeatPassword)}
+                                        toggleHide={() => {setHidePasswordRepeat(!hidePasswordRepeat)}} />
                                 </View>
                         }
                     </View>
