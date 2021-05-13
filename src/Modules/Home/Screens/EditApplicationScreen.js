@@ -31,7 +31,7 @@ const EditApplicationScreen = props => {
     const [note, setNote] = useState(null);
     const [interviews, setInterviews] = useState(null);
     const [isConcluded, setIsConcluded] = useState(applicationItem.isConcluded);
-    const [conclusion, setConclusion] = useState(null);
+    const [conclusion, setConclusion] = useState(applicationItem.conclusion);
 
     const dispatch = useDispatch();
     const invalidUrlErrorCode = tn.errorCodes['custom/invalid-url'];
