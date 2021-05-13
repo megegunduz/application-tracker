@@ -11,7 +11,7 @@ import getStyles from '../Styles/ConclusionModalStyles';
 
 const ConclusionModal = props => {
 
-    const [conclusionType, setConclusionType] = useState();
+    const [conclusionType, setConclusionType] = useState(null);
     const [conclusionDetail, setConclusionDetail] = useState();
 
     const {styles} = useThemedValues(getStyles);
@@ -24,6 +24,12 @@ const ConclusionModal = props => {
     }
     :
     null;
+
+    const _onPress = () => {
+        props.transferConclusion(conclusion);
+        setConclusionDetail(null);
+        setConclusionType(null);
+    }
 
     return (
         <Modal
@@ -53,7 +59,7 @@ const ConclusionModal = props => {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <CommonButton text="Tamam" style={styles.button} onPress={()=>props.transferConclusion(conclusion)}/>
+                    <CommonButton text="Tamam" style={styles.button} onPress={_onPress}/>
                 </View>
             </View>
         </Modal>

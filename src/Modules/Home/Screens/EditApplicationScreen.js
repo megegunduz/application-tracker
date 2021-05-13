@@ -130,17 +130,19 @@ const EditApplicationScreen = props => {
 
     const _onSelect_Concluded = () => {
         if (!isConcluded) {
-            setIsConcluded(true);
             setConclusionModalVisible(true);
         }
         else if (isConcluded) {
             setIsConcluded(false);
+            setConclusion(null)
         }
     }
 
     const _getConclusionAndClose = conclusion => {
-        console.log(conclusion);
-        setConclusion(conclusion);
+        if (conclusion) {
+            setConclusion(conclusion);
+            setIsConcluded(true);
+        }
         setConclusionModalVisible(false);
     }
 
@@ -197,12 +199,12 @@ const EditApplicationScreen = props => {
                         </View>
                     </View>
                     <View style={styles.concludedContainer}>
-                        <ConcludedCheck isConcluded={isConcluded} onSelect={_onSelect_Concluded}/>
+                        <ConcludedCheck isConcluded={isConcluded} onSelect={_onSelect_Concluded} />
                         {
                             conclusion ?
-                            <Text style={styles.conclusionText}>{conclusion.conclusionType + ": " + conclusion.conclusionDetail}</Text>
-                            :
-                            null
+                                <Text style={styles.conclusionText}>{conclusion.conclusionType + ": " + conclusion.conclusionDetail}</Text>
+                                :
+                                null
                         }
                     </View>
                 </ScrollView>
@@ -213,7 +215,7 @@ const EditApplicationScreen = props => {
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />
             <InterviewDetailModal isVisible={detailModalVisible} closeModal={_onPress_CloseDetailsModal} interview={selectedInterview} appItemKey={applicationItem.key} />
-            <ConclusionModal isVisible={conclusionModalVisible} transferConclusion={_getConclusionAndClose}/>
+            <ConclusionModal isVisible={conclusionModalVisible} transferConclusion={_getConclusionAndClose} />
         </>
     );
 };
