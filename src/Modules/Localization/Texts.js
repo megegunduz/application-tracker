@@ -53,6 +53,9 @@ export const tn = {
     conclusion: 'conclusion',
     all: 'all',
     concluded: 'concluded',
+    filter: 'filter',
+    fromOlderToNewer: 'fromOlderToNewer',
+    fromNewerToOlder: 'fromNewerToOlder',
 };
 
 export const english = {
@@ -107,6 +110,9 @@ export const english = {
     [tn.conclusion]: "Conclusion",
     [tn.all]: "All",
     [tn.concluded]: "Concluded",
+    [tn.filter]: 'Filter',
+    [tn.fromOlderToNewer]: 'From Older to Newer',
+    [tn.fromNewerToOlder]: 'From Newer to Older',
 }
 
 export const turkish = {
@@ -161,4 +167,7 @@ export const turkish = {
     [tn.conclusion]: 'Sonuç',
     [tn.all]: 'Hepsi',
     [tn.concluded]: 'Sonuçlanmış',
+    [tn.filter]: 'Filtrele',
+    [tn.fromOlderToNewer]: 'Eskiden Yeniye',
+    [tn.fromNewerToOlder]: 'Yeniden Eskiye',
 }
