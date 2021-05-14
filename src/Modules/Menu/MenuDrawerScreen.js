@@ -15,18 +15,9 @@ const MenuDrawerScreen = props => {
     const navigation = useNavigation();
     const loc = useLocalization();
 
-    const _onPress_NavigateToConcludedAppsScreen = () => {
-        navigation.navigate("concluded-applications-screen")
-    }
-
-    const concludedText = loc.t(tn.concludedApplications)
-
     return (
         <View style={styles.container}>
             <FilterScreen />
-            <TouchableOpacity onPress={_onPress_NavigateToConcludedAppsScreen}>
-                <Text>{concludedText}</Text>
-            </TouchableOpacity>
         </View>
     );
 };

@@ -13,8 +13,6 @@ import { tn, useLocale, useLocalization } from '../Modules/Localization';
 import getStackScreenOptions from './Styles/StackScreenOptions';
 import { customUpperCase } from '../Utils/CustomUpperCase';
 import MenuButton from './Components/MenuButton';
-import ConcludedApplicationsScreen from '../Modules/ApplicationStatus/ConcludedApplicationsScreen';
-
 
 const AppStack = createStackNavigator();
 
@@ -60,13 +58,6 @@ const AppNavigation = props => {
                 component={EditApplicationScreen}
                 options={{
                     title: upperCaseText(tn.edit)
-                }}
-            />
-            <AppStack.Screen
-                name="concluded-applications-screen"
-                component={ConcludedApplicationsScreen}
-                options={{
-                    title: loc.t(tn.concludedApplications),
                 }}
             />
         </AppStack.Navigator>
