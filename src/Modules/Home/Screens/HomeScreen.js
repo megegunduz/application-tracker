@@ -12,14 +12,17 @@ import FlatListFooter from '../Components/FlatListFooter';
 import { subscribeToAppItemData, deleteAppItem } from '../API/Firebase';
 import EmptyListComponent from '../Components/EmptyListComponent';
 import { FilterSelectors } from '../../Filter';
+import getConcludedApplications from '../../../Utils/GetConcludedApplications';
 
 import getStyles from '../Styles/HomeScreenStyles';
+import FlatListHeader from '../Components/FlatListHeader';
 
 const HomeScreen = () => {
 
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const [applications, setApplications] = useState([]);
     const [selectedItems, setSelectedItems] = useState([]);
+    const [showConcludedOnly, setShowConcludedOnly] = useState(false);
 
     const { styles, colors } = useThemedValues(getStyles);
 
@@ -98,18 +101,24 @@ const HomeScreen = () => {
 
     const add_deleteIcon = isDeleteMode ? Svgs.Delete : Svgs.Plus;
 
-    let numberOfApplications = applications?.length;
+    
+
+    let concludedApplications = getConcludedApplications(applications);
+
+    const data = showConcludedOnly ? concludedApplications : applications;
+    let numberOfApplications = data?.length;
 
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
                 <View style={styles.listContainer}>
                     <FlatList
-                        data={applications}
+                        data={data}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => item.key}
                         ListEmptyComponent={<EmptyListComponent />}
-                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications}/>}
+                        ListHeaderComponent={<FlatListHeader onPress={(value) => setShowConcludedOnly(value)} />}
+                        ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications} showConcludedOnly={showConcludedOnly}/>}
                     />
                 </View>
                 <TouchableOpacity style={styles.add_deleteIconContainer} onPress={_onPress_NavigateOrDelete}>

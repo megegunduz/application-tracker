@@ -13,8 +13,24 @@ const FlatListFooter = props => {
     const loc = useLocalization();
 
     const numberOfApplications = props.numberOfApplications;
+    
+    const showConcludedOnly = props.showConcludedOnly;
 
-    const text = numberOfApplications ? loc.t(tn.flatListFooterText, {numberOfApplications}) : "";
+    const getText = () => {
+        let text;
+        if (numberOfApplications) {
+            if (showConcludedOnly) {
+                text = loc.t(tn.flatListFooterTextConcluded, {numberOfApplications});
+            }
+            else text = loc.t(tn.flatListFooterText, {numberOfApplications});
+        }
+
+        else text = "";
+        return text;
+    }
+
+    const text = getText();
+
 
     return (
         <View style={styles.container}>

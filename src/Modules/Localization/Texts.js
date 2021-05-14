@@ -44,12 +44,15 @@ export const tn = {
     interviewTitle: 'interviewTitle',
     interviewDetail: 'interviewDetail',
     flatListFooterText: 'flatListFooterText',
+    flatListFooterTextConcluded: 'flatListFooterTextConcluded',
     emptyComponentText: 'emptyComponentText',
     delete: 'delete',
     error: 'error',
     concludedApplications: 'concludedApplications',
     okay: 'okay',
     conclusion: 'conclusion',
+    all: 'all',
+    concluded: 'concluded',
 };
 
 export const english = {
@@ -87,7 +90,8 @@ export const english = {
     [tn.pickDate]: 'Pick date',
     [tn.interviewTitle]: 'Interview Title',
     [tn.interviewDetail]: 'Interview Details',
-    [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications.`,
+    [tn.flatListFooterText]: `You have applied to %{numberOfApplications} applications`,
+    [tn.flatListFooterTextConcluded]: `%{numberOfApplications} of your applicaitons are concluded`,
     [tn.emptyComponentText]: `Welcome %{username}! You haven't added any aplication yet. To add an application press the plus icon on bottom right.`,
     [tn.delete]: 'Delete',
     [tn.error]: 'Error',
@@ -102,6 +106,8 @@ export const english = {
     [tn.errorCodes["auth/too-many-requests"]]: "Too many requests. Try again in a few minutes.",
     [tn.okay]: "Okay",
     [tn.conclusion]: "Conclusion",
+    [tn.all]: "All",
+    [tn.concluded]: "Concluded",
 }
 
 export const turkish = {
@@ -139,7 +145,8 @@ export const turkish = {
     [tn.pickDate]: 'Tarih seç',
     [tn.interviewTitle]: 'Görüşme Başlığı',
     [tn.interviewDetail]: 'Görüşme Detayı',
-    [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun.`,
+    [tn.flatListFooterText]: `%{numberOfApplications} ilana başvurdun`,
+    [tn.flatListFooterTextConcluded]: `Başvurularının %{numberOfApplications} tanesi sonuçlanmış`,
     [tn.emptyComponentText]: `Hoşgeldin %{username}! Henüz bir başvuru eklemedin. Başvuru eklemek için sağ alttaki artıya tıkla.`,
     [tn.delete]: 'Sil',
     [tn.error]: 'Hata',
@@ -154,4 +161,6 @@ export const turkish = {
     [tn.errorCodes["auth/too-many-requests"]]: "Çok fazla istek gönderildi. Birkaç dakika sonra tekrar deneyin.",
     [tn.okay]: 'Tamam',
     [tn.conclusion]: 'Sonuç',
+    [tn.all]: 'Hepsi',
+    [tn.concluded]: 'Sonuçlanmış',
 }
