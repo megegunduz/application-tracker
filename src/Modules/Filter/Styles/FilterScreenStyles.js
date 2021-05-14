@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Fonts, Metrics } from '../../../StylingConstants';
+import { cn } from '../../Theming';
 
 export default Colors => StyleSheet.create({
     container: {
@@ -13,7 +14,9 @@ export default Colors => StyleSheet.create({
         marginBottom: Metrics.width * 0.02,
     },
     touchable: {
+        flexDirection: 'row',
         marginTop: Metrics.width * 0.03,
+        alignItems: 'center',
     },
     ascendingText: {
         fontFamily: Fonts.type.bold,
@@ -22,5 +25,14 @@ export default Colors => StyleSheet.create({
     descendingText: {
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(16),
+    },
+    iconContainer: {
+        width: Metrics.width * 0.08,
+        height: undefined,
+        aspectRatio: 1,
+        marginRight: Metrics.width * 0.025,
+    },
+    icon: {
+        color: Colors[cn.home.applicationItemBorder]
     },
 });

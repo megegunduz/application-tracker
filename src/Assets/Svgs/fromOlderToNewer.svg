@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175.828" height="142.828" viewBox="0 0 175.828 142.828">
+  <g id="From_Older_to_Newer" data-name="From Older to Newer" transform="translate(2.828 2)">
+    <text id="old_new" data-name="old
+new" transform="translate(50 51)" fill="red" font-size="50" font-family="Nunito-ExtraBold, Nunito" font-weight="600" letter-spacing="0.25em"><tspan x="0" y="0">old</tspan><tspan x="0" y="61">new</tspan></text>
+    <line id="Line_12" data-name="Line 12" y1="138" transform="translate(20)" fill="none" stroke="red" stroke-linecap="round" stroke-width="6"/>
+    <line id="Line_13" data-name="Line 13" y1="20" x2="20" transform="translate(20 118)" fill="none" stroke="red" stroke-linecap="round" stroke-width="6"/>
+    <line id="Line_14" data-name="Line 14" x2="20" y2="20" transform="translate(0 118)" fill="none" stroke="red" stroke-linecap="round" stroke-width="6"/>
+  </g>
+</svg>

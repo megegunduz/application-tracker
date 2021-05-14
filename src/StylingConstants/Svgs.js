@@ -12,6 +12,8 @@ import ShowPassword from '../Assets/Svgs/show-password.svg';
 import Url from '../Assets/Svgs/url.svg';
 import Close from '../Assets/Svgs/close.svg';
 import Menu from '../Assets/Svgs/menu.svg';
+import FromOlderToNewer from '../Assets/Svgs/fromOlderToNewer';
+import FromNewerToOlder from '../Assets/Svgs/fromNewerToOlder';
 
 export default {
     RadioChecked,
@@ -28,4 +30,6 @@ export default {
     Url,
     Close,
     Menu,
+    FromOlderToNewer,
+    FromNewerToOlder,
 };

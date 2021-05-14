@@ -18,6 +18,9 @@ const MenuDrawerScreen = props => {
     return (
         <View style={styles.container}>
             <FilterScreen />
+            <View style={styles.appNameContainer}>
+                <Text style={styles.appNameText}>JOBLY</Text>
+            </View>
         </View>
     );
 };
