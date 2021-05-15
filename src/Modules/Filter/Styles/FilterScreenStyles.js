@@ -7,11 +7,13 @@ export default Colors => StyleSheet.create({
         padding: Metrics.width * 0.05,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: Colors[cn.filter.background],
     },
     headerText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(20),
         marginBottom: Metrics.width * 0.02,
+        color: Colors[cn.filter.title],
     },
     touchable: {
         flexDirection: 'row',
@@ -21,10 +23,12 @@ export default Colors => StyleSheet.create({
     ascendingText: {
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(16),
+        color: Colors[cn.filter.regularText],
     },
     descendingText: {
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(16),
+        color: Colors[cn.filter.regularText],
     },
     iconContainer: {
         width: Metrics.width * 0.08,
@@ -33,6 +37,6 @@ export default Colors => StyleSheet.create({
         marginRight: Metrics.width * 0.025,
     },
     icon: {
-        color: Colors[cn.home.applicationItemBorder]
+        color: Colors[cn.filter.icon]
     },
 });

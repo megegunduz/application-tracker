@@ -8,7 +8,7 @@ export default (Colors) => StyleSheet.create({
         alignItems: 'center',
     },
     modalContentContainer: {
-        backgroundColor: Colors[cn.home.background],
+        backgroundColor: Colors[cn.error.background],
         width: Metrics.width * 0.8,
         height: Metrics.height * 0.3,
         padding: Metrics.marginHorizontal,
@@ -16,7 +16,7 @@ export default (Colors) => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.home.applicationItemBorder],
+        borderColor: Colors[cn.error.border],
         borderWidth: 2,
     },
     headerContainer: {
@@ -25,14 +25,14 @@ export default (Colors) => StyleSheet.create({
         paddingRight: Metrics.marginHorizontal,
         justifyContent: 'flex-end',
         borderBottomWidth: 2,
-        borderBottomColor: Colors[cn.home.applicationItemBorder],
+        borderBottomColor: Colors[cn.error.border],
     },
     headerText: {
         flexGrow: 0.42,
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(20),
         marginBottom: 10,
-        color: Colors[cn.home.addIcon]
+        color: Colors[cn.error.title]
     },
     iconContainer: {
         width: Metrics.width * 0.03,
@@ -40,7 +40,7 @@ export default (Colors) => StyleSheet.create({
         aspectRatio: 1,
     },
     icon: {
-        color: Colors[cn.home.addIcon],
+        color: Colors[cn.error.cancelIcon],
     },
     errorTextContainer: {
         flexGrow: 1,
@@ -52,12 +52,13 @@ export default (Colors) => StyleSheet.create({
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(16),
         marginVertical: Metrics.textMargin * 1.5,
+        color: Colors[cn.error.regularText],
     },
     button: {
         alignSelf: 'flex-end',
     },
     buttonText: {
-        color: Colors[cn.home.addIcon],
+        color: Colors[cn.error.touchableText],
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(16),
     },

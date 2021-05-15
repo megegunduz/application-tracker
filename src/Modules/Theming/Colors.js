@@ -3,23 +3,25 @@ const constantColors = {
     black: '#000000',
     transparent: 'transparent',
     oranges: {
-        1: '#ffeee9', // Light backgorund
-        2: '#ff8261', // Light header/border, Auth background
+        1: '#FFEEE9', // Light backgorund
+        2: '#FF8261', // Light navigation header, default item border, Auth background
     },
     purples: {
-        1: '#e0def4', // Light backgorund,
-        2: '#B182D5', // Light header/border, Auth background,
-        3: '#b0adcc', // Light placeholder, Auth placeholder(All modes),
-        4: '#636175', // Light date, Auth forgot password,
-        5: '#443846', // Dark header/border, Auth background,
-        6: '#78697e', // Dark background NEW
+        1: '#78697E', // Dark backgorund
+        2: '#443846', // Dark navigation header, Default item border, Auth background
+        3: '#636175', // Light date, Auth forgot password,
     },
     greys: {
-        1: '#cacaca', // Dark date text,
-        2: '#989898', // Dark placeholder,
-        3: '#888888', // Dark background,
+        1: '#CACACA', // Dark date text, Light FlatListHeader unselected
+        2: '#7D7D7D', // Dark FlatListHeader unselecter
+        3: '#B0ADCC', // Auth placeholders
     },
-    cherry: '#ab2134', // Buttons, icons
+    red: '#AB2134', // Buttons, icons
+    borderStatusColors: {
+        1: 'red', // gotRejected
+        2: 'gold', // iRejected
+        3: 'green', // gotAccepted
+    }
 };
 
 const toRGBA = (hexCode, opacity) => {
@@ -38,22 +40,94 @@ const toRGBA = (hexCode, opacity) => {
 
 const auth = {
     background: 'auth/background',
+    title: 'auth/title',
+    placeholder: 'auth/placeholder',
+    regularText: 'auth/regularText',
+    inputText: 'auth/inputText',
     button: 'auth/button',
-    touchableText: 'auth/touchableText',
+    buttonText: 'auth/buttonText',
     inputBackground: 'auth/inputBackground',
     inputBorder: 'auth/inputBorder',
-    placeholder: 'auth/placeholder',
-    plainText: 'auth/plainText',
-    inputsHeader: 'auth/inputsHeader',
+    appName: 'auth/appName',
 };
+
+const error = {
+    background: 'error/background',
+    title: 'error/title',
+    cancelIcon: 'error/cancelIcon',
+    border: 'error/border',
+    regularText: 'error/regularText',
+    touchableText: 'error/touchableText',
+}
 
 const home = {
     background: 'home/backgorund',
     applicationItemBorder: 'home/applicationItemBorder',
+    gotRejectedBorder: 'home/gotRejectedBorder',
+    iRejectedBorder: 'home/iRejectedBorder',
+    gotAcceptedBorder: 'home/gotAcceptedBorder',
     companyName: 'home/companyName',
     date: 'home/date',
     position: 'home/position',
     addIcon: 'home/addIcon',
+};
+
+const addApplication = {
+    background: 'addApplication/background',
+    inputBorder: 'addApplication/inputBorder',
+    placeholder: 'addApplication/placeholder',
+    regularText: 'addApplication/regularText',
+    button: 'addApplication/button',
+    buttonText: 'addApplication/buttonText',
+};
+
+const editApplication = {
+    background: 'editApplication/background',
+    inputBorder: 'editApplication/inputBorder',
+    regularText: 'editApplication/regularText',
+    placeholder: 'editApplication/placeholder',
+    linkIcon: 'editApplication/linkIcon',
+    titleText: 'editApplication/titleText',
+    addInterviewButton: 'editApplication/addInterviewButon',
+    addInterviewBorder: 'editApplication/addInterviewBorder',
+    addInterviewText: 'editApplication/addInterviewText',
+    checkbox: 'editApplication/checkbox',
+    button: 'editApplication/button',
+    buttonText: 'editApplication/buttonText',
+};
+
+const addInterview = {
+    background: 'addInterview/background',
+    border: 'addInterview/border',
+    placeholder: 'addInterview/placeholder',
+    regularText: 'addInterview/regularText',
+    addInterviewButton: 'addInterview/addInterviewButon',
+    addInterviewBorder: 'addInterview/addInterviewBorder',
+    addInterviewText: 'addInterview/addInterviewText',
+};
+
+const conclusionModal = {
+    background: 'conclusionModal/background',
+    title: 'conclusionModal/title',
+    borders: 'conclusionModal/borders',
+    extraPaleText: 'conclusionModal/extraPaleText', // unselected picker option
+    regularText: 'conclusionModal/regularText',
+    placeholder: 'conclusionModal/placeholder',
+    disabledButton: 'conclusionModal/disabledButton',
+    enabledButton: 'conclusionModal/enabledButton',
+    buttonText: 'conclusionModal/buttonText',
+};
+
+const drawerMenu = {
+    background: 'drawerMenu/backgorund',
+    appNameText: 'drawerMenu/appNameText',
+};
+
+const filter = {
+    background: 'filter/background',
+    title: 'filter/title',
+    regularText: 'filter/regularText',
+    icon: 'filter/icon',
 };
 
 const settings = {
@@ -65,17 +139,6 @@ const settings = {
     signOutButtonText: 'settings/signOutButtonText',
 };
 
-const addApplication = {
-    background: 'addApplication/background',
-};
-
-const editApplication = {
-    background: 'editApplication/background',
-    addButton: 'editApplication/addButton',
-    dateText: 'editApplication/dateText',
-    border: 'editApplication/border',
-};
-
 const header = {
     background: 'header/background',
     text: 'header/text',
@@ -85,51 +148,112 @@ const header = {
 
 export const cn = {
     auth,
+    error,
     home,
-    settings,
     addApplication,
     editApplication,
+    addInterview,
+    conclusionModal,
+    drawerMenu,
+    filter,
+    settings,
     header,
 };
 
 export const darkColors = {
     // auth
-    [auth.background]: constantColors.purples[5],
-    [auth.button]: constantColors.cherry,
-    [auth.touchableText]: constantColors.cherry,
+    [auth.background]: constantColors.purples[2],
+    [auth.title]: constantColors.oranges[2],
+    [auth.placeholder]: constantColors.greys[3],
+    [auth.regularText]: constantColors.purples[3],
+    [auth.inputText]: constantColors.purples[2],
+    [auth.button]: constantColors.red,
+    [auth.buttonText]: constantColors.oranges[1],
     [auth.inputBackground]: constantColors.oranges[1],
-    [auth.inputBorder]: constantColors.greys[5],
-    [auth.placeholder]: constantColors.greys[2],
-    [auth.plainText]: constantColors.purples[4],
-    [auth.inputsHeader]: constantColors.oranges[2],
+    [auth.inputBorder]: constantColors.purples[2],
+    [auth.appName]: constantColors.red,
+
+    // error
+    [error.background]: constantColors.purples[1],
+    [error.title]: constantColors.red,
+    [error.cancelIcon]: constantColors.red,
+    [error.border]: constantColors.purples[2],
+    [error.regularText]: constantColors.purples[1],
+    [error.touchableText]: constantColors.red,
 
     // home
-    [home.background]: constantColors.purples[6],
-    [home.applicationItemBorder]: constantColors.purples[5],
-    [home.companyName]: constantColors.black,
+    [home.background]: constantColors.purples[1],
+    [home.applicationItemBorder]: constantColors.purples[2],
+    [home.gotRejectedBorder]: constantColors.borderStatusColors[1],
+    [home.iRejectedBorder]: constantColors.borderStatusColors[2],
+    [home.gotAcceptedBorder]: constantColors.borderStatusColors[3],
+    [home.companyName]: constantColors.oranges[1],
     [home.date]: constantColors.greys[1],
-    [home.position]: constantColors.black,
-    [home.addIcon]: constantColors.cherry,
-
-    // settings
-    [settings.background]: constantColors.purples[6],
-    [settings.radioButtonSelectedIcon]: constantColors.cherry,
-    [settings.radioButtonUnselectedIcon]: constantColors.purples[5],
-    [settings.titleText]: constantColors.cherry, 
-    [settings.signOutButtonBackground]: constantColors.cherry,
-    [settings.signOutButtonText]: constantColors.white,
+    [home.position]: constantColors.oranges[1],
+    [home.addIcon]: constantColors.red,
 
     // addApplication
-    [addApplication.background]: constantColors.purples[6],
+    [addApplication.background]: constantColors.purples[1],
+    [addApplication.inputBorder]: constantColors.purples[2],
+    [addApplication.placeholder]: constantColors.greys[3],
+    [addApplication.regularText]: constantColors.white,
+    [addApplication.button]: constantColors.red,
+    [addApplication.buttonText]: constantColors.oranges[1],
 
     // editApplication
-    [editApplication.background]: constantColors.purples[6],
-    [editApplication.addButton]: '#443846',
-    [editApplication.dateText]: constantColors.purples[4],
-    [editApplication.border]: constantColors.purples[5],
+    [editApplication.background]: constantColors.purples[1],
+    [editApplication.inputBorder]: constantColors.purples[2],
+    [editApplication.regularText]: constantColors.oranges[1],
+    [editApplication.placeholder]: constantColors.greys[3],
+    [editApplication.linkIcon]: constantColors.purples[2],
+    [editApplication.titleText]: constantColors.red,
+    [editApplication.addInterviewButton]: constantColors.transparent,
+    [editApplication.addInterviewBorder]: constantColors.red,
+    [editApplication.addInterviewText]: constantColors.oranges[1],
+    [editApplication.checkbox]: constantColors.red,
+    [editApplication.button]: constantColors.red,
+    [editApplication.buttonText]: constantColors.oranges[1],
 
-    //header
-    [header.background]: constantColors.purples[5],
+    // addInterview
+    [addInterview.background]: constantColors.purples[1],
+    [addInterview.border]:constantColors.purples[2],
+    [addInterview.placeholder]:constantColors.greys[3],
+    [addInterview.regularText]: constantColors.white,
+    [addInterview.addInterviewButton]: constantColors.oranges[1],
+    [addInterview.addInterviewBorder]: constantColors.oranges[2],
+    [addInterview.addInterviewText]: constantColors.purples[1],
+
+    // conclusionModal
+    [conclusionModal.background]: constantColors.purples[1],
+    [conclusionModal.title]: constantColors.red,
+    [conclusionModal.borders]: constantColors.purples[2],
+    [conclusionModal.extraPaleText]: constantColors.greys[2],
+    [conclusionModal.regularText]: constantColors.white,
+    [conclusionModal.placeholder]: constantColors.greys[3],
+    [conclusionModal.disabledButton]: constantColors.greys[3],
+    [conclusionModal.enabledButton]: constantColors.red,
+    [conclusionModal.buttonText]: constantColors.oranges[1],
+
+    // drawerMenu
+    [drawerMenu.background]: constantColors.purples[1],
+    [drawerMenu.appNameText]: constantColors.red,
+
+    // filter
+    [filter.background]: constantColors.purples[1],
+    [filter.title]: constantColors.purples[2],
+    [filter.regularText]: constantColors.white,
+    [filter.icon]: constantColors.purples[2],
+
+    // settings
+    [settings.background]: constantColors.purples[1],
+    [settings.radioButtonSelectedIcon]: constantColors.red,
+    [settings.radioButtonUnselectedIcon]: constantColors.purples[2],
+    [settings.titleText]: constantColors.red, 
+    [settings.signOutButtonBackground]: constantColors.red,
+    [settings.signOutButtonText]: constantColors.oranges[1],
+
+    // header
+    [header.background]: constantColors.purples[2],
     [header.text]: constantColors.oranges[1],
     [header.backIcon]: constantColors.oranges[1],
     [header.rightIcon]: constantColors.oranges[1],
@@ -138,40 +262,96 @@ export const darkColors = {
 export const lightColors = {
     // auth
     [auth.background]: constantColors.oranges[2],
-    [auth.button]: constantColors.cherry,
-    [auth.touchableText]: constantColors.cherry,
+    [auth.title]: constantColors.purples[2],
+    [auth.placeholder]: constantColors.greys[3],
+    [auth.regularText]: constantColors.purples[3],
+    [auth.inputText]: constantColors.purples[2],
+    [auth.button]: constantColors.red,
+    [auth.buttonText]: constantColors.oranges[1],
     [auth.inputBackground]: constantColors.oranges[1],
-    [auth.inputBorder]: constantColors.transparent,
-    [auth.placeholder]: constantColors.purples[3],
-    [auth.plainText]: constantColors.purples[4],
-    [auth.inputsHeader]: constantColors.purples[5],
+    [auth.inputBorder]: constantColors.purples[2],
+    [auth.appName]: constantColors.red,
+    
+    // error
+    [error.background]: constantColors.oranges[1],
+    [error.title]: constantColors.red,
+    [error.cancelIcon]: constantColors.red,
+    [error.border]: constantColors.oranges[2],
+    [error.regularText]: constantColors.purples[2],
+    [error.touchableText]: constantColors.red,
 
     // home
     [home.background]: constantColors.oranges[1],
     [home.applicationItemBorder]: constantColors.oranges[2],
-    [home.companyName]: constantColors.black,
-    [home.date]: constantColors.purples[4],
-    [home.position]: constantColors.black,
-    [home.addIcon]: constantColors.cherry,
+    [home.gotRejectedBorder]: constantColors.borderStatusColors[1],
+    [home.iRejectedBorder]: constantColors.borderStatusColors[2],
+    [home.gotAcceptedBorder]: constantColors.borderStatusColors[3],
+    [home.companyName]: constantColors.purples[2],
+    [home.date]: constantColors.purples[3],
+    [home.position]: constantColors.purples[2],
+    [home.addIcon]: constantColors.red,
 
-    // settings
-    [settings.background]: constantColors.oranges[1],
-    [settings.radioButtonSelectedIcon]: constantColors.cherry,
-    [settings.radioButtonUnselectedIcon]: constantColors.oranges[2],
-    [settings.titleText]: constantColors.cherry,
-    [settings.signOutButtonBackground]: constantColors.cherry,
-    [settings.signOutButtonText]: constantColors.white,
-    
     // addApplication
     [addApplication.background]: constantColors.oranges[1],
+    [addApplication.inputBorder]: constantColors.oranges[2],
+    [addApplication.placeholder]: constantColors.greys[3],
+    [addApplication.regularText]: constantColors.purples[2],
+    [addApplication.button]: constantColors.red,
+    [addApplication.buttonText]: constantColors.oranges[1],
 
     // editApplication
     [editApplication.background]: constantColors.oranges[1],
-    [editApplication.addButton]: '#ff8261',
-    [editApplication.dateText]: constantColors.purples[4],
-    [editApplication.border]: constantColors.oranges[2],
+    [editApplication.inputBorder]: constantColors.oranges[2],
+    [editApplication.regularText]: constantColors.purples[2],
+    [editApplication.placeholder]: constantColors.greys[3],
+    [editApplication.linkIcon]: constantColors.oranges[2],
+    [editApplication.titleText]: constantColors.red,
+    [editApplication.addInterviewButton]: constantColors.purples[1],
+    [editApplication.addInterviewBorder]: constantColors.purples[2],
+    [editApplication.addInterviewText]: constantColors.oranges[1],
+    [editApplication.checkbox]: constantColors.oranges[2],
+    [editApplication.button]: constantColors.red,
+    [editApplication.buttonText]: constantColors.oranges[1],
 
-    //header
+    // addInterview
+    [addInterview.background]: constantColors.oranges[1],
+    [addInterview.border]: constantColors.oranges[2],
+    [addInterview.placeholder]: constantColors.greys[3],
+    [addInterview.regularText]: constantColors.purples[2],
+    [addInterview.addInterviewButton]: constantColors.purples[1],
+    [addInterview.addInterviewBorder]: constantColors.purples[2],
+    [addInterview.addInterviewText]: constantColors.oranges[1],
+    
+    // conclusionModal
+    [conclusionModal.background]: constantColors.oranges[1],
+    [conclusionModal.title]: constantColors.red,
+    [conclusionModal.borders]: constantColors.purples[2],
+    [conclusionModal.extraPaleText]: constantColors.greys[1],
+    [conclusionModal.regularText]: constantColors.purples[2],
+    [conclusionModal.placeholder]: constantColors.greys[3],
+    [conclusionModal.disabledButton]: constantColors.greys[3],
+    [conclusionModal.enabledButton]: constantColors.red,
+    [conclusionModal.buttonText]: constantColors.oranges[1],
+
+    // drawerMenu
+    [drawerMenu.background]: constantColors.oranges[1],
+    [drawerMenu.appNameText]: constantColors.red,
+    
+    // filter
+    [filter.background]: constantColors.oranges[1],
+    [filter.title]: constantColors.oranges[2],
+    [filter.regularText]: constantColors.purples[2],
+    [filter.icon]: constantColors.oranges[2],
+
+    // settings
+    [settings.background]: constantColors.oranges[1],
+    [settings.radioButtonSelectedIcon]: constantColors.red,
+    [settings.radioButtonUnselectedIcon]: constantColors.oranges[2],
+    [settings.titleText]: constantColors.red,
+    [settings.signOutButtonBackground]: constantColors.red,
+    [settings.signOutButtonText]: constantColors.oranges[1],
+
+    // header
     [header.background]: constantColors.oranges[2],
     [header.text]: constantColors.oranges[1],
     [header.backIcon]: constantColors.oranges[1],

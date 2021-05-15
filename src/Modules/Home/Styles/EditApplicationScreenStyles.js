@@ -23,17 +23,18 @@ export default (Colors) => StyleSheet.create({
         justifyContent: 'space-between',
         padding: Metrics.textMargin,
         borderBottomWidth: 1,
-        borderBottomColor: Colors[cn.editApplication.border]
+        borderBottomColor: Colors[cn.editApplication.inputBorder]
     },
     interviewText: {
         fontSize: Fonts.size(15),
         fontFamily: Fonts.type.regular,
         flexShrink: 1,
+        color: Colors[cn.editApplication.regularText],
     },
     dateText: {
         fontSize: Fonts.size(13),
         fontFamily: Fonts.type.regular,
-        color: Colors[cn.editApplication.dateText],
+        color: Colors[cn.editApplication.regularText],
     },
     headerContainer: {
         marginTop: Metrics.marginVertical,
@@ -42,16 +43,16 @@ export default (Colors) => StyleSheet.create({
     headerText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(18),
-        color: Colors[cn.home.addIcon],
+        color: Colors[cn.editApplication.titleText],
     },
     addButtonContainer: {
         marginTop: Metrics.marginVertical * 0.5,
         marginBottom: Metrics.marginVertical,
     },
     addButton: {
-        backgroundColor: Colors[cn.editApplication.addButton],
+        backgroundColor: Colors[cn.editApplication.addInterviewButton],
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.home.addIcon],
+        borderColor: Colors[cn.editApplication.addInterviewBorder],
         borderWidth: 1,
         height: Metrics.width * 0.1,
         alignItems: 'center',
@@ -60,7 +61,7 @@ export default (Colors) => StyleSheet.create({
     addButtonText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(16),
-        color: Colors[cn.home.addIcon],
+        color: Colors[cn.editApplication.addInterviewText],
     },
     concludedContainer: {
         marginBottom: Metrics.marginHorizontal,

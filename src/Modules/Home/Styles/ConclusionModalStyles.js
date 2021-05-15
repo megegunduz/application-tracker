@@ -12,10 +12,10 @@ export default (Colors, isDisabled) => StyleSheet.create({
         flexGrow: 0.5,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "white",
+        backgroundColor: Colors[cn.conclusionModal.background],
         padding: Metrics.marginHorizontal * 0.6,
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.home.addIcon],
+        borderColor: Colors[cn.conclusionModal.borders],
         borderWidth: 1,
     },
     headerContainer: {
@@ -24,7 +24,7 @@ export default (Colors, isDisabled) => StyleSheet.create({
     headerText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(20),
-        color: Colors[cn.home.applicationItemBorder]
+        color: Colors[cn.conclusionModal.title]
     },
     pickerContainer: {
         alignSelf: 'stretch',
@@ -41,7 +41,7 @@ export default (Colors, isDisabled) => StyleSheet.create({
         paddingHorizontal: Metrics.textMargin,
         borderWidth: 1,
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.home.applicationItemBorder]
+        borderColor: Colors[cn.conclusionModal.borders]
     },
     input: {
 
@@ -51,6 +51,6 @@ export default (Colors, isDisabled) => StyleSheet.create({
     },
     button:{
         width: Metrics.width * 0.5,
-        backgroundColor: isDisabled ? 'lightgrey' : Colors[cn.home.applicationItemBorder]
+        backgroundColor: isDisabled ? 'lightgrey' : Colors[cn.conclusionModal.enabledButton]
     },
 });

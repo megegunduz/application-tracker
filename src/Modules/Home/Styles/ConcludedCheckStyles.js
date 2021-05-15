@@ -15,7 +15,7 @@ export default Colors => StyleSheet.create({
         marginRight: Metrics.textMargin,
     },
     icon:{
-        color: Colors[cn.home.applicationItemBorder],
+        color: Colors[cn.editApplication.inputBorder],
     },
     text: {
         fontFamily: Fonts.type.semiBold,

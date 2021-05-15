@@ -5,7 +5,6 @@ import { cn } from '../../Theming';
 export default (Colors) => StyleSheet.create({
     container: {
         width: Metrics.width,
-        // justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors[cn.header.background],
         marginTop: Metrics.marginHorizontal * 0.5,
@@ -14,7 +13,7 @@ export default (Colors) => StyleSheet.create({
         paddingHorizontal: Metrics.width * 0.1,
     },
     text: {
-        color: 'black',
+        color: Colors[cn.home.companyName],
         fontSize: Fonts.size(16),
         fontFamily: Fonts.type.semibold,
     },

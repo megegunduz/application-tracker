@@ -10,8 +10,8 @@ export default (Colors) => StyleSheet.create({
     modalContentContainer: {
         width: Metrics.width * 0.8,
         minHeight: Metrics.height * 0.5,
-        backgroundColor: Colors[cn.home.background],
-        borderColor: Colors[cn.home.applicationItemBorder],
+        backgroundColor: Colors[cn.addInterview.background],
+        borderColor: Colors[cn.addInterview.border],
         borderWidth: 1,
         borderRadius: Metrics.borderRadiusStandard,
         justifyContent:'space-around',
@@ -31,9 +31,9 @@ export default (Colors) => StyleSheet.create({
         paddingRight: Metrics.width * 0.05,
     },
     addButton: {
-        backgroundColor: Colors[cn.editApplication.addButton],
+        backgroundColor: Colors[cn.addInterview.addInterviewButton],
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.home.addIcon],
+        borderColor: Colors[cn.addInterview.addInterviewBorder],
         borderWidth: 1,
         height: Metrics.width * 0.1,
         alignItems: 'center',
@@ -44,6 +44,6 @@ export default (Colors) => StyleSheet.create({
     addButtonText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(16),
-        color: Colors[cn.home.addIcon],
+        color: Colors[cn.addInterview.addInterviewText],
     },
 });

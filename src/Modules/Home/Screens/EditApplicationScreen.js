@@ -155,26 +155,26 @@ const EditApplicationScreen = props => {
                 <ScrollView>
                     <ApplicationInput
                         placeholder={loc.t(tn.companyName)}
-                        borderColor={colors[cn.home.applicationItemBorder]}
+                        borderColor={colors[cn.editApplication.inputBorder]}
                         defaultValue={companyName}
                         onChangeText={setCompanyName}
                     />
                     <ApplicationInput
                         placeholder={loc.t(tn.position)}
-                        borderColor={colors[cn.home.applicationItemBorder]}
+                        borderColor={colors[cn.editApplication.inputBorder]}
                         defaultValue={position}
                         onChangeText={setPosition}
                     />
                     <ApplicationInput
                         placeholder={loc.t(tn.applicationDate)}
-                        borderColor={colors[cn.home.applicationItemBorder]}
+                        borderColor={colors[cn.editApplication.inputBorder]}
                         defaultValue={applicationDate}
                         isDateInput={true}
                         transferPickedDate={getDate}
                     />
                     <ApplicationInput
                         placeholder={loc.t(tn.url)}
-                        borderColor={colors[cn.home.applicationItemBorder]}
+                        borderColor={colors[cn.editApplication.inputBorder]}
                         defaultValue={URL}
                         numberOfLines={1}
                         isURL={true}
@@ -183,7 +183,7 @@ const EditApplicationScreen = props => {
                     />
                     <ApplicationInput
                         placeholder={loc.t(tn.note)}
-                        borderColor={colors[cn.home.applicationItemBorder]}
+                        borderColor={colors[cn.editApplication.inputBorder]}
                         defaultValue={note}
                         isNoteInput={true}
                         onChangeText={setNote}

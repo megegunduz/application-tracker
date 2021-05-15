@@ -53,32 +53,32 @@ const AddApplicationScreen = props => {
             <ScrollView>
             <ApplicationInput
                 placeholder={loc.t(tn.companyName)}
-                borderColor={colors[cn.home.applicationItemBorder]}
+                borderColor={colors[cn.addApplication.inputBorder]}
                 isNoteInput={false}
                 onChangeText={setCompanyName}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.position)}
-                borderColor={colors[cn.home.applicationItemBorder]}
+                borderColor={colors[cn.addApplication.inputBorder]}
                 isNoteInput={false}
                 onChangeText={setPosition}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.applicationDate)}
-                borderColor={colors[cn.home.applicationItemBorder]}
+                borderColor={colors[cn.addApplication.inputBorder]}
                 isNoteInput={false}
                 isDateInput={true}
                 transferPickedDate={getDate}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.url)}
-                borderColor={colors[cn.home.applicationItemBorder]}
+                borderColor={colors[cn.addApplication.inputBorder]}
                 isNoteInput={false}
                 onChangeText={setUrl}
             />
             <ApplicationInput
                 placeholder={loc.t(tn.note)}
-                borderColor={colors[cn.home.applicationItemBorder]}
+                borderColor={colors[cn.addApplication.inputBorder]}
                 isNoteInput={true}
                 onChangeText={setNote}
             />

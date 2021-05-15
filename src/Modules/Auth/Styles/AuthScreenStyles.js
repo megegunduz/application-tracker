@@ -35,7 +35,7 @@ export default (Colors, params) => StyleSheet.create({
     header: {
         fontFamily: Fonts.type.bold,
         fontSize: Fonts.size(30),
-        color: Colors[cn.auth.inputsHeader],
+        color: Colors[cn.auth.title],
     },
     inputsContainer: {
         minHeight: Metrics.width * 0.6,
@@ -60,12 +60,12 @@ export default (Colors, params) => StyleSheet.create({
 
     },
     plainText: {
-        color: Colors[cn.auth.plainText],
+        color: Colors[cn.auth.regularText],
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(14),
     },
     touchableText: {
-        color: Colors[cn.auth.touchableText],
+        color: Colors[cn.auth.appName],
         marginLeft: Metrics.textMargin * 0.8,
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(14),
@@ -78,6 +78,6 @@ export default (Colors, params) => StyleSheet.create({
         fontFamily: Fonts.type.blackItalic,
         fontSize: Fonts.size(50),
         letterSpacing: Metrics.width * 0.02,
-        color: Colors[cn.auth.button]
+        color: Colors[cn.auth.appName]
     },
 });

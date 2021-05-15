@@ -24,7 +24,7 @@ export default (Colors) => StyleSheet.create({
     text: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(15),
-        color: 'black',
+        color: Colors[cn.addInterview.regularText],
     },
     detailsBox: {
         minHeight: Metrics.width * 0.4,
