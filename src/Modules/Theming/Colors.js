@@ -18,9 +18,16 @@ const constantColors = {
     },
     red: '#AB2134', // Buttons, icons
     borderStatusColors: {
-        1: 'red', // gotRejected
-        2: 'gold', // iRejected
-        3: 'green', // gotAccepted
+        darks: {
+            1: '#B22222', // gotRejected
+            2: '#DAA520', // iRejected
+            3: '#6B8E23', // gotAccepted
+        },
+        lights: {
+            1: '#DC143C', // gotRejected
+            2: '#FFD700', // iRejected
+            3: '#2E8B57', // gotAccepted
+        }
     }
 };
 
@@ -184,9 +191,9 @@ export const darkColors = {
     // home
     [home.background]: constantColors.purples[1],
     [home.applicationItemBorder]: constantColors.purples[2],
-    [home.gotRejectedBorder]: constantColors.borderStatusColors[1],
-    [home.iRejectedBorder]: constantColors.borderStatusColors[2],
-    [home.gotAcceptedBorder]: constantColors.borderStatusColors[3],
+    [home.gotRejectedBorder]: constantColors.borderStatusColors.darks[1],
+    [home.iRejectedBorder]: constantColors.borderStatusColors.darks[2],
+    [home.gotAcceptedBorder]: constantColors.borderStatusColors.darks[3],
     [home.companyName]: constantColors.oranges[1],
     [home.date]: constantColors.greys[1],
     [home.position]: constantColors.oranges[1],
@@ -216,8 +223,8 @@ export const darkColors = {
 
     // addInterview
     [addInterview.background]: constantColors.purples[1],
-    [addInterview.border]:constantColors.purples[2],
-    [addInterview.placeholder]:constantColors.greys[3],
+    [addInterview.border]: constantColors.purples[2],
+    [addInterview.placeholder]: constantColors.greys[3],
     [addInterview.regularText]: constantColors.white,
     [addInterview.addInterviewButton]: constantColors.oranges[1],
     [addInterview.addInterviewBorder]: constantColors.oranges[2],
@@ -248,7 +255,7 @@ export const darkColors = {
     [settings.background]: constantColors.purples[1],
     [settings.radioButtonSelectedIcon]: constantColors.red,
     [settings.radioButtonUnselectedIcon]: constantColors.purples[2],
-    [settings.titleText]: constantColors.red, 
+    [settings.titleText]: constantColors.red,
     [settings.signOutButtonBackground]: constantColors.red,
     [settings.signOutButtonText]: constantColors.oranges[1],
 
@@ -269,9 +276,9 @@ export const lightColors = {
     [auth.button]: constantColors.red,
     [auth.buttonText]: constantColors.oranges[1],
     [auth.inputBackground]: constantColors.oranges[1],
-    [auth.inputBorder]: constantColors.purples[2],
+    [auth.inputBorder]: constantColors.oranges[2],
     [auth.appName]: constantColors.red,
-    
+
     // error
     [error.background]: constantColors.oranges[1],
     [error.title]: constantColors.red,
@@ -283,9 +290,9 @@ export const lightColors = {
     // home
     [home.background]: constantColors.oranges[1],
     [home.applicationItemBorder]: constantColors.oranges[2],
-    [home.gotRejectedBorder]: constantColors.borderStatusColors[1],
-    [home.iRejectedBorder]: constantColors.borderStatusColors[2],
-    [home.gotAcceptedBorder]: constantColors.borderStatusColors[3],
+    [home.gotRejectedBorder]: constantColors.borderStatusColors.lights[1],
+    [home.iRejectedBorder]: constantColors.borderStatusColors.lights[2],
+    [home.gotAcceptedBorder]: constantColors.borderStatusColors.lights[3],
     [home.companyName]: constantColors.purples[2],
     [home.date]: constantColors.purples[3],
     [home.position]: constantColors.purples[2],
@@ -321,7 +328,7 @@ export const lightColors = {
     [addInterview.addInterviewButton]: constantColors.purples[1],
     [addInterview.addInterviewBorder]: constantColors.purples[2],
     [addInterview.addInterviewText]: constantColors.oranges[1],
-    
+
     // conclusionModal
     [conclusionModal.background]: constantColors.oranges[1],
     [conclusionModal.title]: constantColors.red,
@@ -336,7 +343,7 @@ export const lightColors = {
     // drawerMenu
     [drawerMenu.background]: constantColors.oranges[1],
     [drawerMenu.appNameText]: constantColors.red,
-    
+
     // filter
     [filter.background]: constantColors.oranges[1],
     [filter.title]: constantColors.oranges[2],

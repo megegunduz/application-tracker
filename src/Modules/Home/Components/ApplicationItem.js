@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
-import { cn, useThemedValues } from '../../Theming';
+import { cn, useThemedColors, useThemedStyles } from '../../Theming';
 
 import getStyles from '../Styles/ApplicationItemStyles';
 
@@ -11,16 +11,19 @@ const ApplicationItem = props => {
     const { appItem } = props;
 
     let conclusionType = appItem.conclusion?.conclusionType ? appItem.conclusion.conclusionType : null;
+
+    const colors = useThemedColors();
+
     let getBorderColor = (conclusionType) => {
         switch (conclusionType) {
             case "gotRejected":
-                return 'red';
+                return colors[cn.home.gotRejectedBorder];
             case "iRejected":
-                return "gold";
+                return colors[cn.home.iRejectedBorder];
             case "gotAccepted":
-                return 'green';
+                return colors[cn.home.gotAcceptedBorder];
             default:
-                return "#ff8261";
+                return colors[cn.home.applicationItemBorder];
         }
     }
     let borderColor = getBorderColor(conclusionType)
@@ -36,7 +39,7 @@ const ApplicationItem = props => {
 
     const [isSelected, setIsSelected] = useState(false);
 
-    const { styles, colors } = useThemedValues(getStyles, stylingParams);
+    const styles = useThemedStyles(getStyles, stylingParams);
 
     const svg = isSelected ? Svgs.CheckboxChecked : Svgs.CheckboxUnchecked;
 
