@@ -13,7 +13,7 @@ const ConclusionModal = props => {
 
     const [conclusionType, setConclusionType] = useState(null);
     const [conclusionDetail, setConclusionDetail] = useState();
-
+    
     let conclusion = conclusionType ?
     {
         conclusionType,
@@ -24,13 +24,19 @@ const ConclusionModal = props => {
 
     const buttonDisabled = conclusion ? false : true;
     const {styles, colors} = useThemedValues(getStyles, buttonDisabled);
-    const loc = useLocalization(null);
+    const loc = useLocalization();
     
     const _onPress = () => {
         props.transferConclusion(conclusion);
         setConclusionDetail(null);
         setConclusionType(null);
     }
+
+    const placeholder = loc.t(tn.conclusionDetailPlaceholder);
+    const selectConclusion = loc.t(tn.selectConclusion);
+    const gotRejected = loc.t(tn.gotRejected);
+    const iRejected = loc.t(tn.iRejected);
+    const gotAccepted = loc.t(tn.gotAccepted); 
 
     return (
         <Modal
@@ -45,17 +51,17 @@ const ConclusionModal = props => {
                 </View>
                 <View style={styles.pickerContainer}>
                     <Picker mode="dropdown" onValueChange={setConclusionType}>
-                        <Picker.Item label="Select conclusion" value={null} style={styles.pickerPlaceholder} />
-                        <Picker.Item label="Got Rejected" value="gotRejected" style={styles.pickerItem} />
-                        <Picker.Item label="I Rejected" value="iRejected" style={styles.pickerItem} />
-                        <Picker.Item label="Got Accepted" value="gotAccepted" style={styles.pickerItem} />
+                        <Picker.Item label={selectConclusion} value={null} style={styles.pickerPlaceholder} />
+                        <Picker.Item label={gotRejected} value="gotRejected" style={styles.pickerItem} />
+                        <Picker.Item label={iRejected} value="iRejected" style={styles.pickerItem} />
+                        <Picker.Item label={gotAccepted} value="gotAccepted" style={styles.pickerItem} />
                     </Picker>
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
                         placeholderTextColor={colors[cn.conclusionModal.placeholder]}
-                        placeholder="Conclusion details will be here"
+                        placeholder={placeholder}
                         multiline
                         onSubmitEditing={Keyboard.dismiss}
                         onChangeText={setConclusionDetail}

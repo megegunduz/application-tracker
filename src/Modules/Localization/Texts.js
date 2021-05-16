@@ -59,6 +59,11 @@ export const tn = {
     filter: 'filter',
     fromOlderToNewer: 'fromOlderToNewer',
     fromNewerToOlder: 'fromNewerToOlder',
+    selectConclusion: 'selectConclusion',
+    gotRejected: 'Got Rejected',
+    iRejected: 'I Rejected',
+    gotAccepted: 'Got Accepted',
+    conclusionDetailPlaceholder: 'conclusionDetailPlaceholder',
 };
 
 export const english = {
@@ -119,6 +124,11 @@ export const english = {
     [tn.filter]: 'Filter',
     [tn.fromOlderToNewer]: 'From Older to Newer',
     [tn.fromNewerToOlder]: 'From Newer to Older',
+    [tn.selectConclusion]: 'Select conclusion',
+    [tn.gotRejected]: 'Got Rejected',
+    [tn.iRejected]: 'I Rejected',
+    [tn.gotAccepted]: 'Got Accepted',
+    [tn.conclusionDetailPlaceholder]: 'Conclusion details...(optional)',
 }
 
 export const turkish = {
@@ -179,4 +189,9 @@ export const turkish = {
     [tn.filter]: 'Filtrele',
     [tn.fromOlderToNewer]: 'Eskiden Yeniye',
     [tn.fromNewerToOlder]: 'Yeniden Eskiye',
+    [tn.selectConclusion]: 'Sonucu seçin',
+    [tn.gotRejected]: 'Reddedildim',
+    [tn.iRejected]: 'Reddettim',
+    [tn.gotAccepted]: 'Kabul Edildim',
+    [tn.conclusionDetailPlaceholder]: 'Sonuçlanma detayları...(opsiyonel)',
 }
