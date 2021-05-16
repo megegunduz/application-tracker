@@ -39,6 +39,7 @@ export default (Colors) => StyleSheet.create({
     textInput: {
         width: Metrics.width * 0.7,
         paddingRight: Metrics.width * 0.05,
+        color: Colors[cn.addInterview.regularText],
     },
     saveButton: {
         backgroundColor: Colors[cn.addInterview.addInterviewButton],
