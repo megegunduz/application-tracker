@@ -33,7 +33,7 @@ const FlatListHeader = props => {
     const numberOfApplications = props.numberOfApplications;
 
     if (numberOfApplications === 0) {
-        return <></>;
+        return <View style={styles.container}></View>;
     }
     else {
         return (

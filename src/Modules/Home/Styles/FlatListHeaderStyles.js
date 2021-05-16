@@ -10,6 +10,7 @@ export default (Colors, params) => StyleSheet.create({
         justifyContent: 'center',
         paddingLeft: params.allChosen ? Metrics.width * 0.3 : 0,
         paddingRight: params.concludedChosen ? Metrics.width * 0.1 : 0,
+        marginBottom: Metrics.marginHorizontal * 0.5,
     },
     touchableContainer: {
         marginHorizontal: 10,
