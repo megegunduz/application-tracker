@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
+import moment from 'moment';
 
 import BorderedBox from '../../../Components/BorderedBox';
 import DatePicker from '../../../Components/DatePicker';
-import { tn, useLocalization } from '../../Localization';
+import { tn, useLocale, useLocalization } from '../../Localization';
 
 import { cn, useThemedValues } from '../../Theming';
 import { addInterview } from '../API/Firebase';
@@ -22,15 +23,18 @@ const AddInterviewModal = props => {
     const { styles, colors } = useThemedValues(getStyles);
 
     const loc = useLocalization();
+    const locale = useLocale();
 
     const getDate = (dateFromPicker) => {
         setDate(dateFromPicker);
     }
 
     const _onPress_AddInterview = () => {
+        let incomingDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY';
+        let dateToSendToDB = moment(date, incomingDateFormat).format('MM/DD/YYYY');
         const interview = {
             title: title,
-            date: date,
+            date: dateToSendToDB,
             details: details,
         };
 
