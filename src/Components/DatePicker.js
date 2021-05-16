@@ -6,24 +6,27 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { tn, useLocale, useLocalization } from '../Modules/Localization';
 import { useThemedValues } from '../Modules/Theming';
+import { Svgs } from '../StylingConstants';
+import Icon from './Icon';
 
 import getStyles from './Styles/DatePickerStyles';
 
 const DatePicker = (props) => {
 
-    const [isSelected, setIsSelected] = useState(false);
-    const [date, setDate] = useState(null);
-    const [showPicker, setShowPicker] = useState(false);
-    const [dateToDisplay, setDateToDisplay] = useState(null);
-
-    const { styles, colors } = useThemedValues(getStyles, isSelected);
-
     const loc = useLocalization();
     const locale = useLocale();
 
+    const localeDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY'
+
+    const [isSelected, setIsSelected] = useState(false);
+    const [date, setDate] = useState(moment());
+    const [showPicker, setShowPicker] = useState(false);
+    const [dateToDisplay, setDateToDisplay] = useState(date.locale(locale).format(localeDateFormat));
+
+    const { styles, colors } = useThemedValues(getStyles, isSelected);
+
     const pickDateText = loc.t(tn.pickDate);
 
-    const localeDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY'
 
     useEffect(() => {
         if (props.defaultValue) {
@@ -32,21 +35,31 @@ const DatePicker = (props) => {
         }
     }, [])
 
+    useEffect(() => {
+        props.transferPickedDate(date.format(localeDateFormat))
+    })
+
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShowPicker(Platform.OS === 'ios');
         setDate(currentDate);
         let momentDate = moment(currentDate);
-        props.transferPickedDate(momentDate.format(localeDateFormat))
+        props.transferPickedDate(date.format(localeDateFormat))
         setIsSelected(true);
         setDateToDisplay(momentDate.locale(locale).format(localeDateFormat))
     };
 
     return (
         <View>
-            <View>
-                <TouchableOpacity onPress={() => setShowPicker(true)}>
-                    <Text style={styles.text}>{ dateToDisplay ? dateToDisplay : pickDateText}</Text>
+            <View style={styles.container}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.text}>{dateToDisplay ? dateToDisplay : ""}</Text>
+                </View>
+                <TouchableOpacity style={styles.touchable} onPress={() => setShowPicker(true)}>
+                    <View style={styles.iconContainer}>
+                        <Icon svg={Svgs.Calendar} iconStyle={styles.icon} />
+                    </View>
+                    <Text style={styles.touchableText}>{pickDateText}</Text>
                 </TouchableOpacity>
             </View>
             {showPicker && (

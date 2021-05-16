@@ -14,6 +14,7 @@ import Close from '../Assets/Svgs/close.svg';
 import Menu from '../Assets/Svgs/menu.svg';
 import FromOlderToNewer from '../Assets/Svgs/fromOlderToNewer';
 import FromNewerToOlder from '../Assets/Svgs/fromNewerToOlder';
+import Calendar from '../Assets/Svgs/calendar.svg';
 
 export default {
     RadioChecked,
@@ -32,4 +33,5 @@ export default {
     Menu,
     FromOlderToNewer,
     FromNewerToOlder,
+    Calendar,
 };
