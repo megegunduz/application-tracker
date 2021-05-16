@@ -149,6 +149,13 @@ const EditApplicationScreen = props => {
         setConclusionModalVisible(false);
     }
 
+    const conclusionDetailText = () => {
+        if (conclusion?.conclusionDetail) {
+            return (": " + conclusion.conclusionDetail);
+        }
+        else return "";
+    }
+
     return (
         <>
             <View style={styles.container}>
@@ -205,7 +212,7 @@ const EditApplicationScreen = props => {
                         <ConcludedCheck isConcluded={isConcluded} onSelect={_onSelect_Concluded} />
                         {
                             conclusion ?
-                                <Text style={styles.conclusionText}>{conclusion.conclusionType + ": " + conclusion.conclusionDetail}</Text>
+                                <Text style={styles.conclusionText}>{loc.t(tn[conclusion.conclusionType]) + conclusionDetailText()}</Text>
                                 :
                                 null
                         }
