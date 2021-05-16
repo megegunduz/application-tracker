@@ -63,7 +63,7 @@ const DatePicker = (props) => {
             </View>
             {showPicker && (
                 <DateTimePicker
-                    value={date}
+                    value={new Date()}
                     is24Hour={true}
                     onChange={onChange}
                 />
