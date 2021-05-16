@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity} from 'react-native';
+import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 
 import BorderedBox from '../../../Components/BorderedBox';
@@ -50,15 +50,18 @@ const AddInterviewModal = props => {
             onBackdropPress={props.closeModal}
         >
             <View style={styles.modalContentContainer}>
+                <View style={styles.headerContainer}>
+                    <Text style={styles.header}>{loc.t(tn.addInterview)}</Text>
+                </View>
                 <BorderedBox style={styles.inputContainer}>
                     <TextInput
                         style={styles.textInput}
                         placeholder={loc.t(tn.interviewTitle)}
                         placeholderTextColor={colors[cn.addInterview.placeholder]}
-                        onChangeText={setTitle}/>
+                        onChangeText={setTitle} />
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>
-                    <DatePicker transferPickedDate={getDate}/>
+                    <DatePicker transferPickedDate={getDate} />
                 </BorderedBox>
                 <BorderedBox style={styles.noteInputContainer}>
                     <TextInput
@@ -66,10 +69,10 @@ const AddInterviewModal = props => {
                         placeholder={loc.t(tn.interviewDetail)}
                         placeholderTextColor={colors[cn.addInterview.placeholder]}
                         multiline
-                        onChangeText={setDetails}/>
+                        onChangeText={setDetails} />
                 </BorderedBox>
-                <TouchableOpacity style={styles.addButton} onPress={_onPress_AddInterview}>
-                    <Text style={styles.addButtonText}>{loc.t(tn.addInterview)}</Text>
+                <TouchableOpacity style={styles.saveButton} onPress={_onPress_AddInterview}>
+                    <Text style={styles.saveButtonText}>{loc.t(tn.save)}</Text>
                 </TouchableOpacity>
             </View>
         </Modal >
