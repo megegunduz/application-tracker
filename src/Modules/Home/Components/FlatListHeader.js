@@ -30,20 +30,27 @@ const FlatListHeader = props => {
     const allText = loc.t(tn.all);
     const concludedText = loc.t(tn.concluded);
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.touchableContainer}>
-                <TouchableOpacity style={styles.touchable} onPress={_showAll}>
-                    <Text style={styles.allText}>{allText}</Text>
-                </TouchableOpacity>
+    const numberOfApplications = props.numberOfApplications;
+
+    if (numberOfApplications === 0) {
+        return <></>;
+    }
+    else {
+        return (
+            <View style={styles.container}>
+                <View style={styles.touchableContainer}>
+                    <TouchableOpacity style={styles.touchable} onPress={_showAll}>
+                        <Text style={styles.allText}>{allText}</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.touchableContainer}>
+                    <TouchableOpacity style={styles.touchable} onPress={_showConcluded}>
+                        <Text style={styles.concludedText}>{concludedText}</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View style={styles.touchableContainer}>
-                <TouchableOpacity style={styles.touchable} onPress={_showConcluded}>
-                    <Text style={styles.concludedText}>{concludedText}</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+        );
+    }
 };
 
 export default FlatListHeader;
