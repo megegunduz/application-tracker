@@ -29,11 +29,13 @@ export default (Colors, isDisabled) => StyleSheet.create({
     pickerContainer: {
         alignSelf: 'stretch',
     },
-    picker: {
-
+    pickerItem: {
+        color: Colors[cn.conclusionModal.regularText],
+        backgroundColor: Colors[cn.conclusionModal.background]
     },
     pickerPlaceholder: {
-        color: 'lightgrey'
+        color: Colors[cn.conclusionModal.extraPaleText],
+        backgroundColor: Colors[cn.conclusionModal.background]
     },
     inputContainer: {
         flexGrow: 0.7,
@@ -41,16 +43,19 @@ export default (Colors, isDisabled) => StyleSheet.create({
         paddingHorizontal: Metrics.textMargin,
         borderWidth: 1,
         borderRadius: Metrics.borderRadiusStandard,
-        borderColor: Colors[cn.conclusionModal.borders]
+        borderColor: Colors[cn.conclusionModal.borders],
     },
     input: {
-
+        color: Colors[cn.conclusionModal.regularText]
     },
     buttonContainer: {
         marginTop: Metrics.marginHorizontal,
     },
     button:{
         width: Metrics.width * 0.5,
-        backgroundColor: isDisabled ? 'lightgrey' : Colors[cn.conclusionModal.enabledButton]
+        backgroundColor: isDisabled ? Colors[cn.conclusionModal.disabledButton] : Colors[cn.conclusionModal.enabledButton]
     },
+    buttonText: {
+        color: Colors[cn.conclusionModal.buttonText]
+    }
 });

@@ -6,7 +6,7 @@ import BorderedBox from '../../../Components/BorderedBox';
 import DatePicker from '../../../Components/DatePicker';
 import { tn, useLocalization } from '../../Localization';
 
-import { useThemedValues } from '../../Theming';
+import { cn, useThemedValues } from '../../Theming';
 import { addInterview } from '../API/Firebase';
 
 import getStyles from '../Styles/AddInterviewModalStyles';
@@ -54,6 +54,7 @@ const AddInterviewModal = props => {
                     <TextInput
                         style={styles.textInput}
                         placeholder={loc.t(tn.interviewTitle)}
+                        placeholderTextColor={colors[cn.addInterview.placeholder]}
                         onChangeText={setTitle}/>
                 </BorderedBox>
                 <BorderedBox style={styles.inputContainer}>
@@ -63,6 +64,7 @@ const AddInterviewModal = props => {
                     <TextInput
                         style={styles.textInput}
                         placeholder={loc.t(tn.interviewDetail)}
+                        placeholderTextColor={colors[cn.addInterview.placeholder]}
                         multiline
                         onChangeText={setDetails}/>
                 </BorderedBox>

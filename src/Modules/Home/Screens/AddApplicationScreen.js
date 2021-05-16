@@ -85,7 +85,7 @@ const AddApplicationScreen = props => {
             
             </ScrollView>
             <View style={styles.buttonContainer}>
-                <CommonButton text={upperCaseButtonText} onPress={_onPress_AddAppItem}/>
+                <CommonButton text={upperCaseButtonText} buttonTextStyle={styles.buttonText} onPress={_onPress_AddAppItem}/>
             </View>
         </View>
     );

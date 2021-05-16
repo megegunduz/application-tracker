@@ -14,9 +14,14 @@ const CommonButton = props => {
         ...props.style,
     };
 
+    let buttonTextStyle = {
+        ...styles.buttonText,
+        ...props.buttonTextStyle,
+    }
+
     return (
         <TouchableOpacity style={buttonStyle} onPress={props.onPress} disabled={props.disabled}>
-            <Text style={styles.buttonText}>{props.text}</Text>
+            <Text style={buttonTextStyle}>{props.text}</Text>
         </TouchableOpacity>
     );
 };

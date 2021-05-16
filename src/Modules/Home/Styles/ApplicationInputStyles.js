@@ -28,6 +28,7 @@ export default (Colors, params) => StyleSheet.create({
     textInput: {
         flexGrow: params.isURL ? 0 : 1,
         flexShrink: params.isURL ? 1 : 0,
+        color: Colors[cn.editApplication.regularText]
     },
     iconContainer: {
         width: '10%',
@@ -35,6 +36,6 @@ export default (Colors, params) => StyleSheet.create({
         aspectRatio: 1,
     },
     icon: {
-        color: Colors[cn.home.applicationItemBorder],
+        color: Colors[cn.editApplication.linkIcon],
     }
 });

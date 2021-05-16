@@ -213,7 +213,7 @@ const EditApplicationScreen = props => {
                 </ScrollView>
 
                 <View style={styles.buttonContainer}>
-                    <CommonButton text={upperCaseButtonText} onPress={_onPress_Save} />
+                    <CommonButton text={upperCaseButtonText} buttonTextStyle={styles.saveButtonText} onPress={_onPress_Save} />
                 </View>
             </View>
             <AddInterviewModal isVisible={addModalVisible} closeModal={_closeAddModal} applicationItem={applicationItem} />

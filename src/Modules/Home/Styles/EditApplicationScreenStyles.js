@@ -63,12 +63,16 @@ export default (Colors) => StyleSheet.create({
         fontSize: Fonts.size(16),
         color: Colors[cn.editApplication.addInterviewText],
     },
+    saveButtonText: {
+        color: Colors[cn.editApplication.buttonText]
+    },
     concludedContainer: {
         marginBottom: Metrics.marginHorizontal,
     },
     conclusionText: {
         marginTop: Metrics.marginHorizontal,
         fontFamily: Fonts.type.extraBold,
-        fontSize: Fonts.size(16)
+        fontSize: Fonts.size(16),
+        color: Colors[cn.editApplication.regularText]
     }
 });

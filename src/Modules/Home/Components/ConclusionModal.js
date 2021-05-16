@@ -3,7 +3,7 @@ import { Keyboard, Text, TextInput, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { Picker } from '@react-native-picker/picker';
 
-import { useThemedValues } from '../../Theming';
+import { cn, useThemedValues } from '../../Theming';
 import { tn, useLocalization } from '../../Localization';
 import CommonButton from '../../../Components/CommonButton';
 
@@ -23,7 +23,7 @@ const ConclusionModal = props => {
     null;
 
     const buttonDisabled = conclusion ? false : true;
-    const {styles} = useThemedValues(getStyles, buttonDisabled);
+    const {styles, colors} = useThemedValues(getStyles, buttonDisabled);
     const loc = useLocalization(null);
     
     const _onPress = () => {
@@ -46,14 +46,15 @@ const ConclusionModal = props => {
                 <View style={styles.pickerContainer}>
                     <Picker mode="dropdown" onValueChange={setConclusionType}>
                         <Picker.Item label="Select conclusion" value={null} style={styles.pickerPlaceholder} />
-                        <Picker.Item label="Got Rejected" value="gotRejected"/>
-                        <Picker.Item label="I Rejected" value="iRejected" />
-                        <Picker.Item label="Got Accepted" value="gotAccepted" />
+                        <Picker.Item label="Got Rejected" value="gotRejected" style={styles.pickerItem} />
+                        <Picker.Item label="I Rejected" value="iRejected" style={styles.pickerItem} />
+                        <Picker.Item label="Got Accepted" value="gotAccepted" style={styles.pickerItem} />
                     </Picker>
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
+                        placeholderTextColor={colors[cn.conclusionModal.placeholder]}
                         placeholder="Conclusion details will be here"
                         multiline
                         onSubmitEditing={Keyboard.dismiss}
@@ -61,7 +62,7 @@ const ConclusionModal = props => {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <CommonButton text="Tamam" style={styles.button} onPress={_onPress} disabled={buttonDisabled}/>
+                    <CommonButton text="Tamam" style={styles.button} buttonTextStyle={styles.buttonText} onPress={_onPress} disabled={buttonDisabled}/>
                 </View>
             </View>
         </Modal>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Fonts, Metrics } from '../../../StylingConstants';
+import { cn } from '../../Theming';
 
 export default (Colors, params) => StyleSheet.create({
     container: {
@@ -20,11 +21,11 @@ export default (Colors, params) => StyleSheet.create({
     allText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: params.allChosen ? Fonts.size(24) : Fonts.size(16),
-        color: params.allChosen ? 'black' : 'lightgrey',
+        color: params.allChosen ? Colors[cn.home.companyName] : Colors[cn.home.unselectedHeader],
     },
     concludedText: {
         fontFamily: Fonts.type.semiBold,
         fontSize: params.concludedChosen ? Fonts.size(24) : Fonts.size(16),
-        color: params.concludedChosen ? 'black' : 'lightgrey',
+        color: params.concludedChosen ? Colors[cn.home.companyName] : Colors[cn.home.unselectedHeader],
     },
 });

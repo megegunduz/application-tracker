@@ -7,13 +7,13 @@ const constantColors = {
         2: '#FF8261', // Light navigation header, default item border, Auth background
     },
     purples: {
-        1: '#78697E', // Dark backgorund
+        1: '#655c69', // Dark backgorund
         2: '#443846', // Dark navigation header, Default item border, Auth background
         3: '#636175', // Light date, Auth forgot password,
     },
     greys: {
         1: '#CACACA', // Dark date text, Light FlatListHeader unselected
-        2: '#7D7D7D', // Dark FlatListHeader unselecter
+        2: '#8F8F8F', // Dark FlatListHeader unselected
         3: '#B0ADCC', // Auth placeholders
     },
     red: '#AB2134', // Buttons, icons
@@ -77,6 +77,7 @@ const home = {
     date: 'home/date',
     position: 'home/position',
     addIcon: 'home/addIcon',
+    unselectedHeader: 'home/unselectedHeader',
 };
 
 const addApplication = {
@@ -182,11 +183,11 @@ export const darkColors = {
 
     // error
     [error.background]: constantColors.purples[1],
-    [error.title]: constantColors.red,
-    [error.cancelIcon]: constantColors.red,
+    [error.title]: constantColors.oranges[2],
+    [error.cancelIcon]: constantColors.oranges[2],
     [error.border]: constantColors.purples[2],
-    [error.regularText]: constantColors.purples[1],
-    [error.touchableText]: constantColors.red,
+    [error.regularText]: constantColors.oranges[1],
+    [error.touchableText]: constantColors.oranges[2],
 
     // home
     [home.background]: constantColors.purples[1],
@@ -198,12 +199,13 @@ export const darkColors = {
     [home.date]: constantColors.greys[1],
     [home.position]: constantColors.oranges[1],
     [home.addIcon]: constantColors.red,
+    [home.unselectedHeader]: constantColors.greys[2],
 
     // addApplication
     [addApplication.background]: constantColors.purples[1],
     [addApplication.inputBorder]: constantColors.purples[2],
-    [addApplication.placeholder]: constantColors.greys[3],
-    [addApplication.regularText]: constantColors.white,
+    [addApplication.placeholder]: constantColors.greys[2],
+    [addApplication.regularText]: constantColors.oranges[1],
     [addApplication.button]: constantColors.red,
     [addApplication.buttonText]: constantColors.oranges[1],
 
@@ -211,7 +213,7 @@ export const darkColors = {
     [editApplication.background]: constantColors.purples[1],
     [editApplication.inputBorder]: constantColors.purples[2],
     [editApplication.regularText]: constantColors.oranges[1],
-    [editApplication.placeholder]: constantColors.greys[3],
+    [editApplication.placeholder]: constantColors.greys[2],
     [editApplication.linkIcon]: constantColors.purples[2],
     [editApplication.titleText]: constantColors.red,
     [editApplication.addInterviewButton]: constantColors.transparent,
@@ -224,7 +226,7 @@ export const darkColors = {
     // addInterview
     [addInterview.background]: constantColors.purples[1],
     [addInterview.border]: constantColors.purples[2],
-    [addInterview.placeholder]: constantColors.greys[3],
+    [addInterview.placeholder]: constantColors.greys[2],
     [addInterview.regularText]: constantColors.white,
     [addInterview.addInterviewButton]: constantColors.oranges[1],
     [addInterview.addInterviewBorder]: constantColors.oranges[2],
@@ -232,12 +234,12 @@ export const darkColors = {
 
     // conclusionModal
     [conclusionModal.background]: constantColors.purples[1],
-    [conclusionModal.title]: constantColors.red,
-    [conclusionModal.borders]: constantColors.purples[2],
+    [conclusionModal.title]: constantColors.oranges[1],
+    [conclusionModal.borders]: constantColors.red,
     [conclusionModal.extraPaleText]: constantColors.greys[2],
-    [conclusionModal.regularText]: constantColors.white,
-    [conclusionModal.placeholder]: constantColors.greys[3],
-    [conclusionModal.disabledButton]: constantColors.greys[3],
+    [conclusionModal.regularText]: constantColors.oranges[1],
+    [conclusionModal.placeholder]: constantColors.greys[2],
+    [conclusionModal.disabledButton]: constantColors.greys[2],
     [conclusionModal.enabledButton]: constantColors.red,
     [conclusionModal.buttonText]: constantColors.oranges[1],
 
@@ -297,11 +299,12 @@ export const lightColors = {
     [home.date]: constantColors.purples[3],
     [home.position]: constantColors.purples[2],
     [home.addIcon]: constantColors.red,
+    [home.unselectedHeader]: constantColors.greys[1],
 
     // addApplication
     [addApplication.background]: constantColors.oranges[1],
     [addApplication.inputBorder]: constantColors.oranges[2],
-    [addApplication.placeholder]: constantColors.greys[3],
+    [addApplication.placeholder]: constantColors.greys[2],
     [addApplication.regularText]: constantColors.purples[2],
     [addApplication.button]: constantColors.red,
     [addApplication.buttonText]: constantColors.oranges[1],
@@ -310,20 +313,20 @@ export const lightColors = {
     [editApplication.background]: constantColors.oranges[1],
     [editApplication.inputBorder]: constantColors.oranges[2],
     [editApplication.regularText]: constantColors.purples[2],
-    [editApplication.placeholder]: constantColors.greys[3],
+    [editApplication.placeholder]: constantColors.greys[2],
     [editApplication.linkIcon]: constantColors.oranges[2],
     [editApplication.titleText]: constantColors.red,
-    [editApplication.addInterviewButton]: constantColors.purples[1],
-    [editApplication.addInterviewBorder]: constantColors.purples[2],
-    [editApplication.addInterviewText]: constantColors.oranges[1],
-    [editApplication.checkbox]: constantColors.oranges[2],
+    [editApplication.addInterviewButton]: constantColors.transparent,
+    [editApplication.addInterviewBorder]: constantColors.red,
+    [editApplication.addInterviewText]: constantColors.purples[1],
+    [editApplication.checkbox]: constantColors.red,
     [editApplication.button]: constantColors.red,
     [editApplication.buttonText]: constantColors.oranges[1],
 
     // addInterview
     [addInterview.background]: constantColors.oranges[1],
     [addInterview.border]: constantColors.oranges[2],
-    [addInterview.placeholder]: constantColors.greys[3],
+    [addInterview.placeholder]: constantColors.greys[2],
     [addInterview.regularText]: constantColors.purples[2],
     [addInterview.addInterviewButton]: constantColors.purples[1],
     [addInterview.addInterviewBorder]: constantColors.purples[2],
@@ -331,12 +334,12 @@ export const lightColors = {
 
     // conclusionModal
     [conclusionModal.background]: constantColors.oranges[1],
-    [conclusionModal.title]: constantColors.red,
-    [conclusionModal.borders]: constantColors.purples[2],
+    [conclusionModal.title]: constantColors.purples[2],
+    [conclusionModal.borders]: constantColors.red,
     [conclusionModal.extraPaleText]: constantColors.greys[1],
     [conclusionModal.regularText]: constantColors.purples[2],
-    [conclusionModal.placeholder]: constantColors.greys[3],
-    [conclusionModal.disabledButton]: constantColors.greys[3],
+    [conclusionModal.placeholder]: constantColors.greys[2],
+    [conclusionModal.disabledButton]: constantColors.greys[1],
     [conclusionModal.enabledButton]: constantColors.red,
     [conclusionModal.buttonText]: constantColors.oranges[1],
 

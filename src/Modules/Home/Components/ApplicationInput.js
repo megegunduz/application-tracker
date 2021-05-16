@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, TextInput, View } from 'react-native';
 
-import { useThemedValues } from '../../Theming';
+import { cn, useThemedValues } from '../../Theming';
 import DatePicker from '../../../Components/DatePicker';
 import Icon from '../../../Components/Icon';
 import { Svgs } from '../../../StylingConstants';
@@ -36,6 +36,7 @@ const ApplicationInput = props => {
                         multiline={props.isURL ? false : true}
                         numberOfLines={props.numberOfLines}
                         onChangeText={props.onChangeText}
+                        placeholderTextColor={colors[cn.editApplication.placeholder]}
                     />
                     {
                         props.isURL ?

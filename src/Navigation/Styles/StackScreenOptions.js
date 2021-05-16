@@ -10,6 +10,8 @@ export default (Colors) => {
         headerTitleStyle: {
             color: Colors[cn.header.text],
             fontSize: Fonts.size(18),
+            fontFamily: Fonts.type.extraBold,
+            letterSpacing: 2,
         },
         headerTintColor: Colors[cn.header.backIcon],
         headerBackTitleVisible: false,

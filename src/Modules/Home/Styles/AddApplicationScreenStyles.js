@@ -12,5 +12,8 @@ export default (Colors) => StyleSheet.create({
     },
     buttonContainer: {
         marginBottom: Metrics.marginHorizontal * 0.6,
+    },
+    buttonText: {
+        color: Colors[cn.addApplication.buttonText]
     }
 });

@@ -15,11 +15,11 @@ export default Colors => StyleSheet.create({
         marginRight: Metrics.textMargin,
     },
     icon:{
-        color: Colors[cn.editApplication.inputBorder],
+        color: Colors[cn.editApplication.checkbox],
     },
     text: {
         fontFamily: Fonts.type.semiBold,
         fontSize: Fonts.size(18),
-        color: '#000000'
+        color: Colors[cn.editApplication.regularText]
     },
 });
