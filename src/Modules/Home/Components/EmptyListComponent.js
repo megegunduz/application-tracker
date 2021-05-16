@@ -15,8 +15,9 @@ const EmptyListComponent = props => {
     const loc = useLocalization();
 
     const username = useSelector(userSelector).displayName;
+    const showConcludedOnly = props.showConcludedOnly;
 
-    const text = loc.t(tn.emptyComponentText, {username})
+    const text = showConcludedOnly ? loc.t(tn.emptyComponentConcludedText, {username}) : loc.t(tn.emptyComponentAllText, {username})
 
     return (
         <View style={styles.container}>

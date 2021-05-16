@@ -116,7 +116,7 @@ const HomeScreen = () => {
                         data={data}
                         renderItem={_renderApplicatonItem}
                         keyExtractor={(item, index) => item.key}
-                        ListEmptyComponent={<EmptyListComponent />}
+                        ListEmptyComponent={<EmptyListComponent showConcludedOnly={showConcludedOnly}/>}
                         ListHeaderComponent={<FlatListHeader numberOfApplications={applications.length} onPress={(value) => setShowConcludedOnly(value)} />}
                         ListFooterComponent={<FlatListFooter numberOfApplications={numberOfApplications} showConcludedOnly={showConcludedOnly}/>}
                     />
