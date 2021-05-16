@@ -30,20 +30,21 @@ const DatePicker = (props) => {
     useEffect(() => {
         if (props.defaultValue) {
             setDateToDisplay(props.defaultValue)
+            setDate(moment(props.defaultValue, localeDateFormat))
             setIsSelected(true);
         }
     }, [])
 
     useEffect(() => {
         props.transferPickedDate(date.format(localeDateFormat))
-    })
+    },[date])
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShowPicker(Platform.OS === 'ios');
         setDate(moment(currentDate));
         let momentDate = moment(currentDate);
-        props.transferPickedDate(date.format(localeDateFormat))
+        props.transferPickedDate(momentDate.format(localeDateFormat))
         setIsSelected(true);
         setDateToDisplay(momentDate.locale(locale).format(localeDateFormat))
     };
