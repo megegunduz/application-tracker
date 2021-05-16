@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Platform, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
-import trloc from 'moment/locale/tr';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { tn, useLocale, useLocalization } from '../Modules/Localization';
@@ -42,7 +41,7 @@ const DatePicker = (props) => {
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShowPicker(Platform.OS === 'ios');
-        setDate(currentDate);
+        setDate(moment(currentDate));
         let momentDate = moment(currentDate);
         props.transferPickedDate(date.format(localeDateFormat))
         setIsSelected(true);
