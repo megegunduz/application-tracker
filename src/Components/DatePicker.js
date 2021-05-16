@@ -18,9 +18,9 @@ const DatePicker = (props) => {
     const localeDateFormat = locale === "tr" ? 'DD/MM/YYYY' : 'MM/DD/YYYY'
 
     const [isSelected, setIsSelected] = useState(false);
-    const [date, setDate] = useState(moment());
+    const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
-    const [dateToDisplay, setDateToDisplay] = useState(date.locale(locale).format(localeDateFormat));
+    const [dateToDisplay, setDateToDisplay] = useState(moment(date).format(localeDateFormat));
 
     const { styles, colors } = useThemedValues(getStyles, isSelected);
 
@@ -30,14 +30,13 @@ const DatePicker = (props) => {
     useEffect(() => {
         if (props.defaultValue) {
             setDateToDisplay(props.defaultValue)
-            setDate(moment(props.defaultValue, localeDateFormat))
             setIsSelected(true);
+            props.transferPickedDate(moment(props.defaultValue, localeDateFormat).format(localeDateFormat))
+        }
+        else {
+            props.transferPickedDate(moment().format(localeDateFormat))
         }
     }, [])
-
-    useEffect(() => {
-        props.transferPickedDate(date.format(localeDateFormat))
-    },[date])
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -46,7 +45,7 @@ const DatePicker = (props) => {
         let momentDate = moment(currentDate);
         props.transferPickedDate(momentDate.format(localeDateFormat))
         setIsSelected(true);
-        setDateToDisplay(momentDate.locale(locale).format(localeDateFormat))
+        setDateToDisplay(momentDate.format(localeDateFormat))
     };
 
     return (
@@ -64,7 +63,7 @@ const DatePicker = (props) => {
             </View>
             {showPicker && (
                 <DateTimePicker
-                    value={new Date()}
+                    value={date}
                     is24Hour={true}
                     onChange={onChange}
                 />
