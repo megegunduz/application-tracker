@@ -58,7 +58,7 @@ const ApplicationItem = props => {
                 {
                     props.deleteMode ?
                         <TouchableOpacity style={styles.iconContainer} onPress={_onPress_SelectItem}>
-                            <Icon svg={svg} iconStyle={{color: colors[cn.home.applicationItemBorder]}}></Icon>
+                            <Icon svg={svg} iconStyle={{color: borderColor}}></Icon>
                         </TouchableOpacity>
                         :
                         null
