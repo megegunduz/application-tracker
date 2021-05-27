@@ -1,5 +1,5 @@
 import { takeEvery, call, put, fork } from '@redux-saga/core/effects'
-import { getCurrentUser, signIn, signOut, signUp, updateUser } from '../API/Firebase';
+import { getCurrentUser, signIn, signOut, signUp, updateUser, resetPassword } from '../API/Firebase';
 import { UserActionCreators, UserActionTypes } from './UserRedux';
 import { LoadingActionCreators } from '../../Loading';
 import { ErrorActionCreators } from '../../Error/ErrorRedux';
@@ -85,8 +85,30 @@ function* watchSignOutRequest() {
     yield takeEvery(UserActionTypes.SIGN_OUT_REQUEST, workerSignOut)
 };
 
+function* workerPasswordReset(action) {
+
+    const {email} = action.payload;
+
+    try {
+        yield put(LoadingActionCreators.setIsLoading(true));
+
+        yield call(resetPassword, email)
+        
+    } catch (error) {
+        console.log(error)
+        yield put(ErrorActionCreators.setErrorExists(true, error.code))
+    } finally {
+        yield put(LoadingActionCreators.setIsLoading(false))
+    }
+}
+
+function* watchPasswordResetRequest() {
+    yield takeEvery(UserActionTypes.PASSWORD_RESET_REQUEST, workerPasswordReset)
+}
+
 export const userSagas = [
     fork(watchSignUpRequest),
     fork(watchSignInRequest),
     fork(watchSignOutRequest),
+    fork(watchPasswordResetRequest),
 ];

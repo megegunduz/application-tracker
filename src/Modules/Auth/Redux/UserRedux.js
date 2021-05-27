@@ -13,6 +13,7 @@ export const UserActionTypes = {
     SIGN_IN_REQUEST: 'user/sign_in_request',
     SIGN_UP_REQUEST: 'user/sign_up_request',
     SIGN_OUT_REQUEST: 'user/sign_out_request',
+    PASSWORD_RESET_REQUEST: 'user/password_reset_request',
 }
 
 // Action creators
@@ -32,6 +33,10 @@ export const UserActionCreators = {
     signOutRequest: () => ({
         type: UserActionTypes.SIGN_OUT_REQUEST,
     }),
+    passwordResetRequest: (email) => ({
+        type: UserActionTypes.PASSWORD_RESET_REQUEST,
+        payload: {email}
+    })
 };
 
 // Reducer

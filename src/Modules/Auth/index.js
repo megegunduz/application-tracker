@@ -11,5 +11,6 @@ export {
     signIn,
     signOut,
     updateUser,
-    getCurrentUser
+    getCurrentUser,
+    resetPassword,
 } from './API/Firebase';

@@ -26,3 +26,7 @@ export const updateUser = async (displayName) => {
 export const getCurrentUser = () => {
     return auth.currentUser;
 };
+
+export const resetPassword = async (email) => {
+    return await auth.sendPasswordResetEmail(email)
+}
