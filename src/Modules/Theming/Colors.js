@@ -56,6 +56,7 @@ const auth = {
     inputBackground: 'auth/inputBackground',
     inputBorder: 'auth/inputBorder',
     appName: 'auth/appName',
+    resetScreenText: 'auth/resetScreenText',
 };
 
 const error = {
@@ -180,6 +181,7 @@ export const darkColors = {
     [auth.inputBackground]: constantColors.oranges[1],
     [auth.inputBorder]: constantColors.purples[2],
     [auth.appName]: constantColors.red,
+    [auth.resetScreenText]: constantColors.oranges[1],
 
     // error
     [error.background]: constantColors.purples[1],
@@ -280,6 +282,7 @@ export const lightColors = {
     [auth.inputBackground]: constantColors.oranges[1],
     [auth.inputBorder]: constantColors.oranges[2],
     [auth.appName]: constantColors.red,
+    [auth.resetScreenText]: constantColors.purples[2],
 
     // error
     [error.background]: constantColors.oranges[1],

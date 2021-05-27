@@ -22,7 +22,8 @@ export default Colors => StyleSheet.create({
     },
     text: {
         fontFamily: Fonts.type.regular,
-        fontSize: Fonts.size(18)
+        fontSize: Fonts.size(18),
+        color: Colors[cn.auth.resetScreenText]
     },
     inputContainer: {
         flexGrow: 0.9,
