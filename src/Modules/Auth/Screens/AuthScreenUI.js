@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Keyboard, Image } from 'react-native';
 
@@ -12,11 +13,13 @@ import getStyles from '../Styles/AuthScreenStyles';
 
 const AuthScreenUI = (props) => {
 
-    const { styles, colors } = useThemedValues(getStyles);
+    const { styles } = useThemedValues(getStyles);
     const currentTheme = useTheme();
 
     const loc = useLocalization();
     const locale = useLocale();
+
+    const navigation = useNavigation();
 
     const [isLogin, setIsLogin] = useState(true)
     const [hidePassword, setHidePassword] = useState(true);
@@ -24,6 +27,10 @@ const AuthScreenUI = (props) => {
 
     const _onPress_SwitchLoginOrSignUp = () => {
         setIsLogin(!isLogin);
+    }
+
+    const _navigateToResetScreen = () => {
+        navigation.navigate("password-reset-screen");
     }
 
     const logo = currentTheme === 'light' ? Images.LogoLight : Images.LogoDark;
@@ -86,7 +93,7 @@ const AuthScreenUI = (props) => {
                             isLogin ?
                                 <View style={styles.textsContainer}>
                                     <Text style={styles.plainText}>{loc.t(tn.forgotPassword)}</Text>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity onPress={_navigateToResetScreen}>
                                         <Text style={styles.touchableText}>
                                             {loc.t(tn.reset)}
                                         </Text>

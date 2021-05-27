@@ -65,6 +65,8 @@ export const tn = {
     iRejected: 'I Rejected',
     gotAccepted: 'Got Accepted',
     conclusionDetailPlaceholder: 'conclusionDetailPlaceholder',
+    resetScreenHeader: 'resetScreenHeader',
+    resetScreenText: 'resetScreenText',
 };
 
 export const english = {
@@ -131,6 +133,8 @@ export const english = {
     [tn.iRejected]: 'I Rejected',
     [tn.gotAccepted]: 'Got Accepted',
     [tn.conclusionDetailPlaceholder]: 'Conclusion details...(optional)',
+    [tn.resetScreenHeader]: 'Reset Password',
+    [tn.resetScreenText]: 'Enter your e-mail address to receive password reset mail.',
 }
 
 export const turkish = {
@@ -197,4 +201,6 @@ export const turkish = {
     [tn.iRejected]: 'Reddettim',
     [tn.gotAccepted]: 'Kabul Edildim',
     [tn.conclusionDetailPlaceholder]: 'Sonuçlanma detayları...(opsiyonel)',
+    [tn.resetScreenHeader]: 'Şifre Sıfırlama',
+    [tn.resetScreenText]: 'Şifre sıfırlama mailinin gönderilmesi için e-posta adresinizi yazın.',
 }
