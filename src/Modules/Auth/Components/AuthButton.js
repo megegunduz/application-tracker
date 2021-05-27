@@ -9,13 +9,7 @@ const AuthButton = props => {
 
     const { styles, colors } = useThemedValues(getStyles);
 
-    // const locale = useLocale();
-    // const loc = useLocalization();
     const text = props.text.toLocaleUpperCase('tr-TR');
-    // const buttonText = text.toLocaleUpperCase('TR');
-    // const text = props.text.toLocaleUpperCase(locale);
-    // const trialText = loc.t(tn.login).toLocaleUpperCase(locale);
-
  
     return (
         <TouchableOpacity style={styles.touchable} onPress={props.onPress}>
