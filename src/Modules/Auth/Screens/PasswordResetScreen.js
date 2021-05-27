@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, SafeAreaView, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
-import Icon from '../../../Components/Icon';
-import { Images } from '../../../StylingConstants';
+import { Keyboard, KeyboardAvoidingView, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+
+import { useDispatch } from 'react-redux';
+import { ErrorActionCreators } from '../../Error/ErrorRedux';
+import { UserActionCreators } from '../Redux/UserRedux';
+
 import { tn, useLocalization } from '../../Localization';
-import { useTheme, useThemedValues } from '../../Theming';
+import { useThemedValues } from '../../Theming';
+
 import AuthButton from '../Components/AuthButton';
 import AuthInput from '../Components/AuthInput';
 
@@ -11,14 +15,22 @@ import getStyles from '../Styles/PasswordResetScreenStyles';
 
 const PaswordResetScreen = props => {
 
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState("");
 
     const { styles } = useThemedValues(getStyles);
-    const currentTheme = useTheme();
 
     const loc = useLocalization();
 
-    const logo = currentTheme === 'light' ? Images.LogoLight : Images.LogoDark;
+    const dispatch = useDispatch();
+
+    const _onPress = async () => {
+        if (email.length === 0) {
+            dispatch(ErrorActionCreators.setErrorExists(true, tn.errorCodes['custom/fill-every-field']))
+        }
+        else {
+            dispatch(UserActionCreators.passwordResetRequest(email))
+        }
+    }
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -40,10 +52,11 @@ const PaswordResetScreen = props => {
                         <AuthInput
                             placeholder={loc.t(tn.email)}
                             onChangeText={setEmail}
+                            autoCapitalize='none'
                         />
                     </View>
 
-                    <AuthButton text={loc.t(tn.reset)} onPress={() => props.navigation.goBack()} />
+                    <AuthButton text={loc.t(tn.reset)} onPress={_onPress} />
                 </TouchableOpacity>
             </KeyboardAvoidingView>
         </SafeAreaView>
