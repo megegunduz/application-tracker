@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Keyboard, KeyboardAvoidingView, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 
 import { useDispatch } from 'react-redux';
 import { ErrorActionCreators } from '../../Error/ErrorRedux';
@@ -11,6 +11,8 @@ import { useThemedValues } from '../../Theming';
 import AuthButton from '../Components/AuthButton';
 import AuthInput from '../Components/AuthInput';
 
+import { isValidEmail } from '../Utils/AuthValidation';
+
 import getStyles from '../Styles/PasswordResetScreenStyles';
 
 const PaswordResetScreen = props => {
@@ -21,14 +23,27 @@ const PaswordResetScreen = props => {
 
     const loc = useLocalization();
 
+    const invalidEmailErrorCode = tn.errorCodes['custom/invalid-email'];
+
     const dispatch = useDispatch();
 
-    const _onPress = async () => {
+    const _onPress = () => {
         if (email.length === 0) {
             dispatch(ErrorActionCreators.setErrorExists(true, tn.errorCodes['custom/fill-every-field']))
         }
+        else if (!isValidEmail(email)) {
+            dispatch(ErrorActionCreators.setErrorExists(true, invalidEmailErrorCode))
+        }
         else {
             dispatch(UserActionCreators.passwordResetRequest(email))
+            Alert.alert(
+                loc.t(tn.success),
+                loc.t(tn.resetSentTo, {email}),
+                [
+                    {
+                        onPress: () => props.navigation.goBack(),
+                    }
+                ])
         }
     }
 

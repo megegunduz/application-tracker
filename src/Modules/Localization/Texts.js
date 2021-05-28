@@ -67,6 +67,8 @@ export const tn = {
     conclusionDetailPlaceholder: 'conclusionDetailPlaceholder',
     resetScreenHeader: 'resetScreenHeader',
     resetScreenText: 'resetScreenText',
+    success: 'success',
+    resetSentTo: 'resetSentTo',
 };
 
 export const english = {
@@ -135,6 +137,8 @@ export const english = {
     [tn.conclusionDetailPlaceholder]: 'Conclusion details...(optional)',
     [tn.resetScreenHeader]: 'Reset Password',
     [tn.resetScreenText]: 'Enter your e-mail address to receive password reset mail.',
+    [tn.success]: 'Success!',
+    [tn.resetSentTo]: 'E-mail for password reset sent to %{email}',
 }
 
 export const turkish = {
@@ -203,4 +207,6 @@ export const turkish = {
     [tn.conclusionDetailPlaceholder]: 'Sonuçlanma detayları...(opsiyonel)',
     [tn.resetScreenHeader]: 'Şifre Sıfırlama',
     [tn.resetScreenText]: 'Şifre sıfırlama mailinin gönderilmesi için e-posta adresinizi yazın.',
+    [tn.success]: 'Başarılı!',
+    [tn.resetSentTo]: 'Şifre sıfırlama maili %{email} adresine gönderildi.'
 }
