@@ -6,11 +6,14 @@ export default (Colors) => StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: Colors[cn.editApplication.background],
+    },
+    scrollViewContentContainer: {
+        alignItems: 'center',
     },
     buttonContainer: {
         marginBottom: Metrics.marginHorizontal * 0.6,
+        alignItems: 'center',
     },
     interviewsContainer:{
         alignItems: 'center',
@@ -68,11 +71,13 @@ export default (Colors) => StyleSheet.create({
     },
     concludedContainer: {
         marginBottom: Metrics.marginHorizontal,
+        paddingHorizontal: Metrics.marginHorizontal,
+        alignItems: 'center',
     },
     conclusionText: {
         marginTop: Metrics.marginHorizontal,
         fontFamily: Fonts.type.extraBold,
         fontSize: Fonts.size(16),
-        color: Colors[cn.editApplication.regularText]
+        color: Colors[cn.editApplication.regularText],
     }
 });
