@@ -50,7 +50,7 @@ const AddApplicationScreen = props => {
 
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView contentContainerStyle={styles.scrollViewContentContainer}>
             <ApplicationInput
                 placeholder={loc.t(tn.companyName)}
                 borderColor={colors[cn.addApplication.inputBorder]}
